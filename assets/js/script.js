@@ -2,51 +2,51 @@
 const easyCards = [
     {
         name: 'cat1',
-        img: '../images/easy/cat1.svg'
+        img: '../assets/images/easy/cat1.svg'
     },
     {
         name: 'cat2',
-        img: '../images/easy/cat2.svg'
+        img: '../assets/images/easy/cat2.svg'
     },
     {
         name: 'cat3',
-        img: '../images/easy/cat3.svg'
+        img: '../assets/images/easy/cat3.svg'
     },
     {
         name: 'cat4',
-        img: '../images/easy/cat4.svg'
+        img: '../assets/images/easy/cat4.svg'
     },
     {
         name: 'cat5',
-        img: '../images/easy/cat5.svg'
+        img: '../assets/images/easy/cat5.svg'
     },
     {
         name: 'cat6',
-        img: '../images/easy/cat6.svg'
+        img: '../assets/images/easy/cat6.svg'
     },
     {
         name: 'cat1',
-        img: '../images/easy/cat1.svg'
+        img: '../assets/images/easy/cat1.svg'
     },
     {
         name: 'cat2',
-        img: '../images/easy/cat2.svg'
+        img: '../assets/images/easy/cat2.svg'
     },
     {
         name: 'cat3',
-        img: '../images/easy/cat3.svg'
+        img: '../assets/images/easy/cat3.svg'
     },
     {
         name: 'cat4',
-        img: '../images/easy/cat4.svg'
+        img: '../assets/images/easy/cat4.svg'
     },
     {
         name: 'cat5',
-        img: '../images/easy/cat5.svg'
+        img: '../assets/images/easy/cat5.svg'
     },
     {
         name: 'cat6',
-        img: '../images/easy/cat6.svg'
+        img: '../assets/images/easy/cat6.svg'
     }
 ];
 
@@ -54,67 +54,67 @@ const easyCards = [
 const mediumCards = [
     {
         name: 'black-cat1',
-        img: '../images/medium/black-cat1.svg'
+        img: '../assets/images/medium/black-cat1.svg'
     },
     {
         name: 'black-cat2',
-        img: '../images/medium/black-cat2.svg'
+        img: '../assets/images/medium/black-cat2.svg'
     },
     {
         name: 'black-cat3',
-        img: '../images/medium/black-cat3.svg'
+        img: '../assets/images/medium/black-cat3.svg'
     },
     {
         name: 'black-cat4',
-        img: '../images/medium/black-cat4.svg'
+        img: '../assets/images/medium/black-cat4.svg'
     },
     {
         name: 'black-cat5',
-        img: '../images/medium/black-cat5.svg'
+        img: '../assets/images/medium/black-cat5.svg'
     },
     {
         name: 'black-cat6',
-        img: '../images/medium/black-cat6.svg'
+        img: '../assets/images/medium/black-cat6.svg'
     },
     {
         name: 'black-cat7',
-        img: '../images/medium/black-cat7.svg'
+        img: '../assets/images/medium/black-cat7.svg'
     },
     {
         name: 'black-cat8',
-        img: '../images/medium/black-cat8.svg'
+        img: '../assets/images/medium/black-cat8.svg'
     },
     {
         name: 'black-cat1',
-        img: '../images/medium/black-cat1.svg'
+        img: '../assets/images/medium/black-cat1.svg'
     },
     {
         name: 'black-cat2',
-        img: '../images/medium/black-cat2.svg'
+        img: '../assets/images/medium/black-cat2.svg'
     },
     {
         name: 'black-cat3',
-        img: '../images/medium/black-cat3.svg'
+        img: '../assets/images/medium/black-cat3.svg'
     },
     {
         name: 'black-cat4',
-        img: '../images/medium/black-cat4.svg'
+        img: '../assets/images/medium/black-cat4.svg'
     },
     {
         name: 'black-cat5',
-        img: '../images/medium/black-cat5.svg'
+        img: '../assets/images/medium/black-cat5.svg'
     },
     {
         name: 'black-cat6',
-        img: '../images/medium/black-cat6.svg'
+        img: '../assets/images/medium/black-cat6.svg'
     },
     {
         name: 'black-cat7',
-        img: '../images/medium/black-cat7.svg'
+        img: '../assets/images/medium/black-cat7.svg'
     },
     {
         name: 'black-cat8',
-        img: '../images/medium/black-cat8.svg'
+        img: '../assets/images/medium/black-cat8.svg'
     }
 ];
 
@@ -122,83 +122,83 @@ const mediumCards = [
 const difficultCards = [
     {
         name: 'silhouette1',
-        img: '../images/difficult/silhouette1.svg'
+        img: '../assets/images/difficult/silhouette1.svg'
     },
     {
         name: 'silhouette2',
-        img: '../images/difficult/silhouette2.svg'
+        img: '../assets/images/difficult/silhouette2.svg'
     },
     {
         name: 'silhouette3',
-        img: '../images/difficult/silhouette3.svg'
+        img: '../assets/images/difficult/silhouette3.svg'
     },
     {
         name: 'silhouette4',
-        img: '../images/difficult/silhouette4.svg'
+        img: '../assets/images/difficult/silhouette4.svg'
     },
     {
         name: 'silhouette5',
-        img: '../images/difficult/silhouette5.svg'
+        img: '../assets/images/difficult/silhouette5.svg'
     },
     {
         name: 'silhouette6',
-        img: '../images/difficult/silhouette6.svg'
+        img: '../assets/images/difficult/silhouette6.svg'
     },
     {
         name: 'silhouette7',
-        img: '../images/difficult/silhouette7.svg'
+        img: '../assets/images/difficult/silhouette7.svg'
     },
     {
         name: 'silhouette8',
-        img: '../images/difficult/silhouette8.svg'
+        img: '../assets/images/difficult/silhouette8.svg'
     },
     {
         name: 'silhouette9',
-        img: '../images/difficult/silhouette9.svg'
+        img: '../assets/images/difficult/silhouette9.svg'
     },
     {
         name: 'silhouette10',
-        img: '../images/difficult/silhouette10.svg'
+        img: '../assets/images/difficult/silhouette10.svg'
     },
     {
         name: 'silhouette1',
-        img: '../images/difficult/silhouette1.svg'
+        img: '../assets/images/difficult/silhouette1.svg'
     },
     {
         name: 'silhouette2',
-        img: '../images/difficult/silhouette2.svg'
+        img: '../assets/images/difficult/silhouette2.svg'
     },
     {
         name: 'silhouette3',
-        img: '../images/difficult/silhouette3.svg'
+        img: '../assets/images/difficult/silhouette3.svg'
     },
     {
         name: 'silhouette4',
-        img: '../images/difficult/silhouette4.svg'
+        img: '../assets/images/difficult/silhouette4.svg'
     },
     {
         name: 'silhouette5',
-        img: '../images/difficult/silhouette5.svg'
+        img: '../assets/images/difficult/silhouette5.svg'
     },
     {
         name: 'silhouette6',
-        img: '../images/difficult/silhouette6.svg'
+        img: '../assets/images/difficult/silhouette6.svg'
     },
     {
         name: 'silhouette7',
-        img: '../images/difficult/silhouette7.svg'
+        img: '../assets/images/difficult/silhouette7.svg'
     },
     {
         name: 'silhouette8',
-        img: '../images/difficult/silhouette8.svg'
+        img: '../assets/images/difficult/silhouette8.svg'
     },
     {
         name: 'silhouette9',
-        img: '../images/difficult/silhouette9.svg'
+        img: '../assets/images/difficult/silhouette9.svg'
     },
     {
         name: 'silhouette10',
-        img: '../images/difficult/silhouette10.svg'
+        img: '../assets/images/difficult/silhouette10.svg'
     }
 ];
 
@@ -210,6 +210,9 @@ console.log(easyCards);
 const easyGrid = document.querySelector('#grid-easy');
 console.log(easyGrid);
 
+// Create an array each time two cards are clicked
+let cardsChosen = [];
+
 /**
  * Create a board for the easy level
  */
@@ -218,10 +221,17 @@ function createEasyBoard() {
         const card = document.createElement('img');
         card.setAttribute('src', '../assets/images/blank.svg');
         card.setAttribute('data-id', i);
-        console.log(card, i);
+        card.addEventListener('click', flipCard);
         easyGrid.append(card);
     };
 };
-
 createEasyBoard();
 
+/**
+ * Flip card when clicked
+ */
+function flipCard() {
+    const cardId = this.getAttribute('data-id');
+    cardsChosen.push(easyCards[cardId].name);
+    this.setAttribute('src', easyCards[cardId].img);
+}
