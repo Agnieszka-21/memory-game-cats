@@ -208,10 +208,14 @@ console.log(easyCards);
 
 // Grab the DOM element with the id grid-easy
 const easyGrid = document.querySelector('#grid-easy');
-console.log(easyGrid);
 
 // Create an array each time two cards are clicked
 let cardsChosen = [];
+
+let cardsChosenIds = [];
+
+// Create an array that includes all pairs found
+const cardsWon = [];
 
 /**
  * Create a board for the easy level
@@ -227,11 +231,30 @@ function createEasyBoard() {
 };
 createEasyBoard();
 
+function checkMatch() {
+    const cards = document.querySelectorAll('img')
+    if (cardsChosen[0] == cardsChosen[1]) {
+        alert('You found a match!');
+        cards[cardsChosenIds[0]].setAttribute('src', '../assets/images/white.png');
+        cards[cardsChosenIds[1]].setAttribute('src', '../assets/images/white.png');
+        cards[cardsChosenIds[0]].removeEventListener('click', flipCard);
+        cards[cardsChosenIds[1]].removeEventListener('click', flipCard);
+        cardsWon.push(cardsChosen);
+    }
+    //empty the arrays to restart the process
+    cardsChosen = [];
+    cardsChosenIds = [];
+}
+
 /**
  * Flip card when clicked
  */
 function flipCard() {
     const cardId = this.getAttribute('data-id');
     cardsChosen.push(easyCards[cardId].name);
+    cardsChosenIds.push(cardId);
     this.setAttribute('src', easyCards[cardId].img);
+    if (cardsChosen.length === 2) {
+        setTimeout(checkMatch, 500);
+    }
 }
