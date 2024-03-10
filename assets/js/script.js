@@ -47,9 +47,8 @@ const easyCards = [
     {
         name: 'cat6',
         img: '../images/easy/cat6.svg'
-    }    
+    }
 ];
-console.log(easyCards);
 
 // Array of cards for the medium level - 8 pairs
 const mediumCards = [
@@ -118,7 +117,6 @@ const mediumCards = [
         img: '../images/medium/black-cat8.svg'
     }
 ];
-console.log(mediumCards);
 
 // Array of cards for the difficult level - 10 pairs
 const difficultCards = [
@@ -203,10 +201,27 @@ const difficultCards = [
         img: '../images/difficult/silhouette10.svg'
     }
 ];
-console.log(difficultCards);
 
 // Shuffle the easyCards array randomly
 easyCards.sort(() => 0.5 - Math.random());
-
 console.log(easyCards);
+
+// Grab the DOM element with the id grid-easy
+const easyGrid = document.querySelector('#grid-easy');
+console.log(easyGrid);
+
+/**
+ * Create a board for the easy level
+ */
+function createEasyBoard() {
+    for (let i = 0; i < easyCards.length; i++) {
+        const card = document.createElement('img');
+        card.setAttribute('src', '../images/blank.svg');
+        card.setAttribute('data-id', i);
+        console.log(card, i);
+        easyGrid.append(card);
+    };
+};
+
+createEasyBoard();
 
