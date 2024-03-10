@@ -205,3 +205,8 @@ const difficultCards = [
 ];
 console.log(difficultCards);
 
+// Shuffle the easyCards array randomly
+easyCards.sort(() => 0.5 - Math.random());
+
+console.log(easyCards);
+
