@@ -216,7 +216,7 @@ console.log(easyGrid);
 function createEasyBoard() {
     for (let i = 0; i < easyCards.length; i++) {
         const card = document.createElement('img');
-        card.setAttribute('src', '../images/blank.svg');
+        card.setAttribute('src', '../assets/images/blank.svg');
         card.setAttribute('data-id', i);
         console.log(card, i);
         easyGrid.append(card);
