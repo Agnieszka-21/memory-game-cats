@@ -209,6 +209,9 @@ console.log(easyCards);
 // Grab the DOM element with the id grid-easy
 const easyGrid = document.querySelector('#grid-easy');
 
+// Grab the span with the id result
+let pairsFound = document.querySelector('#result');
+
 // Create an array each time two cards are clicked
 let cardsChosen = [];
 
@@ -232,18 +235,38 @@ function createEasyBoard() {
 createEasyBoard();
 
 function checkMatch() {
-    const cards = document.querySelectorAll('img')
+    const cards = document.querySelectorAll('img');
+    const optionOneId = cardsChosenIds[0];
+    const optionTwoId = cardsChosenIds[1];
+
+    if (optionOneId == optionTwoId) {
+        cards[optionOneId].setAttribute('src', '../assets/images/blank.svg');
+        cards[optionTwoId].setAttribute('src', '../assets/images/blank.svg');
+        alert("You've clicked the same image");
+    }
+
     if (cardsChosen[0] == cardsChosen[1]) {
         alert('You found a match!');
-        cards[cardsChosenIds[0]].setAttribute('src', '../assets/images/white.png');
-        cards[cardsChosenIds[1]].setAttribute('src', '../assets/images/white.png');
-        cards[cardsChosenIds[0]].removeEventListener('click', flipCard);
-        cards[cardsChosenIds[1]].removeEventListener('click', flipCard);
+        cards[optionOneId].setAttribute('src', '../assets/images/white.png');
+        cards[optionTwoId].setAttribute('src', '../assets/images/white.png');
+        cards[optionOneId].removeEventListener('click', flipCard);
+        cards[optionTwoId].removeEventListener('click', flipCard);
         cardsWon.push(cardsChosen);
+    } else {
+        cards[optionOneId].setAttribute('src', '../assets/images/blank.svg');
+        cards[optionTwoId].setAttribute('src', '../assets/images/blank.svg');
+        alert('Sorry, try again');
     }
+
+    pairsFound.textContent = cardsWon.length;
+
     //empty the arrays to restart the process
     cardsChosen = [];
     cardsChosenIds = [];
+
+    if (cardsWon.length == easyCards.length/2) {
+        pairsFound.textContent = 'Congratulations, you found them all!';
+    }
 }
 
 /**
