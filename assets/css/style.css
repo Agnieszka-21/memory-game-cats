@@ -62,7 +62,7 @@ h3 {
     font-weight: 700;
     letter-spacing: 0.9px;
     text-align: center;
-    margin-top: 2rem;
+    margin: 2rem;
     color: white;
 }
 
@@ -89,10 +89,11 @@ iframe {
 }
 */
 
-.grid-container {
+#grid-container {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: center;
+    align-content: center;
 }
 
 .grid {
@@ -136,6 +137,11 @@ iframe {
     height: 100%;
 }
 
+iframe p {
+    display: none;
+}
+
+/* Hiding class */
 .hide {
     display: none;
 }
