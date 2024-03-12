@@ -17,6 +17,7 @@ body {
     height: 100vh;
     width: 100vw; 
     display: flex;
+    flex-direction: column;
 }
 
 .memory-game {
@@ -26,8 +27,11 @@ body {
     width: 100vw;  
     display: flex;
     flex-direction: column;
-    flex-grow: 1; 
-    flex-shrink: 1; 
+    flex: 1 1 auto; 
+}
+
+header {
+    z-index: 99;
 }
 
 h1 {
@@ -115,6 +119,7 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
+    flex: 0 1 auto;
 }
 
 #gif-responsive {
@@ -133,6 +138,8 @@ iframe {
 .hide {
     display: none;
 }
+
+
 
 
     
