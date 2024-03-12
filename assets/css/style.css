@@ -22,12 +22,13 @@ body {
 
 .memory-game {
     /*background-color: #760d1d; */
-    background: linear-gradient(4deg, rgba(30,3,17,1) 0%, rgba(133,18,40,1) 35%, rgba(246,129,12,1) 100%);
+    background: linear-gradient(180deg, rgba(30,3,17,1) 0%, rgba(133,18,40,1) 35%, rgba(246,129,12,1) 100%);
     height: 60vh;
     width: 100vw;  
     display: flex;
     flex-direction: column;
     flex: 1 1 auto; 
+    justify-content: flex-start;
 }
 
 header {
@@ -50,7 +51,7 @@ h2 {
     color: white;
 }
 
-.menu-area {
+#menu-area {
     margin-top: 15%;
     z-index: 99;
 }
@@ -114,7 +115,7 @@ iframe {
 }
 
 /* Responsive gif on the landing page*/
-footer {
+#footer {
     position: fixed;
     left: 0;
     bottom: 0;
