@@ -205,13 +205,25 @@ const difficultCards = [
     }
 ];
 
+
+
 // Based on the tutotial by Ania Kudow
 // Shuffle the easyCards array randomly
 easyCards.sort(() => 0.5 - Math.random());
 console.log(easyCards);
 
-// Grab the DOM element with the id grid-easy
-const easyGrid = document.querySelector('#grid-easy');
+// REPEAT for medium cards
+mediumCards.sort(() => 0.5 - Math.random());
+console.log(mediumCards);
+
+// REPEAT for difficult cards
+difficultCards.sort(() => 0.5 - Math.random());
+console.log(difficultCards);
+
+
+
+// Grab the DOM element with the class grid
+const grid = document.querySelector('.grid');
 
 // Grab the span with the id result
 let pairsFound = document.querySelector('#result');
@@ -233,11 +245,32 @@ function createEasyBoard() {
         const card = document.createElement('img');
         card.setAttribute('src', '../assets/images/blank.svg');
         card.setAttribute('data-id', i);
-        card.addEventListener('click', flipCard);
-        easyGrid.append(card);
+        card.addEventListener('click', flipCardEasy);
+        grid.append(card);
     };
 };
-createEasyBoard();
+
+// medium board
+function createMediumBoard() {
+    for (let i = 0; i < mediumCards.length; i++) {
+        const card = document.createElement('img');
+        card.setAttribute('src', '../assets/images/blank.svg');
+        card.setAttribute('data-id', i);
+        card.addEventListener('click', flipCardMedium);
+        grid.append(card);
+    };
+};
+
+// difficult board
+function createDifficultBoard() {
+    for (let i = 0; i < difficultCards.length; i++) {
+        const card = document.createElement('img');
+        card.setAttribute('src', '../assets/images/blank.svg');
+        card.setAttribute('data-id', i);
+        card.addEventListener('click', flipCardDifficult);
+        grid.append(card);
+    };
+};
 
 
 // Based on the tutotial by Ania Kudow
@@ -276,14 +309,16 @@ function checkMatch() {
 
     if (cardsWon.length == easyCards.length/2) {
         pairsFound.textContent = 'Congratulations, you found them all!';
+        // my addition
+        card.remove();
     }
 }
 
 // Based on the tutotial by Ania Kudow
 /**
- * Flip card when clicked
+ * Flip card when clicked - ADJUST FOR OTHER LEVELS
  */
-function flipCard() {
+function flipCardEasy() {
     const cardId = this.getAttribute('data-id');
     cardsChosen.push(easyCards[cardId].name);
     cardsChosenIds.push(cardId);
@@ -293,7 +328,31 @@ function flipCard() {
     }
 }
 
-// Hide the menu and show the grid when user clicks one of the menu buttons (easy, medium, difficult)
+//medium
+function flipCardMedium() {
+    const cardId = this.getAttribute('data-id');
+    cardsChosen.push(mediumCards[cardId].name);
+    cardsChosenIds.push(cardId);
+    this.setAttribute('src', mediumCards[cardId].img);
+    if (cardsChosen.length === 2) {
+        setTimeout(checkMatch, 500);
+    }
+}
+
+//difficult
+function flipCardDifficult() {
+    const cardId = this.getAttribute('data-id');
+    cardsChosen.push(difficultCards[cardId].name);
+    cardsChosenIds.push(cardId);
+    this.setAttribute('src', difficultCards[cardId].img);
+    if (cardsChosen.length === 2) {
+        setTimeout(checkMatch, 500);
+    }
+}
+
+/**
+ * Hide the menu and show the grid when user clicks one of the menu buttons (easy, medium, difficult)
+ */ 
 const welcome = document.querySelector('.welcome');
 const gridContainer = document.querySelector('.grid-container');
 
@@ -306,8 +365,9 @@ function showGrid() {
     console.log('Showing the grid');
 }
 
-
-// Return to the menu when the user clicks the "back to menu" button
+/**
+ * Return to the menu when the user clicks the "back to menu" button
+ */
 const goBack = document.getElementById('go-back');
 goBack.addEventListener('click', backToMenu);
 
@@ -316,4 +376,25 @@ function backToMenu() {
     welcome.classList.remove('hide');   
     console.log('Returning to menu');
 }
+
+/* Create a new easy board when the user clicks the new game button
+const newGame = document.getElementById('new-game');
+newGame.addEventListener('click', );
+*/
+
+// Menu buttons and board - chosen level
+const easyGameChosen = document.getElementById('button-easy');
+easyGameChosen.addEventListener('click', createEasyBoard);
+
+const mediumGameChosen = document.getElementById('button-medium');
+mediumGameChosen.addEventListener('click', createMediumBoard);
+
+const difficultGameChosen = document.getElementById('button-difficult');
+difficultGameChosen.addEventListener('click', createDifficultBoard);
+
+
+
+
+// Function to clean up the board at the end of game
+
 

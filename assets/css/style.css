@@ -106,7 +106,7 @@ iframe {
     align-content: center;
 }
 
-#grid-easy img {
+.grid img {
     width: 30%;
     padding: 5px;
 }
