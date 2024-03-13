@@ -294,8 +294,8 @@ function flipCard() {
 }
 
 // Hide the menu and show the grid when user clicks one of the menu buttons (easy, medium, difficult)
-const welcome = document.getElementById('welcome');
-const gridContainer = document.getElementById('grid-container');
+const welcome = document.querySelector('.welcome');
+const gridContainer = document.querySelector('.grid-container');
 
 const menuButtons = document.querySelectorAll('.menu-button');
 menuButtons.forEach(menuButton => menuButton.addEventListener('click', showGrid));
@@ -307,13 +307,13 @@ function showGrid() {
 }
 
 
-/* Return to the menu when the user clicks the "back to menu" button
+// Return to the menu when the user clicks the "back to menu" button
 const goBack = document.getElementById('go-back');
-goBack => goBack.addEventListener('click', backToMenu);
+goBack.addEventListener('click', backToMenu);
 
 function backToMenu() {
     gridContainer.classList.add('hide');
-    menuArea.classList.remove('hide');   
+    welcome.classList.remove('hide');   
     console.log('Returning to menu');
 }
-*/
+
