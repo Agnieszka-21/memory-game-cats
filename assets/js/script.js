@@ -214,100 +214,34 @@ let cardsChosenIds = [];
 // Create an array that includes all pairs found
 const cardsWon = [];
 
-
-// Check level chosen by user (radio button selection)
-const difficulties = document.querySelectorAll('input[name="level"]');
-const input = document.getElementsByTagName('input');
-let difficultyClass = 'test';
-
-//copied
-function checkDifficulty(){
-    [].forEach.call(difficulties, function(input){
-        input.nextElementSibling.classList.remove('checked');
-        console.log(input.nextElementSibling)
-
-        if (input.value === 'easy' && input.checked === true) {
-            difficulty = 4;
-            difficultyClass = 'easy';
-            input.nextElementSibling.classList.add('checked');
-        } else if (input.value === 'normal' && input.checked === true) {
-            difficulty = 16;
-            difficultyClass = 'normal';
-            input.nextElementSibling.classList.add('checked');
-        } else if (input.value === 'hard' && input.checked === true) {
-            difficulty = 36;
-            difficultyClass = 'hard';
-            input.nextElementSibling.classList.add('checked');
-        }
-    });
-}
-checkDifficulty();
-
-
-/**
- * Hide the menu and show the grid when user clicks one of the menu buttons (easy, medium, difficult)
- */ 
-
-
-const welcome = document.querySelector('.welcome');
-const gridContainer = document.querySelector('.grid-container');
-
-const levelButtons = document.querySelectorAll('.level-button');
-levelButtons.forEach(levelButton => levelButton.addEventListener('click', addChecked));
-
-
-// switch statement needed? to create a board for the chosen level...
-function createGrid() {
-    gridContainer.classList.remove('hide');
-    welcome.classList.add('hide');
-    console.log('Showing the grid');
-
-    switch (chosenLevel) {
-        case 'easy' :
-            for (let i = 0; i < easyCards.length; i++) {
-                const card = document.createElement('img');
-                card.setAttribute('src', '../assets/images/blank.svg');
-                card.setAttribute('data-id', i);
-                card.addEventListener('click', flipCard);
-                grid.append(card);
-                };
-            console.log('easy grid')    
-            break;
-        case 'medium' :
-            for (let i = 0; i < mediumCards.length; i++) {
-                const card = document.createElement('img');
-                card.setAttribute('src', '../assets/images/blank.svg');
-                card.setAttribute('data-id', i);
-                card.addEventListener('click', flipCard);
-                grid.append(card);
-            };
-            console.log('medium grid')
-            break;
-        case 'difficult' :
-            for (let i = 0; i < difficultCards.length; i++) {
-                const card = document.createElement('img');
-                card.setAttribute('src', '../assets/images/blank.svg');
-                card.setAttribute('data-id', i);
-                card.addEventListener('click', flipCard);
-                grid.append(card);
-            };
-            console.log('difficult grid')
-            break;  
-    }                      
-}
-
-
-
-
 // Shuffle the easyCards array randomly - based on the tutotial by Ania Kudow - repeat for medium and difficult cards
 easyCards.sort(() => 0.5 - Math.random());
 mediumCards.sort(() => 0.5 - Math.random());
 difficultCards.sort(() => 0.5 - Math.random());
 
 
-/* createEasyBoard Based on the tutotial by Ania Kudow - moved them into the switch statement in createBoard
+// For hiding the irrelevant part of html
+const welcome = document.querySelector('.welcome');
+const gridContainer = document.querySelector('.grid-container');
+
+// User chooses a level and a suitable grid is created
+const levelEasyChosen = document.querySelector('#easy-level');
+const levelMediumChosen = document.querySelector('#medium-level');
+const levelDifficultChosen = document.querySelector('#difficult-level');
+
+levelEasyChosen.addEventListener('click', createEasyBoard);
+levelMediumChosen.addEventListener('click', createMediumBoard);
+levelDifficultChosen.addEventListener('click', createDifficultBoard);
+
+let currentLevel;
+
+// createEasyBoard Based on the tutotial by Ania Kudow - adapted
 
 function createEasyBoard() {
+    welcome.classList.add('hide');
+    gridContainer.classList.remove('hide');
+    currentLevel = 'easy';
+    console.log(currentLevel);
     for (let i = 0; i < easyCards.length; i++) {
         const card = document.createElement('img');
         card.setAttribute('src', '../assets/images/blank.svg');
@@ -319,6 +253,10 @@ function createEasyBoard() {
 
 // medium board
 function createMediumBoard() {
+    welcome.classList.add('hide');
+    gridContainer.classList.remove('hide');
+    currentLevel = 'medium';
+    console.log(currentLevel);
     for (let i = 0; i < mediumCards.length; i++) {
         const card = document.createElement('img');
         card.setAttribute('src', '../assets/images/blank.svg');
@@ -330,6 +268,10 @@ function createMediumBoard() {
 
 // difficult board
 function createDifficultBoard() {
+    welcome.classList.add('hide');
+    gridContainer.classList.remove('hide');
+    currentLevel = 'difficult';
+    console.log(currentLevel);
     for (let i = 0; i < difficultCards.length; i++) {
         const card = document.createElement('img');
         card.setAttribute('src', '../assets/images/blank.svg');
@@ -338,7 +280,7 @@ function createDifficultBoard() {
         grid.append(card);
     };
 };
-*/
+
 
 // Based on the tutotial by Ania Kudow
 /**
@@ -383,52 +325,35 @@ function checkMatch() {
 
 // Based on the tutotial by Ania Kudow
 /**
- * Flip card when clicked - ADJUST FOR OTHER LEVELS - SWITCH STATEMENT?
+ * Flip card when clicked, showing cards suitable for the chosen level
  */
 function flipCard() {
     const cardId = this.getAttribute('data-id');
-    cardsChosen.push(easyCards[cardId].name);
-    cardsChosenIds.push(cardId);
-    this.setAttribute('src', easyCards[cardId].img);
+
+    switch (currentLevel) {
+        case 'easy':
+            cardsChosen.push(easyCards[cardId].name);
+            cardsChosenIds.push(cardId);
+            this.setAttribute('src', easyCards[cardId].img);
+            break;
+        case 'medium':
+            cardsChosen.push(mediumCards[cardId].name);
+            cardsChosenIds.push(cardId);
+            this.setAttribute('src', mediumCards[cardId].img); 
+            break;
+        case 'difficult':
+            cardsChosen.push(difficultCards[cardId].name);
+            cardsChosenIds.push(cardId);
+            this.setAttribute('src', difficultCards[cardId].img);   
+            break;
+        default:
+            console.log('No value found for the current game level');
+    }
+
     if (cardsChosen.length === 2) {
         setTimeout(checkMatch, 500);
     }
 }
-
-/*medium
-function flipCardMedium() {
-    const cardId = this.getAttribute('data-id');
-    cardsChosen.push(mediumCards[cardId].name);
-    cardsChosenIds.push(cardId);
-    this.setAttribute('src', mediumCards[cardId].img);
-    if (cardsChosen.length === 2) {
-        setTimeout(checkMatch, 500);
-    }
-}
-
-//difficult
-function flipCardDifficult() {
-    const cardId = this.getAttribute('data-id');
-    cardsChosen.push(difficultCards[cardId].name);
-    cardsChosenIds.push(cardId);
-    this.setAttribute('src', difficultCards[cardId].img);
-    if (cardsChosen.length === 2) {
-        setTimeout(checkMatch, 500);
-    }
-}
-*/
-
-/* Level buttons and board - chosen level
-const easyGameChosen = document.getElementById('easy-level');
-easyGameChosen.addEventListener('click', createEasyBoard);
-
-const mediumGameChosen = document.getElementById('medium-level');
-mediumGameChosen.addEventListener('click', createMediumBoard);
-
-const difficultGameChosen = document.getElementById('difficult-level');
-difficultGameChosen.addEventListener('click', createDifficultBoard);
-*/
-
 
 
 /**
@@ -447,4 +372,6 @@ function backToMenu() {
 const newGame = document.getElementById('new-game');
 newGame.addEventListener('click', );
 */
+
+
 
