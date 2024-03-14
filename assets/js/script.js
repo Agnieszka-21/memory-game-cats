@@ -316,12 +316,29 @@ function checkMatch() {
     cardsChosen = [];
     cardsChosenIds = [];
 
-    if (cardsWon.length == easyCards.length/2) {
-        pairsFound.textContent = 'Congratulations, you found them all!';
-        // my addition
-        card.remove();
+    switch (currentLevel) {
+        case 'easy':
+            if (cardsWon.length == easyCards.length/2) {
+                pairsFound.textContent = 'Congratulations, you found them all!';
+                cards.remove(); // FIX cards.remove - how to clean up the board before creating a new one?
+            }
+            break;
+        case 'medium':
+            if (cardsWon.length == mediumCards.length/2) {
+                pairsFound.textContent = 'Congratulations, you found them all!';
+                cards.remove();
+            }
+            break;
+        case 'difficult':
+            if (cardsWon.length == difficultCards.length/2) {
+                pairsFound.textContent = 'Congratulations, you found them all!';
+                cards.remove();
+            }
+            break;        
     }
 }
+
+
 
 // Based on the tutotial by Ania Kudow
 /**
@@ -372,7 +389,7 @@ const newGame = document.getElementById('new-game');
 newGame.addEventListener('click', freshBoard);
 
 
-// Fix the bug - card is not a global variable. How to reach the child elements of grid???
+// FIX the bug - card is not a global variable. How to reach the child elements of grid???
 function freshBoard() {
     grid.removeChild(card)
     
