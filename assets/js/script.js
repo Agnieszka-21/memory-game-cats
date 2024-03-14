@@ -355,7 +355,6 @@ function flipCard() {
     }
 }
 
-
 /**
  * Return to the menu when the user clicks the "back to menu" button
  */
@@ -368,10 +367,28 @@ function backToMenu() {
     console.log('Returning to menu');
 }
 
-/* Create a new easy board when the user clicks the new game button
+// Create a new board with the same game level as currently chosen when the user clicks the new game button
 const newGame = document.getElementById('new-game');
-newGame.addEventListener('click', );
-*/
+newGame.addEventListener('click', freshBoard);
+
+
+// Fix the bug - card is not a global variable. How to reach the child elements of grid???
+function freshBoard() {
+    grid.removeChild(card)
+    
+    switch (currentLevel) {
+        case 'easy':
+            createEasyBoard();
+            break;
+        case 'medium':
+            createMediumBoard();
+            break;
+        case 'difficult':
+            createDifficultBoard();
+        default:
+            console.log('Huh... It looks like you have not chosen a level');
+    }
+}
 
 
 
