@@ -20,8 +20,7 @@ body {
 
 
 .memory-game {
-    background: linear-gradient(180deg, rgba(30,3,17,1) 0%, rgba(133,18,40,1) 35%, rgba(246,129,12,1) 100%); 
-    min-height: 100vh;
+    height: 100vh;
     padding-bottom: 5rem;
 }
 
@@ -29,6 +28,15 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    height: 100vh;
+}
+
+#welcome-text {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(0deg, rgba(60,5,22,1) 21%, rgba(133,18,40,1) 61%, rgba(246,129,12,1) 100%);
+    width: 100%;
+    flex-grow: 1;
 }
 
 header {
@@ -54,13 +62,15 @@ h2 {
 #menu-area {
     margin-top: 15%;
     z-index: 99;
+    flex: 0 1 auto;
 }
 
+/* choose your level */
 h3 {
     font-family: 'Roboto Condensed', sans-serif;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 700;
-    letter-spacing: 0.9px;
+    letter-spacing: 1.2px;
     text-align: center;
     margin: 2rem 2rem 0.5rem 2rem;
     color: white;
@@ -134,11 +144,10 @@ iframe {
 
 /* Responsive gif on the landing page*/
 #footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
     width: 100%;
     flex: 0 1 auto;
+    position: fixed;
+    bottom: 0;
 }
 
 #gif-responsive {
@@ -154,15 +163,55 @@ iframe {
     height: 100%;
 }
 
-iframe p {
-    display: none;
-}
-
 /* Hiding class */
 .hide {
     display: none;
 }
 
+/* For tablets */
+@media only screen and (min-width: 768px) {
+    h1 {
+        font-size: 4rem;
+        padding-top: 4rem;
+    }
+    
+    h2 {
+        font-size: 2.5rem;
+        line-height: 1rem;
+    }
+
+    h3 {
+        display: none;
+    }
+    
+    #menu-area {
+        margin-top: 70%;
+        width: 480px;
+        align-self: center;
+        display: flex;
+    }
+
+    #form {
+        flex-direction: row;
+    }
+    
+    label {
+        width: 150px;
+        height: 3rem;
+        font-weight: 600;
+        font-size: 2rem;
+        text-align: center;
+        padding: 5px;
+        margin: 70px 5px 5px 5px;
+    }
+
+    #footer {
+        width: 480px;
+        align-self: center;
+        bottom: 30%;
+    }
+
+}
 
 
 
