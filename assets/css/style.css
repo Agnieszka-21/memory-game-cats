@@ -84,6 +84,7 @@ h3 {
 
 label {
     background-color: white;
+    color: #1e0311;
     width: 50vw;
     height: 2rem;
     font-family: 'Roboto Condensed', sans-serif;
@@ -185,7 +186,7 @@ iframe {
     }
     
     #menu-area {
-        margin-top: 70%;
+        margin-top: 50vh;
         width: 480px;
         align-self: center;
         display: flex;
@@ -208,9 +209,37 @@ iframe {
     #footer {
         width: 480px;
         align-self: center;
-        bottom: 30%;
+        bottom: 33%;
     }
 
+}
+
+/* For larger tablets */
+@media only screen and (min-width: 820px) {
+    header {
+        margin-top: 3rem;
+    }
+
+    #footer {
+        bottom: 35%;
+    }
+
+    h1 {
+        font-size: 5rem;
+        padding-top: 4rem;
+    }
+    
+    h2 {
+        font-size: 2.5rem;
+        line-height: 1rem;
+    }
+}
+
+/* For laptops */
+@media only screen and (min-width: 1024px) {
+    #footer {
+        bottom: 30%;
+    }    
 }
 
 
