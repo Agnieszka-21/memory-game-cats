@@ -103,7 +103,7 @@ input {
     padding-bottom: 3rem;
     height: 100vh;
     width: 100vw;
-    padding: 10% 5% 10% 5%;
+    padding: 5% 5% 10% 5%;
 }
 
 .grid {
@@ -125,15 +125,24 @@ input {
     height: 100%;
 }
 
-h4 {
+.grid-header {
     height: 8vh;
+    display: flex;
+}
+
+h4 {
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 1.2rem;
     font-weight: 700;
-    letter-spacing: 1.2px;
     text-align: left;
     color: #1e0311;
     padding-bottom: 5px;
+}
+
+.grid-header img {
+    height: 1.5rem;
+    color: #1e0311;
+    padding-left: 0.5rem;
 }
 
 .text-grid {
