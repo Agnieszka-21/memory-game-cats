@@ -248,6 +248,9 @@ function createEasyBoard() {
         card.setAttribute('data-id', i);
         card.addEventListener('click', flipCard);
         grid.append(card);
+        grid.style.gridTemplateRows="auto auto auto auto";
+        grid.style.gridTemplateColumns="auto auto auto";
+        grid.style.gridGap="0.5rem";
     };
 };
 
@@ -263,6 +266,9 @@ function createMediumBoard() {
         card.setAttribute('data-id', i);
         card.addEventListener('click', flipCard);
         grid.append(card);
+        grid.style.gridTemplateRows="auto auto auto auto auto";
+        grid.style.gridTemplateColumns="auto auto auto auto";
+        grid.style.gridGap="0.3rem";
     };
 };
 
@@ -278,6 +284,9 @@ function createDifficultBoard() {
         card.setAttribute('data-id', i);
         card.addEventListener('click', flipCard);
         grid.append(card);
+        grid.style.gridTemplateRows="auto auto auto auto auto";
+        grid.style.gridTemplateColumns="auto auto auto auto";
+        grid.style.gridGap="0.3rem";
     };
 };
 
