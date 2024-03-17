@@ -27,7 +27,7 @@ body {
 }
 
 header {
-    z-index: 99;
+    z-index: 1;
 }
 
 h1 {
@@ -48,9 +48,9 @@ h2 {
 
 #menu-area {
     margin-top: 15%;
-    z-index: 99;
+    z-index: 1;
     flex: 0 1 auto;
-    padding: 3rem 0;
+    padding: 3rem 0 1rem 0;
     display: flex;
     flex-direction: column;
 }
@@ -61,7 +61,7 @@ label {
     width: 50vw;
     height: 2rem;
     font-family: 'Roboto Condensed', sans-serif;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 1rem;
     text-align: center;
     padding: 5px;
@@ -73,6 +73,72 @@ input {
     display: none;
 }
 
+/* The Modal (background) */
+#myBtn {
+    height: 3rem;
+    z-index: 1;
+    filter: invert(100%) sepia(0%) saturate(7498%) hue-rotate(318deg) brightness(100%) contrast(103%);
+    position: fixed;
+    bottom: 2%;
+    left: 3%;
+}
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 2;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+    font-family: 'Roboto Condensed';
+    font-size: 1.2rem;
+    color: #1e0311;
+}
+
+.modal-content img {
+    filter: invert(7%) sepia(73%) saturate(5853%) hue-rotate(304deg) brightness(48%) contrast(126%);
+    height: 2.5rem;
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Grid for the game */
 .grid-container {
     display: flex;
     flex-direction: column;
