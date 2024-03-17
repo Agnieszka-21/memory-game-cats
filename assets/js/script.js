@@ -417,4 +417,51 @@ function freshBoard() {
 }
 
 
+// Purring - sound on - listen for a click
+const purring = document.querySelector('.grid-header');
+purring.addEventListener('click', purringOnOff);
+
+const soundIcon = document.getElementById('sound-icon');
+
+function purringOnOff() {
+    let sound = false;
+    console.log('Purring on/off');
+
+    if (sound === false) {
+        sound = new Audio('../assets/audio/purring.mp3');
+        sound.play();
+        // loop the audio
+        sound.addEventListener('ended', function() {
+            this.currentTime = 0;
+            this.play();
+        }, false);
+        soundIcon.setAttribute('src', '../assets/images/sound-off.svg');
+        console.log('Purring has been turned on')
+    }
+}    
+
+//     soundIcon.setAttribute('src', '../assets/images/sound-off');
+/*
+    sound.addEventListener('playing', function() {
+        sound.pause();
+    })
+
+
+    sound.addEventListener('ended', function() {
+        this.currentTime = 0;
+        this.play();
+    }, false);    
+    */
+
+/*
+    else if (sound.playing = true) {
+        pauseSound();
+    } else {
+        playSound();
+    }
+*/    
+    
+
+
+
 
