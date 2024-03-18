@@ -329,25 +329,23 @@ function checkMatch() {
     //empty the arrays to restart the process
     cardsChosen = [];
     cardsChosenIds = [];
+    cards.remove();
 
     switch (currentLevel) {
         case 'easy':
             if (cardsWon.length == easyCards.length/2) {
                 pairsFound.textContent = 'all 6!';
-                cards.remove(); // FIX cards.remove - how to clean up the board before creating a new one?
                 console.log('Removed all cards to clear the board');
             }
             break;
         case 'medium':
             if (cardsWon.length == mediumCards.length/2) {
                 pairsFound.textContent = 'all 8!';
-                cards.remove();
             }
             break;
         case 'difficult':
             if (cardsWon.length == difficultCards.length/2) {
                 pairsFound.textContent = 'all 10!';
-                cards.remove();
             }
             break;        
     }
@@ -397,6 +395,7 @@ function backToMenu() {
     gridContainer.classList.add('hide');
     welcome.classList.remove('hide');   
     console.log('Returning to menu');
+    location.reload();
 }
 
 // Create a new board with the same game level as currently chosen when the user clicks the new game button
