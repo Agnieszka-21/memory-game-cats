@@ -76,6 +76,7 @@ label {
     padding: 5px;
     margin-top: 10px;
     margin-left: 25%;
+    box-shadow: 10px 5px 5px #1e0311;
 }
 
 input {
@@ -177,12 +178,14 @@ input {
 
 .grid img {
     width: 100%;
-    border: 2px groove orange;
+    border: 2px outset orange;
 }
 
 .grid-header {
     height: 8vh;
     display: flex;
+    width: fit-content;
+    padding-bottom: 0.5rem;
 }
 
 h4 {
@@ -228,6 +231,7 @@ h4 {
     font-size: 1rem;
     text-align: center;
     padding: 5px;
+    box-shadow: 10px 5px 5px #1e0311;
 }
 
 /* Responsive gif on the landing page*/
