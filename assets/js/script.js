@@ -307,6 +307,9 @@ function checkMatch() {
         cards[optionOneId].setAttribute('src', '../assets/images/blank.svg');
         cards[optionTwoId].setAttribute('src', '../assets/images/blank.svg');
         alert("You've clicked the same image");
+        cardsChosen = [];
+        cardsChosenIds = [];
+        return;
     }
 
     if (cardsChosen[0] == cardsChosen[1]) {
@@ -333,6 +336,7 @@ function checkMatch() {
             if (cardsWon.length == easyCards.length/2) {
                 pairsFound.textContent = 'Congratulations, you found them all!';
                 cards.remove(); // FIX cards.remove - how to clean up the board before creating a new one?
+                console.log('Removed all cards to clear the board');
             }
             break;
         case 'medium':
@@ -422,13 +426,90 @@ function freshBoard() {
 
 // Purring - sound on - listen for a click
 const purring = document.querySelector('.grid-header');
-purring.addEventListener('click', purringOnOff);
+//purring.addEventListener('click', togglePlayingClass);
 
 const soundIcon = document.getElementById('sound-icon');
 
-let sound = new Audio('../assets/audio/purring.mp3');
-sound.classList.add('not-playing');
+const sound = new Audio('../assets/audio/purring.mp3');
+//
+let classes = sound.classList;
 
+purring.addEventListener("click", () => {
+    const result = classes.toggle("playing");
+    console.log(`${result ? "added" : "removed"}; classList is now "${classes}".`);
+
+    if (classes = "a playing") {
+        sound.play();
+        // loop the audio
+        sound.addEventListener('ended', function() {
+            this.currentTime = 0;
+            this.play();
+        }, false);
+        soundIcon.setAttribute('src', '../assets/images/sound-off.svg');
+        console.log('Purring has been turned on');        
+    } else {
+        sound.pause();
+        soundIcon.setAttribute('src', '../assets/images/sound-on.svg'); 
+        // sound.classList.add('not-playing');
+        console.log('Purring has been turned off');          
+    }
+}); // FIX the bug - even though the class is being toggled on/off, the purring is being turned off every time (or only turned on).
+// Also, if I use classes = "a playing", then the console shows an error 
+// when clicking for the 2nd time: classes.toggle is not a function.
+
+
+
+/*
+function purringOnOff() {
+    if (classes = "a playing") {
+        sound.play();
+        // loop the audio
+        sound.addEventListener('ended', function() {
+            this.currentTime = 0;
+            this.play();
+        }, false);
+        soundIcon.setAttribute('src', '../assets/images/sound-off.svg');
+        console.log('Purring has been turned on');        
+    } else {
+        sound.pause();
+        soundIcon.setAttribute('src', '../assets/images/sound-on.svg'); 
+        // sound.classList.add('not-playing');
+        console.log('Purring has been turned off');          
+    }
+}
+*/
+/*
+    purring.textContent = `'c' ${
+    result ? "added" : "removed"
+  }; classList is now "${classes}".`;
+*/
+
+/*
+function togglePlayingClass() {
+    sound.classList.toggle('playing');
+
+    if (sound.classList = 'playing') {
+        sound.pause();
+        soundIcon.setAttribute('src', '../assets/images/sound-on.svg'); 
+        // sound.classList.add('not-playing');
+        console.log('Purring has been turned off');   
+    }
+    
+    if (sound.classList != 'playing') {
+        sound.play();
+        // loop the audio
+        sound.addEventListener('ended', function() {
+            this.currentTime = 0;
+            this.play();
+        }, false);
+        soundIcon.setAttribute('src', '../assets/images/sound-off.svg');
+        console.log('Purring has been turned on');   
+    }
+}
+*/
+
+
+/*
 function purringOnOff() {
     console.log('Purring on/off');
 
@@ -441,15 +522,18 @@ function purringOnOff() {
         }, false);
         soundIcon.setAttribute('src', '../assets/images/sound-off.svg');
         sound.classList.remove('not-playing');
+        sound.classList.add('playing');
         console.log('Purring has been turned on');
-    } else {
+    }
+    
+    if (sound.classList = 'playing') {
         sound.pause();
         soundIcon.setAttribute('src', '../assets/images/sound-on.svg'); 
-        sound.classList.add('not-playing');
+        // sound.classList.add('not-playing');
         console.log('Purring has been turned off');
     }    
 }    
-    
+*/    
 
 // MODAL copied
 // Get the modal
@@ -477,6 +561,37 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+
+// TIMER for the game
+
+let [seconds, minutes] = [0,0];
+let timeRef = document.querySelector('#time-elapsed');
+let int = null;
+
+const allCards = document.querySelectorAll('.card-img');
+// allCards.addEventListener('click', startTimer);
+
+function startTimer() {
+        int = setInterval(displayTimer, 10);
+}
+
+function displayTimer() {
+    if (seconds = 60) {
+        seconds = 0;
+        minutes++;
+    }
+
+    let m = minutes < 10 ? "0" + minutes : minutes;
+    let s = seconds < 10 ? "0" + seconds : seconds;
+
+    timeRef.innerHTML = `${m} : ${s}`;
+}
+
+
+
+
+
 
 
 
