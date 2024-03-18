@@ -333,20 +333,20 @@ function checkMatch() {
     switch (currentLevel) {
         case 'easy':
             if (cardsWon.length == easyCards.length/2) {
-                pairsFound.textContent = 'Congratulations, you found them all!';
+                pairsFound.textContent = 'all 6!';
                 cards.remove(); // FIX cards.remove - how to clean up the board before creating a new one?
                 console.log('Removed all cards to clear the board');
             }
             break;
         case 'medium':
             if (cardsWon.length == mediumCards.length/2) {
-                pairsFound.textContent = 'Congratulations, you found them all!';
+                pairsFound.textContent = 'all 8!';
                 cards.remove();
             }
             break;
         case 'difficult':
             if (cardsWon.length == difficultCards.length/2) {
-                pairsFound.textContent = 'Congratulations, you found them all!';
+                pairsFound.textContent = 'all 10!';
                 cards.remove();
             }
             break;        
