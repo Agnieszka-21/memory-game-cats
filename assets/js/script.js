@@ -246,6 +246,7 @@ function createEasyBoard() {
         const card = document.createElement('img');
         card.setAttribute('src', '../assets/images/blank.svg');
         card.setAttribute('data-id', i);
+        card.classList.add('card-img'); // adding a class because now I have more various img elements
         card.addEventListener('click', flipCard);
         grid.append(card);
         grid.style.gridTemplateRows="auto auto auto auto";
@@ -264,6 +265,7 @@ function createMediumBoard() {
         const card = document.createElement('img');
         card.setAttribute('src', '../assets/images/blank.svg');
         card.setAttribute('data-id', i);
+        card.classList.add('card-img');
         card.addEventListener('click', flipCard);
         grid.append(card);
         grid.style.gridTemplateRows="auto auto auto auto auto";
@@ -282,6 +284,7 @@ function createDifficultBoard() {
         const card = document.createElement('img');
         card.setAttribute('src', '../assets/images/blank.svg');
         card.setAttribute('data-id', i);
+        card.classList.add('card-img');
         card.addEventListener('click', flipCard);
         grid.append(card);
         grid.style.gridTemplateRows="auto auto auto auto auto";
@@ -296,7 +299,7 @@ function createDifficultBoard() {
  * Check whether 2 cards are a matching pair
  */
 function checkMatch() {
-    const cards = document.querySelectorAll('img');
+    const cards = document.querySelectorAll('.card-img');
     const optionOneId = cardsChosenIds[0];
     const optionTwoId = cardsChosenIds[1];
 
