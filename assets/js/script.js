@@ -298,6 +298,7 @@ function createDifficultBoard() {
 /**
  * Check whether 2 cards are a matching pair
  */
+
 function checkMatch() {
     const cards = document.querySelectorAll('.card-img');
     const optionOneId = cardsChosenIds[0];
@@ -313,7 +314,6 @@ function checkMatch() {
     }
 
     if (cardsChosen[0] == cardsChosen[1]) {
-        alert('You found a match!');
         cards[optionOneId].setAttribute('src', '../assets/images/white.png');
         cards[optionTwoId].setAttribute('src', '../assets/images/white.png');
         cards[optionOneId].removeEventListener('click', flipCard);
@@ -322,7 +322,6 @@ function checkMatch() {
     } else {
         cards[optionOneId].setAttribute('src', '../assets/images/blank.svg');
         cards[optionTwoId].setAttribute('src', '../assets/images/blank.svg');
-        alert('Sorry, try again');
     }
 
     pairsFound.textContent = cardsWon.length;
@@ -456,94 +455,17 @@ purring.addEventListener("click", () => {
 }); // FIX the bug - even though the class is being toggled on/off, the purring is being turned off every time (or only turned on).
 // Also, if I use classes = "a playing", then the console shows an error 
 // when clicking for the 2nd time: classes.toggle is not a function.
-
-
-
-/*
-function purringOnOff() {
-    if (classes = "a playing") {
-        sound.play();
-        // loop the audio
-        sound.addEventListener('ended', function() {
-            this.currentTime = 0;
-            this.play();
-        }, false);
-        soundIcon.setAttribute('src', '../assets/images/sound-off.svg');
-        console.log('Purring has been turned on');        
-    } else {
-        sound.pause();
-        soundIcon.setAttribute('src', '../assets/images/sound-on.svg'); 
-        // sound.classList.add('not-playing');
-        console.log('Purring has been turned off');          
-    }
-}
-*/
-/*
-    purring.textContent = `'c' ${
-    result ? "added" : "removed"
-  }; classList is now "${classes}".`;
-*/
-
-/*
-function togglePlayingClass() {
-    sound.classList.toggle('playing');
-
-    if (sound.classList = 'playing') {
-        sound.pause();
-        soundIcon.setAttribute('src', '../assets/images/sound-on.svg'); 
-        // sound.classList.add('not-playing');
-        console.log('Purring has been turned off');   
-    }
-    
-    if (sound.classList != 'playing') {
-        sound.play();
-        // loop the audio
-        sound.addEventListener('ended', function() {
-            this.currentTime = 0;
-            this.play();
-        }, false);
-        soundIcon.setAttribute('src', '../assets/images/sound-off.svg');
-        console.log('Purring has been turned on');   
-    }
-}
-*/
-
-
-/*
-function purringOnOff() {
-    console.log('Purring on/off');
-
-    if (sound.classList = 'not-playing') {
-        sound.play();
-        // loop the audio
-        sound.addEventListener('ended', function() {
-            this.currentTime = 0;
-            this.play();
-        }, false);
-        soundIcon.setAttribute('src', '../assets/images/sound-off.svg');
-        sound.classList.remove('not-playing');
-        sound.classList.add('playing');
-        console.log('Purring has been turned on');
-    }
-    
-    if (sound.classList = 'playing') {
-        sound.pause();
-        soundIcon.setAttribute('src', '../assets/images/sound-on.svg'); 
-        // sound.classList.add('not-playing');
-        console.log('Purring has been turned off');
-    }    
-}    
-*/    
+   
 
 // MODAL copied
 // Get the modal
-var modal = document.getElementById("myModal");
+const modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+const btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+const span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
