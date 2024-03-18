@@ -287,9 +287,9 @@ function createDifficultBoard() {
         card.classList.add('card-img');
         card.addEventListener('click', flipCard);
         grid.append(card);
-        grid.style.gridTemplateRows="auto auto auto auto auto";
-        grid.style.gridTemplateColumns="auto auto auto auto";
-        grid.style.gridGap="0.3rem";
+        grid.style.gridTemplateRows = "auto auto auto auto auto";
+        grid.style.gridTemplateColumns = "auto auto auto auto";
+        grid.style.gridGap = "0.3rem";
     };
 };
 
@@ -329,7 +329,6 @@ function checkMatch() {
     //empty the arrays to restart the process
     cardsChosen = [];
     cardsChosenIds = [];
-    cards.remove();
 
     switch (currentLevel) {
         case 'easy':
@@ -405,7 +404,8 @@ newGame.addEventListener('click', freshBoard);
 
 // FIX the bug - card is not a global variable. How to reach the child elements of grid???
 function freshBoard() {
-    grid.removeChild(card)
+    const card = document.querySelectorAll('.card-img');
+    grid.removeChild(card);
     
     switch (currentLevel) {
         case 'easy':

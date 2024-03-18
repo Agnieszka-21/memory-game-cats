@@ -49,6 +49,12 @@ h2 {
     color: white;
 }
 
+/*Trying something */
+.menu-footer-combo {
+    display: flex;
+    flex-direction: column;
+}
+
 #menu-area {
     margin-top: 15%;
     z-index: 1;
@@ -77,14 +83,6 @@ input {
 }
 
 /* The Modal (background) */
-#myBtn {
-    height: 3rem;
-    z-index: 2;
-    filter: invert(100%) sepia(0%) saturate(7498%) hue-rotate(318deg) brightness(100%) contrast(103%);
-    position: fixed;
-    bottom: 2%;
-    left: 3%;
-}
 
 .modal {
     display: none;
@@ -107,6 +105,15 @@ input {
     /* Black w/ opacity */
 }
 
+#myBtn {
+    height: 3rem;
+    z-index: 1;
+    filter: invert(100%) sepia(0%) saturate(7498%) hue-rotate(318deg) brightness(100%) contrast(103%);
+    position: fixed;
+    bottom: 2%;
+    left: 3%;
+}
+
 /* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;
@@ -119,6 +126,13 @@ input {
     font-family: 'Roboto Condensed';
     font-size: 1rem;
     color: #1e0311;
+}
+
+.modal-content h4 {
+    font-family: 'Roboto Condensed';
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1e0311;   
 }
 
 .modal-content img {
@@ -163,6 +177,7 @@ input {
 
 .grid img {
     width: 100%;
+    border: 2px groove orange;
 }
 
 .grid-header {
@@ -322,14 +337,17 @@ iframe {
         font-size: 2.5rem;
         line-height: 1rem;
     }
+
+    .menu-footer-combo {
+        flex-direction: column-reverse;
+    }
     
     #menu-area {
-        margin-top: 50vh;
         width: 480px;
         align-self: center;
         display: flex;
         flex-direction: row;
-
+        margin-top: 2rem;
     }
     
     label {
@@ -349,7 +367,8 @@ iframe {
     #footer {
         width: 480px;
         align-self: center;
-        bottom: 28%;
+        position: relative;
+        top: 7rem;
     }
 
     .grid-container {
@@ -370,14 +389,6 @@ iframe {
 @media only screen and (min-width: 820px) {
     header {
         margin-top: 3rem;
-    }
-
-    #menu-area {
-        margin-top: 45vh;
-    }
-
-    #footer {
-        bottom: 30%;
     }
 
     h1 {
@@ -405,9 +416,19 @@ iframe {
 }
 
 /* For laptops */
-@media only screen and (min-width: 1020px) {
+@media only screen and (min-width: 1024px) {
+    .welcome {
+        width: 60vw;
+        height: 90vh;
+    }
+
+    .modal-content {
+        width: 50%;
+    }
+    
     .grid-container {
         width: 60vw;
+        height: 90vh;
     }
 
     .grid {
@@ -417,24 +438,32 @@ iframe {
 
     .grid img {
         width: 60%;
-    }
-
-    #footer {
-        bottom: 20%;
-    }    
+    }  
 }
 
 /* For larger tablets like iPad Pro  */
 @media only screen and (min-height: 1240px) {
-    #footer {
-        bottom: 35%;
-    }    
+    .grid img {
+        width: 80%;
+    }
 }
 
 
-
 /* For large screens */
-@media only screen and (min-width: 1500px) {
+@media only screen and (min-width: 1440px) {
+    .welcome {
+        width: 50vw;
+        height: 80vh;
+    }
+
+    header {
+        height: 20vh;
+    }
+
+    .menu-footer-combo {
+        height: 60vh;
+    }
+    
     .grid-container {
         width: 50vw;
     }

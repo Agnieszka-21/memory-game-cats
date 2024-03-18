@@ -30,45 +30,51 @@
                 </header>
             
                 <!-- Main menu -->
-                <div id="menu-area">
-                    <label for="easy-level">easy</label>
-                    <input type="radio" name="level" class="level-button" id="easy-level" value="easy">
+                <div class="menu-footer-combo">
+                    <div id="menu-area">
+                        <label for="easy-level">easy</label>
+                        <input type="radio" name="level" class="level-button" id="easy-level" value="easy">
                 
-                    <label for="medium-level">medium</label>
-                    <input type="radio" name="level" class="level-button" id="medium-level" value="medium">
+                        <label for="medium-level">medium</label>
+                        <input type="radio" name="level" class="level-button" id="medium-level" value="medium">
                 
-                    <label for="difficult-level">difficult</label>
-                    <input type="radio" name="level" class="level-button" id="difficult-level" value="difficult">
-                </div>
+                        <label for="difficult-level">difficult</label>
+                        <input type="radio" name="level" class="level-button" id="difficult-level" value="difficult">
+                    </div>
                 
-                <!-- Trigger/Open The Modal -->
-                <img id="myBtn" src="assets/images/question-mark.svg" alt="Click here for more information">
-                
-                <!-- The Modal -->
-                <div id="myModal" class="modal">
-                
-                    <!-- Modal content -->
-                    <div class="modal-content">
-                        <span class="close"><img src="assets/images/close-circle-svgrepo-com.svg" alt="Click here to close"></span>
-                        <div>
-                            <h4>What is ASMR?</h4>
-                            <br>
-                            <p>ASMR stands for autonomous sensory meridian response; a term used to describe a tingling, static-like, or goosebumps sensation in response to specific triggering audio or visual stimuli. </p>
-                            <br>
-                            <p>These sensations are said to spread across the skull or down the back of the neck and, for some, down the spine or limbs. When experiencing ASMR sensations, some people report pleasant feelings of relaxation, calm, sleepiness or well-being.</p>
-                            <br>
-                            <p>You can experience ASMR in this game by listening to the sound of a happy cat purring. Simply turn it on after choosing your game level and enjoy!</p>
+                    <!-- Gif "footer" on the landing page -->
+                    <div id="footer">
+                        <div id="gif-responsive">
+                            <iframe src="https://giphy.com/embed/1AgCGIJrs1UOXujX5a" frameBorder="0" allowFullScreen></iframe>
                         </div>
                     </div>
-                
                 </div>
+            </div>
             
-                <!-- Gif "footer" on the landing page -->
-                <div id="footer">
-                    <div id="gif-responsive">
-                        <iframe src="https://giphy.com/embed/1AgCGIJrs1UOXujX5a" frameBorder="0" allowFullScreen></iframe>
+            <!-- Trigger/Open The Modal -->
+            <img id="myBtn" src="assets/images/question-mark.svg" alt="Click here for more information">
+            
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+            
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close"><img src="assets/images/close-circle-svgrepo-com.svg" alt="Click here to close"></span>
+                    <div>
+                        <h4>What is ASMR?</h4>
+                        <br>
+                        <p>ASMR stands for autonomous sensory meridian response; a term used to describe a tingling, static-like, or
+                            goosebumps sensation in response to specific triggering audio or visual stimuli. </p>
+                        <br>
+                        <p>These sensations are said to spread across the skull or down the back of the neck and, for some, down the
+                            spine or limbs. When experiencing ASMR sensations, some people report pleasant feelings of relaxation,
+                            calm, sleepiness or well-being.</p>
+                        <br>
+                        <p>You can experience ASMR in this game by listening to the sound of a happy cat purring. Simply turn it on
+                            after choosing your game level and enjoy!</p>
                     </div>
                 </div>
+            
             </div>
             
             <!-- Grid -->
@@ -81,7 +87,7 @@
                 <div class="grid" id="grid-easy"></div>
                 <div class="text-grid">
                     <div class="text">Time elapsed: <span id="time-elapsed">00:00</span></div>
-                    <div class="text">Pairs found: <span id="result"></span>0</div>
+                    <div class="text">Pairs found: <span id="result"></span></div>
                 </div>
                 <div class="buttons">
                     <button class="grid-button" id="go-back">go back</button>
