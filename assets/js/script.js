@@ -397,16 +397,22 @@ function backToMenu() {
     location.reload();
 }
 
+
 // Create a new board with the same game level as currently chosen when the user clicks the new game button
-const newGame = document.getElementById('new-game');
-newGame.addEventListener('click', freshBoard);
+const newGameBtn = document.getElementById('new-game');
+// newGameBtn.addEventListener('click', freshBoard);
 
+newGameBtn.onclick = () => {
+    const parent = document.getElementsByClassName("grid");
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+    console.log('Show if the onclick thingy is working');
+}
 
-// FIX the bug - card is not a global variable. How to reach the child elements of grid???
+// FIX the bug - current cards are not being removed, only new cards are added...
+/*
 function freshBoard() {
-    const card = document.querySelectorAll('.card-img');
-    grid.removeChild(card);
-    
     switch (currentLevel) {
         case 'easy':
             createEasyBoard();
@@ -420,7 +426,7 @@ function freshBoard() {
             console.log('Huh... It looks like you have not chosen a level');
     }
 }
-
+*/
 
 // Purring - sound on - listen for a click
 const purring = document.querySelector('.grid-header');
