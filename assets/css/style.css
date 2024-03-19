@@ -52,6 +52,7 @@ h1 {
     padding-top: 1.5rem;
     text-align: center;
     color: white;
+    text-shadow: 3px 5px 2px rgba(30, 3, 17, 1);
 }
 
 h2 {
@@ -60,6 +61,7 @@ h2 {
     text-align: center;
     line-height: 0.5rem;
     color: white;
+    text-shadow: 3px 5px 2px rgba(30, 3, 17, 1);
 }
 
 /*Trying something */
@@ -379,6 +381,12 @@ iframe {
 
     .modal-content {
         font-size: 1.5rem;
+    }
+
+    #myBtn {
+        height: 4rem;
+        bottom: 5%;
+        left: 5%;
     }
 
     #footer {
