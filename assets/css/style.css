@@ -10,12 +10,25 @@
 
 body {
     margin: 0;
-    background: linear-gradient(0deg, rgba(60,5,22,1) 21%, rgba(133,18,40,1) 61%, rgba(246,129,12,1) 100%);
+}
+
+noscript {
+    height: 100vh;
+    width: 100vw;
+    display: block;
+    position: absolute;
+    z-index: 99;
+    background-color: white;
+}
+
+noscript div {
+    margin: 3rem 1rem;
 }
 
 .memory-game {
     height: 100vh;
     width: 100vw;
+    background: linear-gradient(0deg, rgba(60,5,22,1) 21%, rgba(133,18,40,1) 61%, rgba(246,129,12,1) 100%);
     padding-bottom: 5rem;
     display: flex;
     flex-direction: column;
