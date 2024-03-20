@@ -241,20 +241,23 @@ levelDifficultChosen.addEventListener('click', createDifficultBoard);
 
 let currentLevel;
 
-// createEasyBoard Based on the tutotial by Ania Kudow - adapted
+// Function createEasyBoard is based on the tutotial from freeCodeCamp and adapted
 
 function createEasyBoard() {
     welcome.classList.add('hide');
     gridContainer.classList.remove('hide');
     currentLevel = 'easy';
     console.log(currentLevel);
+    easyCards.sort(() => 0.5 - Math.random());
+
     for (let i = 0; i < easyCards.length; i++) {
         const card = document.createElement('img');
         card.setAttribute('src', './assets/images/blank.svg');
         card.setAttribute('data-id', i);
-        card.classList.add('card-img'); // adding a class because now I have more various img elements
+        card.classList.add('card-img'); // to address the relevant image elements
         card.addEventListener('click', flipCard);
         grid.append(card);
+        // Create a grid for 12 cards
         grid.style.gridTemplateRows="1fr 1fr 1fr 1fr";
         grid.style.gridTemplateColumns="1fr 1fr 1fr";
         grid.style.gridGap="0.5rem";
@@ -267,6 +270,8 @@ function createMediumBoard() {
     gridContainer.classList.remove('hide');
     currentLevel = 'medium';
     console.log(currentLevel);
+    mediumCards.sort(() => 0.5 - Math.random());
+
     for (let i = 0; i < mediumCards.length; i++) {
         const card = document.createElement('img');
         card.setAttribute('src', './assets/images/blank.svg');
@@ -274,6 +279,7 @@ function createMediumBoard() {
         card.classList.add('card-img');
         card.addEventListener('click', flipCard);
         grid.append(card);
+        // Create a grid for 16 cards
         grid.style.gridTemplateRows="1fr 1fr 1fr 1fr";
         grid.style.gridTemplateColumns="1fr 1fr 1fr 1fr";
         grid.style.gridGap="0.3rem";
@@ -286,6 +292,8 @@ function createDifficultBoard() {
     gridContainer.classList.remove('hide');
     currentLevel = 'difficult';
     console.log(currentLevel);
+    difficultCards.sort(() => 0.5 - Math.random());
+
     for (let i = 0; i < difficultCards.length; i++) {
         const card = document.createElement('img');
         card.setAttribute('src', './assets/images/blank.svg');
@@ -293,13 +301,14 @@ function createDifficultBoard() {
         card.classList.add('card-img');
         card.addEventListener('click', flipCard);
         grid.append(card);
+        // Create a grid for 20 cards
         grid.style.gridTemplateRows = "1fr 1fr 1fr 1fr 1fr";
         grid.style.gridTemplateColumns = "1fr 1fr 1fr 1fr";
         grid.style.gridGap = "0.3rem";
     };
 };
 
-// Based on the tutotial by Ania Kudow
+// Based on the tutotial from freeCodeCamp: https://www.youtube.com/watch?v=ec8vSKJuZTk&t=3773s
 /**
  * Check whether 2 cards are a matching pair
  */
@@ -359,7 +368,6 @@ function checkMatch() {
 }
 
 
-
 // Based on the tutotial by Ania Kudow
 /**
  * Flip card when clicked, showing cards suitable for the chosen level
@@ -414,22 +422,21 @@ function backToMenu() {
     location.reload();
 }
 
-
-// Create a new board with the same game level as currently chosen when the user clicks the new game button
+/**
+ * Create a new board with the same game level as currently chosen when the user clicks the new game button
+ */
 const newGameBtn = document.getElementById('new-game');
-// newGameBtn.addEventListener('click', freshBoard);
+newGameBtn.addEventListener('click', freshBoard);
 
-newGameBtn.onclick = () => {
-    const parent = document.getElementsByClassName("grid");
-    while (parent.firstChild) {
-        parent.removeChild(parent.firstChild);
-    }
-    console.log('Show if the onclick thingy is working');
-}
-
-// FIX the bug - current cards are not being removed, only new cards are added...
-/*
 function freshBoard() {
+    grid.innerHTML = '';
+    resetTimer();
+
+    //empty the arrays to restart the process
+    cardsChosen = [];
+    cardsChosenIds = [];
+    cardsOpen = [];
+
     switch (currentLevel) {
         case 'easy':
             createEasyBoard();
@@ -443,7 +450,6 @@ function freshBoard() {
             console.log('Huh... It looks like you have not chosen a level');
     }
 }
-*/
 
 // Purring - sound on/off - listen for a click
 const purring = document.querySelector('.grid-header');
@@ -533,13 +539,5 @@ function updateTimer() {
     const minutes = Math.floor((timeElapsed / 1000 / 60) % 60);
     timerEl.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 }
-
-
-
-
-
-
-
-
 
 
