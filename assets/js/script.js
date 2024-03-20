@@ -211,6 +211,9 @@ let pairsFound = document.querySelector('#result');
 // Create an array each time two cards are clicked
 let cardsChosen = [];
 let cardsChosenIds = [];
+
+let cardsOpen = []; // for starting the timer with the first card click
+
 // Create an array that includes all pairs found
 const cardsWon = [];
 
@@ -333,18 +336,19 @@ function checkMatch() {
     switch (currentLevel) {
         case 'easy':
             if (cardsWon.length == easyCards.length/2) {
-                pairsFound.textContent = 'all 6!';
+                pairsFound.textContent = 'all six!!!';
+                let Winner = true;
                 console.log('Removed all cards to clear the board');
             }
             break;
         case 'medium':
             if (cardsWon.length == mediumCards.length/2) {
-                pairsFound.textContent = 'all 8!';
+                pairsFound.textContent = 'all eight!!!';
             }
             break;
         case 'difficult':
             if (cardsWon.length == difficultCards.length/2) {
-                pairsFound.textContent = 'all 10!';
+                pairsFound.textContent = 'all ten!!!';
             }
             break;        
     }
@@ -364,25 +368,35 @@ function flipCard() {
             cardsChosen.push(easyCards[cardId].name);
             cardsChosenIds.push(cardId);
             this.setAttribute('src', easyCards[cardId].img);
+            cardsOpen.push(easyCards[cardId].name);
             break;
         case 'medium':
             cardsChosen.push(mediumCards[cardId].name);
             cardsChosenIds.push(cardId);
             this.setAttribute('src', mediumCards[cardId].img); 
+            cardsOpen.push(mediumCards[cardId].name);
             break;
         case 'difficult':
             cardsChosen.push(difficultCards[cardId].name);
             cardsChosenIds.push(cardId);
-            this.setAttribute('src', difficultCards[cardId].img);   
+            this.setAttribute('src', difficultCards[cardId].img);
+            cardsOpen.push(difficultCards[cardId].name);   
             break;
         default:
             console.log('No value found for the current game level');
     }
 
     if (cardsChosen.length === 2) {
-        setTimeout(checkMatch, 500);
+        setTimeout(checkMatch, 1000);
     }
+
+    startTimer();
 }
+
+
+
+
+
 
 /**
  * Return to the menu when the user clicks the "back to menu" button
@@ -430,7 +444,7 @@ function freshBoard() {
 
 // Purring - sound on/off - listen for a click
 const purring = document.querySelector('.grid-header');
-purring.addEventListener('click', playPause)
+purring.addEventListener('click', purringOnOff)
 let soundIcon = document.getElementById('sound-icon');
 const myAudio = new Audio('./assets/audio/purring.mp3');
 myAudio.classList.add('not-playing');
@@ -438,7 +452,7 @@ myAudio.classList.add('not-playing');
 /**
  * Play or pause the audio when user clicks the header "Purring on/off"
  */
-function playPause() {
+function purringOnOff() {
     if (myAudio.classList == 'not-playing') {
         myAudio.play();
         soundIcon.setAttribute('src', './assets/images/sound-off.svg');
@@ -483,17 +497,15 @@ window.onclick = function(event) {
 }
 
 
-// TIMER for the game
-
-let [seconds, minutes] = [0,0];
-let timeRef = document.querySelector('#time-elapsed');
-let int = null;
-
-const allCards = document.querySelectorAll('.card-img');
-// allCards.addEventListener('click', startTimer);
+//TIMER 
+/*
+const timeRef = document.querySelector('#time-elapsed')
 
 function startTimer() {
-        int = setInterval(displayTimer, 10);
+    if (cardsOpen.length === 1) {
+        setInterval();
+        displayTimer();
+    }
 }
 
 function displayTimer() {
@@ -507,6 +519,58 @@ function displayTimer() {
 
     timeRef.innerHTML = `${m} : ${s}`;
 }
+*/
+//
+const timerEl = document.querySelector('#time-elapsed');
+let startTime;
+let elapsedTime = 0;
+let timerInterval;
+
+function startTimer() {
+        if (cardsOpen.length === 1) {
+            startTime = Date.now() - elapsedTime;
+            timerInterval = setInterval(updateTimer, 10);
+        }
+}
+
+/*
+function stopTimer() {
+    clearInterval(timerInterval);
+}
+  
+function resetTimer() {
+    clearInterval(timerInterval);
+    elapsedTime = 0;
+    updateTimer();
+}
+*/
+
+function updateTimer() {
+    const timeElapsed = Date.now() - startTime;
+    const seconds = Math.floor((timeElapsed / 1000) % 60);
+    const minutes = Math.floor((timeElapsed / 1000 / 60) % 60);
+    timerEl.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+}
+// document.getElementById('start-btn').addEventListener('click', startTimer);
+//document.getElementById('stop-btn').addEventListener('click', stopTimer);
+//document.getElementById('reset-btn').addEventListener('click', resetTimer); 
+
+//
+/*
+let [seconds, minutes] = [0,0];
+let timeRef = document.querySelector('#time-elapsed');
+let int = null;
+
+
+function startTimer() {
+    if (cardsOpen == 1) {
+        int = setInterval(displayTimer, 10);
+    }
+
+}
+
+
+*/
 
 
 
