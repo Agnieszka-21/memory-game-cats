@@ -249,8 +249,8 @@ function createEasyBoard() {
         card.classList.add('card-img'); // adding a class because now I have more various img elements
         card.addEventListener('click', flipCard);
         grid.append(card);
-        grid.style.gridTemplateRows="auto auto auto auto";
-        grid.style.gridTemplateColumns="auto auto auto";
+        grid.style.gridTemplateRows="1fr 1fr 1fr 1fr";
+        grid.style.gridTemplateColumns="1fr 1fr 1fr";
         grid.style.gridGap="0.5rem";
     };
 };
@@ -268,8 +268,8 @@ function createMediumBoard() {
         card.classList.add('card-img');
         card.addEventListener('click', flipCard);
         grid.append(card);
-        grid.style.gridTemplateRows="auto auto auto auto auto";
-        grid.style.gridTemplateColumns="auto auto auto auto";
+        grid.style.gridTemplateRows="1fr 1fr 1fr 1fr";
+        grid.style.gridTemplateColumns="1fr 1fr 1fr 1fr";
         grid.style.gridGap="0.3rem";
     };
 };
@@ -287,8 +287,8 @@ function createDifficultBoard() {
         card.classList.add('card-img');
         card.addEventListener('click', flipCard);
         grid.append(card);
-        grid.style.gridTemplateRows = "auto auto auto auto auto";
-        grid.style.gridTemplateColumns = "auto auto auto auto";
+        grid.style.gridTemplateRows = "1fr 1fr 1fr 1fr 1fr";
+        grid.style.gridTemplateColumns = "1fr 1fr 1fr 1fr";
         grid.style.gridGap = "0.3rem";
     };
 };
