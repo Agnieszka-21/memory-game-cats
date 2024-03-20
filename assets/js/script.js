@@ -212,7 +212,8 @@ let pairsFound = document.querySelector('#result');
 let cardsChosen = [];
 let cardsChosenIds = [];
 
-let cardsOpen = []; // for starting the timer with the first card click
+// Create an array to start the timer with the first card click
+let cardsOpen = []; 
 
 // Create an array that includes all pairs found
 const cardsWon = [];
@@ -222,8 +223,10 @@ easyCards.sort(() => 0.5 - Math.random());
 mediumCards.sort(() => 0.5 - Math.random());
 difficultCards.sort(() => 0.5 - Math.random());
 
+// Lock the board when 2 cards were clicked - based on the following YouTube tutorial: https://www.youtube.com/watch?v=yMNFOyRELrI
+let lockBoard = false;
 
-// For hiding the irrelevant part of html
+// Get html elements needed for hiding the irrelevant part of the page
 const welcome = document.querySelector('.welcome');
 const gridContainer = document.querySelector('.grid-container');
 
@@ -296,7 +299,6 @@ function createDifficultBoard() {
     };
 };
 
-
 // Based on the tutotial by Ania Kudow
 /**
  * Check whether 2 cards are a matching pair
@@ -327,6 +329,7 @@ function checkMatch() {
         cards[optionTwoId].setAttribute('src', './assets/images/blank.svg');
     }
 
+    lockBoard = false;
     pairsFound.textContent = cardsWon.length;
 
     //empty the arrays to restart the process
@@ -336,18 +339,19 @@ function checkMatch() {
     switch (currentLevel) {
         case 'easy':
             if (cardsWon.length == easyCards.length/2) {
+                stopTimer();
                 pairsFound.textContent = 'all six!!!';
-                let Winner = true;
-                console.log('Removed all cards to clear the board');
             }
             break;
         case 'medium':
             if (cardsWon.length == mediumCards.length/2) {
+                stopTimer();
                 pairsFound.textContent = 'all eight!!!';
             }
             break;
         case 'difficult':
             if (cardsWon.length == difficultCards.length/2) {
+                stopTimer();
                 pairsFound.textContent = 'all ten!!!';
             }
             break;        
@@ -359,8 +363,10 @@ function checkMatch() {
 // Based on the tutotial by Ania Kudow
 /**
  * Flip card when clicked, showing cards suitable for the chosen level
- */
+ */ 
 function flipCard() {
+    if (lockBoard) return;
+
     const cardId = this.getAttribute('data-id');
 
     switch (currentLevel) {
@@ -387,15 +393,12 @@ function flipCard() {
     }
 
     if (cardsChosen.length === 2) {
+        lockBoard = true;
         setTimeout(checkMatch, 1000);
     }
 
     startTimer();
 }
-
-
-
-
 
 
 /**
@@ -469,7 +472,9 @@ function purringOnOff() {
 }
 
 
-// MODAL copied
+// Modal on the landing page (what is ASMR) - based on the following tutorial:
+// https://www.w3schools.com/howto/howto_css_modals.asp
+
 // Get the modal
 const modal = document.getElementById("myModal");
 
@@ -497,30 +502,9 @@ window.onclick = function(event) {
 }
 
 
-//TIMER 
-/*
-const timeRef = document.querySelector('#time-elapsed')
+// Timer (stopwatch) - based on the following tutorial:
+// https://www.insidethediv.com/javascript-simple-projects-beginners-online-stopwatch-full-screen
 
-function startTimer() {
-    if (cardsOpen.length === 1) {
-        setInterval();
-        displayTimer();
-    }
-}
-
-function displayTimer() {
-    if (seconds = 60) {
-        seconds = 0;
-        minutes++;
-    }
-
-    let m = minutes < 10 ? "0" + minutes : minutes;
-    let s = seconds < 10 ? "0" + seconds : seconds;
-
-    timeRef.innerHTML = `${m} : ${s}`;
-}
-*/
-//
 const timerEl = document.querySelector('#time-elapsed');
 let startTime;
 let elapsedTime = 0;
@@ -533,7 +517,6 @@ function startTimer() {
         }
 }
 
-/*
 function stopTimer() {
     clearInterval(timerInterval);
 }
@@ -543,7 +526,6 @@ function resetTimer() {
     elapsedTime = 0;
     updateTimer();
 }
-*/
 
 function updateTimer() {
     const timeElapsed = Date.now() - startTime;
@@ -551,26 +533,7 @@ function updateTimer() {
     const minutes = Math.floor((timeElapsed / 1000 / 60) % 60);
     timerEl.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 }
-// document.getElementById('start-btn').addEventListener('click', startTimer);
-//document.getElementById('stop-btn').addEventListener('click', stopTimer);
-//document.getElementById('reset-btn').addEventListener('click', resetTimer); 
 
-//
-/*
-let [seconds, minutes] = [0,0];
-let timeRef = document.querySelector('#time-elapsed');
-let int = null;
-
-
-function startTimer() {
-    if (cardsOpen == 1) {
-        int = setInterval(displayTimer, 10);
-    }
-
-}
-
-
-*/
 
 
 
