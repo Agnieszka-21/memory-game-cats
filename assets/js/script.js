@@ -428,39 +428,32 @@ function freshBoard() {
 }
 */
 
-// Purring - sound on - listen for a click
+// Purring - sound on/off - listen for a click
 const purring = document.querySelector('.grid-header');
-//purring.addEventListener('click', togglePlayingClass);
+purring.addEventListener('click', playPause)
+let soundIcon = document.getElementById('sound-icon');
+const myAudio = new Audio('./assets/audio/purring.mp3');
+myAudio.classList.add('not-playing');
 
-const soundIcon = document.getElementById('sound-icon');
-
-const sound = new Audio('./assets/audio/purring.mp3');
-//
-let classes = sound.classList;
-
-purring.addEventListener("click", () => {
-    const result = classes.toggle("playing");
-    console.log(`${result ? "added" : "removed"}; classList is now "${classes}".`);
-
-    if (classes = "a playing") {
-        sound.play();
-        // loop the audio
-        sound.addEventListener('ended', function() {
-            this.currentTime = 0;
-            this.play();
-        }, false);
+/**
+ * Play or pause the audio when user clicks the header "Purring on/off"
+ */
+function playPause() {
+    if (myAudio.classList == 'not-playing') {
+        myAudio.play();
         soundIcon.setAttribute('src', './assets/images/sound-off.svg');
-        console.log('Purring has been turned on');        
-    } else {
-        sound.pause();
-        soundIcon.setAttribute('src', './assets/images/sound-on.svg'); 
-        // sound.classList.add('not-playing');
-        console.log('Purring has been turned off');          
+        console.log('Playing the audio');
+        myAudio.classList.remove('not-playing');
+        myAudio.classList.add('playing');
+    } else if (myAudio.classList == 'playing') {
+        myAudio.pause();
+        soundIcon.setAttribute('src', './assets/images/sound-on.svg');
+        console.log('The audio was paused');
+        myAudio.classList.remove('playing');
+        myAudio.classList.add('not-playing');
     }
-}); // FIX the bug - even though the class is being toggled on/off, the purring is being turned off every time (or only turned on).
-// Also, if I use classes = "a playing", then the console shows an error 
-// when clicking for the 2nd time: classes.toggle is not a function.
-   
+}
+
 
 // MODAL copied
 // Get the modal
