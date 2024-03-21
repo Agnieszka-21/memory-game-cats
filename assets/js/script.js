@@ -275,7 +275,9 @@ function createMediumBoard() {
     for (let i = 0; i < mediumCards.length; i++) {
         const card = document.createElement('img');
         card.setAttribute('src', './assets/images/blank.svg');
+        card.setAttribute('alt', 'Memory game card - easy level');
         card.setAttribute('data-id', i);
+        card.setAttribute('alt', 'Memory game card - medium level');
         card.classList.add('card-img');
         card.addEventListener('click', flipCard);
         grid.append(card);
@@ -298,6 +300,7 @@ function createDifficultBoard() {
         const card = document.createElement('img');
         card.setAttribute('src', './assets/images/blank.svg');
         card.setAttribute('data-id', i);
+        card.setAttribute('alt', 'Memory game card - difficult level');
         card.classList.add('card-img');
         card.addEventListener('click', flipCard);
         grid.append(card);
@@ -465,12 +468,14 @@ function purringOnOff() {
     if (myAudio.classList == 'not-playing') {
         myAudio.play();
         soundIcon.setAttribute('src', './assets/images/sound-off.svg');
+        soundIcon.setAttribute('alt', 'Click here to turn the sound off');
         console.log('Playing the audio');
         myAudio.classList.remove('not-playing');
         myAudio.classList.add('playing');
     } else if (myAudio.classList == 'playing') {
         myAudio.pause();
         soundIcon.setAttribute('src', './assets/images/sound-on.svg');
+        soundIcon.setAttribute('alt', 'Click here to turn the sound on');
         console.log('The audio was paused');
         myAudio.classList.remove('playing');
         myAudio.classList.add('not-playing');
