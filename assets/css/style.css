@@ -264,7 +264,7 @@ h4 {
     position: relative;
 }
 
-iframe {
+.gif {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -487,6 +487,10 @@ iframe {
 
     .menu-footer-combo {
         height: 60vh;
+    }
+
+    #footer {
+        top: 2rem;
     }
     
     .grid-container {
