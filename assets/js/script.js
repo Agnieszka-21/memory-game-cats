@@ -513,8 +513,9 @@ window.onclick = function(event) {
 }
 
 
-// Timer (stopwatch) - based on the following tutorial:
+// Timer (stopwatch) - based on the following tutorials:
 // https://www.insidethediv.com/javascript-simple-projects-beginners-online-stopwatch-full-screen
+// https://www.educative.io/answers/how-to-create-a-stopwatch-in-javascript
 
 const timerEl = document.querySelector('#time-elapsed');
 let startTime;
@@ -534,15 +535,15 @@ function stopTimer() {
   
 function resetTimer() {
     clearInterval(timerInterval);
-    elapsedTime = 0;
-    updateTimer();
+    elapsedTime == 0;
+    timerEl.innerHTML = '00:00';
 }
 
 function updateTimer() {
     const timeElapsed = Date.now() - startTime;
     const seconds = Math.floor((timeElapsed / 1000) % 60);
     const minutes = Math.floor((timeElapsed / 1000 / 60) % 60);
-    timerEl.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    timerEl.innerHTML = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 }
 
 
