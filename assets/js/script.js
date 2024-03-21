@@ -216,7 +216,7 @@ let cardsChosenIds = [];
 let cardsOpen = []; 
 
 // Create an array that includes all pairs found
-const cardsWon = [];
+let cardsWon = [];
 
 // Shuffle the easyCards array randomly - based on the tutotial by Ania Kudow - repeat for medium and difficult cards
 easyCards.sort(() => 0.5 - Math.random());
@@ -434,11 +434,13 @@ newGameBtn.addEventListener('click', freshBoard);
 function freshBoard() {
     grid.innerHTML = '';
     resetTimer();
+    pairsFound.innerHTML = '';
 
     //empty the arrays to restart the process
     cardsChosen = [];
     cardsChosenIds = [];
     cardsOpen = [];
+    cardsWon = [];
 
     switch (currentLevel) {
         case 'easy':
