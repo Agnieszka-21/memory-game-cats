@@ -254,6 +254,7 @@ function createEasyBoard() {
         const card = document.createElement('img');
         card.setAttribute('src', './assets/images/blank.svg');
         card.setAttribute('data-id', i);
+        card.setAttribute('alt', 'Memory game card - easy level');        
         card.classList.add('card-img'); // to address the relevant image elements
         card.addEventListener('click', flipCard);
         grid.append(card);
@@ -275,7 +276,6 @@ function createMediumBoard() {
     for (let i = 0; i < mediumCards.length; i++) {
         const card = document.createElement('img');
         card.setAttribute('src', './assets/images/blank.svg');
-        card.setAttribute('alt', 'Memory game card - easy level');
         card.setAttribute('data-id', i);
         card.setAttribute('alt', 'Memory game card - medium level');
         card.classList.add('card-img');
