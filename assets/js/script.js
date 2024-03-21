@@ -449,6 +449,7 @@ function freshBoard() {
             break;
         case 'difficult':
             createDifficultBoard();
+            break;
         default:
             console.log('Huh... It looks like you have not chosen a level');
     }
