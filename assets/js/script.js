@@ -205,8 +205,8 @@ const difficultCards = [
     }
 ];
 
-const grid = document.querySelector('.grid');
-let pairsFound = document.querySelector('#result');
+const grid = document.getElementById('grid');
+let pairsFound = document.getElementById('result');
 
 // Create an array each time two cards are clicked
 let cardsChosen = [];
@@ -227,22 +227,97 @@ difficultCards.sort(() => 0.5 - Math.random());
 let lockBoard = false;
 
 // Get html elements needed for hiding the irrelevant part of the page
-const welcome = document.querySelector('.welcome');
-const gridContainer = document.querySelector('.grid-container');
+const welcome = document.getElementById('welcome');
+const gridContainer = document.getElementById('grid-container');
 
 // User chooses a level and a suitable grid is created
-const levelEasyChosen = document.querySelector('#easy-level');
-const levelMediumChosen = document.querySelector('#medium-level');
-const levelDifficultChosen = document.querySelector('#difficult-level');
+const levelEasyChosen = document.getElementById('easy-level');
+const levelMediumChosen = document.getElementById('medium-level');
+const levelDifficultChosen = document.getElementById('difficult-level');
 
-levelEasyChosen.addEventListener('click', createEasyBoard);
-levelMediumChosen.addEventListener('click', createMediumBoard);
-levelDifficultChosen.addEventListener('click', createDifficultBoard);
+//levelEasyChosen.addEventListener('click', createEasyBoard);
+//levelMediumChosen.addEventListener('click', createMediumBoard);
+//levelDifficultChosen.addEventListener('click', createDifficultBoard);
 
 let currentLevel;
 
-// Function createEasyBoard is based on the tutotial from freeCodeCamp and adapted
+levelEasyChosen.addEventListener("click", (event) => {
+    currentLevel = 'easy';
+    console.log('Current level is easy');
+    createBoard();
+    console.log('Calling createBoard function');
+});
 
+levelMediumChosen.addEventListener("click", (event) => {
+    currentLevel = 'medium';
+    console.log('Current level is medium');
+    createBoard();
+});
+
+levelDifficultChosen.addEventListener("click", (event) => {
+    currentLevel = 'difficult';
+    console.log('Current level is difficult');
+    createBoard();
+});
+
+
+function createBoard() {
+    welcome.classList.add('hide');
+    gridContainer.classList.remove('hide');
+    
+    switch (currentLevel) {
+        case 'easy':
+            for (let i = 0; i < easyCards.length; i++) {
+                const card = document.createElement('img');
+                card.setAttribute('src', './assets/images/other/orange.png');
+                card.setAttribute('data-id', i);
+                card.setAttribute('alt', 'Memory game card - easy level');        
+                card.classList.add('card-img'); // to address the relevant image elements
+                card.addEventListener('click', flipCard);
+                grid.append(card);
+            }
+            // Shuffle cards randomly - from Ania's tutorial
+            easyCards.sort(() => 0.5 - Math.random()); 
+            // Create a grid for 12 cards
+            grid.classList.add('grid-easy');
+            break;
+        case 'medium':
+            for (let i = 0; i < mediumCards.length; i++) {
+                const card = document.createElement('img');
+                card.setAttribute('src', './assets/images/other/orange.png');
+                card.setAttribute('data-id', i);
+                card.setAttribute('alt', 'Memory game card - medium level');
+                card.classList.add('card-img');
+                card.addEventListener('click', flipCard);
+                grid.append(card);
+            }
+            mediumCards.sort(() => 0.5 - Math.random());
+            // Create a grid for 16 cards
+            grid.classList.add('grid-medium');
+            break;
+        case 'difficult':
+            for (let i = 0; i < difficultCards.length; i++) {
+                const card = document.createElement('img');
+                card.setAttribute('src', './assets/images/other/orange.png');
+                card.setAttribute('data-id', i);
+                card.setAttribute('alt', 'Memory game card - difficult level');
+                card.classList.add('card-img');
+                card.addEventListener('click', flipCard);
+                grid.append(card);
+            }
+            difficultCards.sort(() => 0.5 - Math.random()); 
+            // Create a grid for 20 cards
+            grid.classList.add('grid-difficult');    
+    }
+}
+
+
+
+
+
+
+// Function createEasyBoard is based on the tutotial from freeCodeCamp and adapted
+/*
 function createEasyBoard() {
     welcome.classList.add('hide');
     gridContainer.classList.remove('hide');
@@ -310,6 +385,8 @@ function createDifficultBoard() {
         grid.style.gridGap = "0.3rem";
     };
 };
+*/
+
 
 // Based on the tutotial from freeCodeCamp: https://www.youtube.com/watch?v=ec8vSKJuZTk&t=3773s
 /**
@@ -443,6 +520,10 @@ function freshBoard() {
     cardsOpen = [];
     cardsWon = [];
 
+    //create a new board for the same level as before
+    createBoard();
+
+    /*
     switch (currentLevel) {
         case 'easy':
             createEasyBoard();
@@ -456,6 +537,7 @@ function freshBoard() {
         default:
             console.log('Huh... It looks like you have not chosen a level');
     }
+    */
 }
 
 // Purring - sound on/off - listen for a click
