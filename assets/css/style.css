@@ -193,7 +193,7 @@ input {
 
 .grid img {
     width: 100%;
-    border: 2px outset orange;
+    border: 2px outset #f07b0d;
 }
 
 .grid-header {

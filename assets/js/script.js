@@ -252,7 +252,7 @@ function createEasyBoard() {
 
     for (let i = 0; i < easyCards.length; i++) {
         const card = document.createElement('img');
-        card.setAttribute('src', './assets/images/other/blank.svg');
+        card.setAttribute('src', './assets/images/other/orange.png');
         card.setAttribute('data-id', i);
         card.setAttribute('alt', 'Memory game card - easy level');        
         card.classList.add('card-img'); // to address the relevant image elements
@@ -275,7 +275,7 @@ function createMediumBoard() {
 
     for (let i = 0; i < mediumCards.length; i++) {
         const card = document.createElement('img');
-        card.setAttribute('src', './assets/images/other/blank.svg');
+        card.setAttribute('src', './assets/images/other/orange.png');
         card.setAttribute('data-id', i);
         card.setAttribute('alt', 'Memory game card - medium level');
         card.classList.add('card-img');
@@ -298,7 +298,7 @@ function createDifficultBoard() {
 
     for (let i = 0; i < difficultCards.length; i++) {
         const card = document.createElement('img');
-        card.setAttribute('src', './assets/images/other/blank.svg');
+        card.setAttribute('src', './assets/images/other/orange.png');
         card.setAttribute('data-id', i);
         card.setAttribute('alt', 'Memory game card - difficult level');
         card.classList.add('card-img');
@@ -322,8 +322,8 @@ function checkMatch() {
     const optionTwoId = cardsChosenIds[1];
 
     if (optionOneId == optionTwoId) {
-        cards[optionOneId].setAttribute('src', './assets/images/other/blank.svg');
-        cards[optionTwoId].setAttribute('src', './assets/images/other/blank.svg');
+        cards[optionOneId].setAttribute('src', './assets/images/other/orange.png');
+        cards[optionTwoId].setAttribute('src', './assets/images/other/orange.png');
         alert("You've clicked the same image");
         cardsChosen = [];
         cardsChosenIds = [];
@@ -337,8 +337,8 @@ function checkMatch() {
         cards[optionTwoId].removeEventListener('click', flipCard);
         cardsWon.push(cardsChosen);
     } else {
-        cards[optionOneId].setAttribute('src', './assets/images/other/blank.svg');
-        cards[optionTwoId].setAttribute('src', './assets/images/other/blank.svg');
+        cards[optionOneId].setAttribute('src', './assets/images/other/orange.png');
+        cards[optionTwoId].setAttribute('src', './assets/images/other/orange.png');
     }
 
     lockBoard = false;
