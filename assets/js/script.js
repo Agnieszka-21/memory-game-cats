@@ -327,6 +327,7 @@ function checkMatch() {
         alert("You've clicked the same image");
         cardsChosen = [];
         cardsChosenIds = [];
+        lockBoard = false;
         return;
     }
 
@@ -470,6 +471,7 @@ myAudio.classList.add('not-playing');
 function purringOnOff() {
     if (myAudio.classList == 'not-playing') {
         myAudio.play();
+        myAudio.loop = true;
         soundIcon.setAttribute('src', './assets/images/other/sound-on.svg');
         soundIcon.setAttribute('alt', 'Click here to turn the sound off');
         console.log('Playing the audio');
