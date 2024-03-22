@@ -312,83 +312,7 @@ function createBoard() {
 }
 
 
-
-
-
-
-// Function createEasyBoard is based on the tutotial from freeCodeCamp and adapted
-/*
-function createEasyBoard() {
-    welcome.classList.add('hide');
-    gridContainer.classList.remove('hide');
-    currentLevel = 'easy';
-    console.log(currentLevel);
-    easyCards.sort(() => 0.5 - Math.random());
-
-    for (let i = 0; i < easyCards.length; i++) {
-        const card = document.createElement('img');
-        card.setAttribute('src', './assets/images/other/orange.png');
-        card.setAttribute('data-id', i);
-        card.setAttribute('alt', 'Memory game card - easy level');        
-        card.classList.add('card-img'); // to address the relevant image elements
-        card.addEventListener('click', flipCard);
-        grid.append(card);
-        // Create a grid for 12 cards
-        grid.style.gridTemplateRows="1fr 1fr 1fr 1fr";
-        grid.style.gridTemplateColumns="1fr 1fr 1fr";
-        grid.style.gridGap="0.5rem";
-    };
-};
-
-// medium board
-function createMediumBoard() {
-    welcome.classList.add('hide');
-    gridContainer.classList.remove('hide');
-    currentLevel = 'medium';
-    console.log(currentLevel);
-    mediumCards.sort(() => 0.5 - Math.random());
-
-    for (let i = 0; i < mediumCards.length; i++) {
-        const card = document.createElement('img');
-        card.setAttribute('src', './assets/images/other/orange.png');
-        card.setAttribute('data-id', i);
-        card.setAttribute('alt', 'Memory game card - medium level');
-        card.classList.add('card-img');
-        card.addEventListener('click', flipCard);
-        grid.append(card);
-        // Create a grid for 16 cards
-        grid.style.gridTemplateRows="1fr 1fr 1fr 1fr";
-        grid.style.gridTemplateColumns="1fr 1fr 1fr 1fr";
-        grid.style.gridGap="0.3rem";
-    };
-};
-
-// difficult board
-function createDifficultBoard() {
-    welcome.classList.add('hide');
-    gridContainer.classList.remove('hide');
-    currentLevel = 'difficult';
-    console.log(currentLevel);
-    difficultCards.sort(() => 0.5 - Math.random());
-
-    for (let i = 0; i < difficultCards.length; i++) {
-        const card = document.createElement('img');
-        card.setAttribute('src', './assets/images/other/orange.png');
-        card.setAttribute('data-id', i);
-        card.setAttribute('alt', 'Memory game card - difficult level');
-        card.classList.add('card-img');
-        card.addEventListener('click', flipCard);
-        grid.append(card);
-        // Create a grid for 20 cards
-        grid.style.gridTemplateRows = "1fr 1fr 1fr 1fr 1fr";
-        grid.style.gridTemplateColumns = "1fr 1fr 1fr 1fr";
-        grid.style.gridGap = "0.3rem";
-    };
-};
-*/
-
-
-// Based on the tutotial from freeCodeCamp: https://www.youtube.com/watch?v=ec8vSKJuZTk&t=3773s
+// Based on the tutotial from freeCodeCamp (Ania Kudow): https://www.youtube.com/watch?v=ec8vSKJuZTk&t=3773s
 /**
  * Check whether 2 cards are a matching pair
  */
@@ -512,7 +436,7 @@ newGameBtn.addEventListener('click', freshBoard);
 function freshBoard() {
     grid.innerHTML = '';
     resetTimer();
-    pairsFound.innerHTML = '';
+    pairsFound.innerHTML = '0';
 
     //empty the arrays to restart the process
     cardsChosen = [];
