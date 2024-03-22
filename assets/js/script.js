@@ -252,7 +252,7 @@ function createEasyBoard() {
 
     for (let i = 0; i < easyCards.length; i++) {
         const card = document.createElement('img');
-        card.setAttribute('src', './assets/images/blank.svg');
+        card.setAttribute('src', './assets/images/other/blank.svg');
         card.setAttribute('data-id', i);
         card.setAttribute('alt', 'Memory game card - easy level');        
         card.classList.add('card-img'); // to address the relevant image elements
@@ -275,7 +275,7 @@ function createMediumBoard() {
 
     for (let i = 0; i < mediumCards.length; i++) {
         const card = document.createElement('img');
-        card.setAttribute('src', './assets/images/blank.svg');
+        card.setAttribute('src', './assets/images/other/blank.svg');
         card.setAttribute('data-id', i);
         card.setAttribute('alt', 'Memory game card - medium level');
         card.classList.add('card-img');
@@ -298,7 +298,7 @@ function createDifficultBoard() {
 
     for (let i = 0; i < difficultCards.length; i++) {
         const card = document.createElement('img');
-        card.setAttribute('src', './assets/images/blank.svg');
+        card.setAttribute('src', './assets/images/other/blank.svg');
         card.setAttribute('data-id', i);
         card.setAttribute('alt', 'Memory game card - difficult level');
         card.classList.add('card-img');
@@ -322,8 +322,8 @@ function checkMatch() {
     const optionTwoId = cardsChosenIds[1];
 
     if (optionOneId == optionTwoId) {
-        cards[optionOneId].setAttribute('src', './assets/images/blank.svg');
-        cards[optionTwoId].setAttribute('src', './assets/images/blank.svg');
+        cards[optionOneId].setAttribute('src', './assets/images/other/blank.svg');
+        cards[optionTwoId].setAttribute('src', './assets/images/other/blank.svg');
         alert("You've clicked the same image");
         cardsChosen = [];
         cardsChosenIds = [];
@@ -331,14 +331,14 @@ function checkMatch() {
     }
 
     if (cardsChosen[0] == cardsChosen[1]) {
-        cards[optionOneId].setAttribute('src', './assets/images/white.png');
-        cards[optionTwoId].setAttribute('src', './assets/images/white.png');
+        cards[optionOneId].setAttribute('src', './assets/images/other/white.png');
+        cards[optionTwoId].setAttribute('src', './assets/images/other/white.png');
         cards[optionOneId].removeEventListener('click', flipCard);
         cards[optionTwoId].removeEventListener('click', flipCard);
         cardsWon.push(cardsChosen);
     } else {
-        cards[optionOneId].setAttribute('src', './assets/images/blank.svg');
-        cards[optionTwoId].setAttribute('src', './assets/images/blank.svg');
+        cards[optionOneId].setAttribute('src', './assets/images/other/blank.svg');
+        cards[optionTwoId].setAttribute('src', './assets/images/other/blank.svg');
     }
 
     lockBoard = false;
@@ -470,14 +470,14 @@ myAudio.classList.add('not-playing');
 function purringOnOff() {
     if (myAudio.classList == 'not-playing') {
         myAudio.play();
-        soundIcon.setAttribute('src', './assets/images/sound-off.svg');
+        soundIcon.setAttribute('src', './assets/images/other/sound-on.svg');
         soundIcon.setAttribute('alt', 'Click here to turn the sound off');
         console.log('Playing the audio');
         myAudio.classList.remove('not-playing');
         myAudio.classList.add('playing');
     } else if (myAudio.classList == 'playing') {
         myAudio.pause();
-        soundIcon.setAttribute('src', './assets/images/sound-on.svg');
+        soundIcon.setAttribute('src', './assets/images/other/sound-off.svg');
         soundIcon.setAttribute('alt', 'Click here to turn the sound on');
         console.log('The audio was paused');
         myAudio.classList.remove('playing');
