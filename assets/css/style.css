@@ -96,7 +96,7 @@ h2 {
     flex-direction: column;
 }
 
-label {
+.level-button {
     background-color: white;
     color: #1e0311;
     width: 50vw;
@@ -402,7 +402,7 @@ input {
         margin-top: 2rem;
     }
     
-    label {
+    .level-button {
         width: 150px;
         height: 3rem;
         font-weight: 600;

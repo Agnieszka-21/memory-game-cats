@@ -216,11 +216,6 @@ let cardsOpen = [];
 // Create an array that includes all pairs found
 let cardsWon = [];
 
-// Shuffle the easyCards array randomly - based on the tutotial by Ania Kudow - repeat for medium and difficult cards
-easyCards.sort(() => 0.5 - Math.random());
-mediumCards.sort(() => 0.5 - Math.random());
-difficultCards.sort(() => 0.5 - Math.random());
-
 // Lock the board when 2 cards were clicked - based on the following YouTube tutorial: https://www.youtube.com/watch?v=yMNFOyRELrI
 let lockBoard = false;
 
@@ -233,10 +228,7 @@ const levelEasyChosen = document.getElementById('easy-level');
 const levelMediumChosen = document.getElementById('medium-level');
 const levelDifficultChosen = document.getElementById('difficult-level');
 
-//levelEasyChosen.addEventListener('click', createEasyBoard);
-//levelMediumChosen.addEventListener('click', createMediumBoard);
-//levelDifficultChosen.addEventListener('click', createDifficultBoard);
-
+// Create board when user chooses a level
 let currentLevel;
 
 levelEasyChosen.addEventListener('click', (event) => {
@@ -276,6 +268,8 @@ function createBoard() {
                 card.setAttribute('data-id', i);
                 card.setAttribute('alt', 'Memory game card - easy level');        
                 card.classList.add('card-img'); // to address the relevant image elements
+                card.tabIndex = '0'; // tabindex for keyboard accessibility
+
                 card.addEventListener('click', flipCard);
                 grid.append(card);
             }
@@ -293,6 +287,8 @@ function createBoard() {
                 card.setAttribute('data-id', i);
                 card.setAttribute('alt', 'Memory game card - medium level');
                 card.classList.add('card-img');
+                card.tabIndex = '0'; // tabindex for keyboard accessibility
+
                 card.addEventListener('click', flipCard);
                 grid.append(card);
             }
@@ -310,6 +306,8 @@ function createBoard() {
                 card.setAttribute('data-id', i);
                 card.setAttribute('alt', 'Memory game card - difficult level');
                 card.classList.add('card-img');
+                card.tabIndex = '0'; // tabindex for keyboard accessibility
+
                 card.addEventListener('click', flipCard);
                 grid.append(card);
             }
@@ -515,11 +513,9 @@ window.addEventListener('click',  function(e) {
     }
 })
 
-
 // Timer (stopwatch) - based on the following tutorials:
 // https://www.insidethediv.com/javascript-simple-projects-beginners-online-stopwatch-full-screen
 // https://www.educative.io/answers/how-to-create-a-stopwatch-in-javascript
-
 /**
  * Timer functions: start timer with the first click on a card, stop timer (when all pairs are found), 
  * reset timer (new game), and update timer for accurate timer display.
@@ -551,6 +547,12 @@ function updateTimer() {
     const seconds = Math.floor((timeElapsed / 1000) % 60);
     const minutes = Math.floor((timeElapsed / 1000 / 60) % 60);
     timerDisplay.innerHTML = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+}
+
+
+// Keyboard navigation
+if (aria-selected) {
+    card.tabIndex = '0';
 }
 
 

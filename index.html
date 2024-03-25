@@ -42,14 +42,9 @@
                 <!-- Main menu -->
                 <div class="menu-footer-combo">
                     <div id="menu-area">
-                        <label for="easy-level">easy</label>
-                        <input type="radio" name="level" class="level-button" id="easy-level" value="easy">
-
-                        <label for="medium-level">medium</label>
-                        <input type="radio" name="level" class="level-button" id="medium-level" value="medium">
-
-                        <label for="difficult-level">difficult</label>
-                        <input type="radio" name="level" class="level-button" id="difficult-level" value="difficult">
+                        <div class="level-button" id="easy-level" tabindex="0">easy</div>
+                        <div class="level-button" id="medium-level" tabindex="0">medium</div>
+                        <div class="level-button" id="difficult-level" tabindex="0">difficult</div>
                     </div>
 
                     <!-- Gif "footer" on the landing page -->
@@ -68,14 +63,14 @@
 
                 <!-- Trigger/Open The Modal -->
                 <img id="question-mark-modal-btn" src="assets/images/other/question-mark.svg"
-                    alt="Click here for more information on ASMR">
+                    alt="Click here for more information on ASMR" tabindex="0">
 
                 <!-- The Modal -->
                 <div id="modal-asmr" class="modal">
 
                     <!-- Modal content -->
                     <div class="modal-content">
-                        <span class="close">
+                        <span class="close" tabindex="0">
                             <img src="assets/images/other/close-circle-svgrepo-com.svg" alt="Click here to close">
                         </span>
                         <div>
@@ -105,11 +100,11 @@
             <!-- Grid -->
 
             <div id="grid-container" class="hide">
-                <div id="grid-header">
+                <div id="grid-header" tabindex="0">
                     <h4>Purring on/off</h4>
                     <img id="sound-icon" src="assets/images/other/sound-off.svg" alt="Click here to turn the sound on">
                 </div>
-                <div id="grid"></div>
+                <div id="grid" tabindex="-1"></div>
                 <div class="text-grid">
                     <div class="text">Time elapsed: <span id="timer-display">00:00</span></div>
                     <div class="text">Pairs found: <span id="result">0</span></div>
@@ -119,6 +114,9 @@
                     <button class="grid-button" id="new-game">new game</button>
                 </div>
             </div>
+
+            <!-- Fireworks -->
+
 
         </section>
     </div>
