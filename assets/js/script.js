@@ -205,7 +205,28 @@ const difficultCards = [
 
 const grid = document.getElementById('grid');
 let pairsFound = document.getElementById('result');
+/*
+// TRYING SOMETHING
+grid.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+    changeTabIndex()    
+    }
+});
+How to use arrows rather than tab within the grid???
 
+function changeTabIndex() {
+    easyCards.forEach((easyCard) => {
+        tabIndex = '0';
+    })
+}
+/*
+if (grid.focus()) {
+    card.tabIndex = '0';
+} else {
+    card.tabIndex = '-1'; // tabindex for keyboard accessibility
+}
+//changeTabIndex();
+*/
 // Create an array each time two cards are clicked
 let cardsChosen = [];
 let cardsChosenIds = [];
@@ -223,32 +244,51 @@ let lockBoard = false;
 const welcome = document.getElementById('welcome');
 const gridContainer = document.getElementById('grid-container');
 
-// User chooses a level and a suitable grid is created
+// Create a suitable grid when the user chooses their level
 const levelEasyChosen = document.getElementById('easy-level');
 const levelMediumChosen = document.getElementById('medium-level');
 const levelDifficultChosen = document.getElementById('difficult-level');
 
-// Create board when user chooses a level
+// Create board when user chooses a level (click/Enter/space key)
 let currentLevel;
 
-levelEasyChosen.addEventListener('click', (event) => {
+levelEasyChosen.addEventListener('click', function(e) {
     currentLevel = 'easy';
-    console.log('Current level is easy');
     createBoard();
-    console.log('Calling createBoard function');
 });
 
-levelMediumChosen.addEventListener('click', (event) => {
+levelEasyChosen.addEventListener('keydown',  function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+        currentLevel = 'easy';
+        createBoard();
+    }
+})
+
+levelMediumChosen.addEventListener('click', function(e) {
     currentLevel = 'medium';
     console.log('Current level is medium');
     createBoard();
 });
 
-levelDifficultChosen.addEventListener('click', (event) => {
+levelMediumChosen.addEventListener('keydown',  function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+        currentLevel = 'medium';
+        createBoard();
+    }
+})
+
+levelDifficultChosen.addEventListener('click', function(e) {
     currentLevel = 'difficult';
     console.log('Current level is difficult');
     createBoard();
 });
+
+levelDifficultChosen.addEventListener('keydown',  function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+        currentLevel = 'difficult';
+        createBoard();
+    }
+})
 
 
 function createBoard() {
@@ -268,7 +308,7 @@ function createBoard() {
                 card.setAttribute('data-id', i);
                 card.setAttribute('alt', 'Memory game card - easy level');        
                 card.classList.add('card-img'); // to address the relevant image elements
-                card.tabIndex = '0'; // tabindex for keyboard accessibility
+                card.tabIndex = '-1'; // tabindex for keyboard accessibility
 
                 card.addEventListener('click', flipCard);
                 grid.append(card);
@@ -276,7 +316,7 @@ function createBoard() {
             break;
 
         case 'medium':
-            // Shuffle cards randomly - from Ania's tutorial
+            // Shuffle cards randomly
             mediumCards.sort(() => 0.5 - Math.random());
             // Create a grid for 16 cards
             grid.classList.add('grid-medium');
@@ -287,7 +327,7 @@ function createBoard() {
                 card.setAttribute('data-id', i);
                 card.setAttribute('alt', 'Memory game card - medium level');
                 card.classList.add('card-img');
-                card.tabIndex = '0'; // tabindex for keyboard accessibility
+                card.tabIndex = '-1'; // tabindex for keyboard accessibility
 
                 card.addEventListener('click', flipCard);
                 grid.append(card);
@@ -295,7 +335,7 @@ function createBoard() {
             break;
 
         case 'difficult':
-            // Shuffle cards randomly - from Ania's tutorial           
+            // Shuffle cards randomly           
             difficultCards.sort(() => 0.5 - Math.random()); 
             // Create a grid for 20 cards
             grid.classList.add('grid-difficult');  
@@ -306,7 +346,7 @@ function createBoard() {
                 card.setAttribute('data-id', i);
                 card.setAttribute('alt', 'Memory game card - difficult level');
                 card.classList.add('card-img');
-                card.tabIndex = '0'; // tabindex for keyboard accessibility
+                card.tabIndex = '-1'; // tabindex for keyboard accessibility
 
                 card.addEventListener('click', flipCard);
                 grid.append(card);
@@ -420,10 +460,16 @@ function flipCard() {
 
 
 /**
- * Return to the menu when the user clicks the "back to menu" button
+ * Return to the menu when the user activates the "back to menu" button 
+ * (click/Enter/space key)
  */
 const goBack = document.getElementById('go-back');
 goBack.addEventListener('click', backToMenu);
+goBack.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+        backToMenu();
+    }
+});
 
 function backToMenu() {
     gridContainer.classList.add('hide');
@@ -433,15 +479,21 @@ function backToMenu() {
 }
 
 /**
- * Create a new board with the same game level as currently chosen when the user clicks the new game button
+ * Create a new board with the same game level as currently chosen when the user activates the new game button 
+ * (click/Enter/space key)
  */
 const newGameBtn = document.getElementById('new-game');
 newGameBtn.addEventListener('click', freshBoard);
+newGameBtn.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+        freshBoard();
+    }
+});
 
 function freshBoard() {
     grid.innerHTML = '';
     resetTimer();
-    pairsFound.innerHTML = '0';
+    pairsFound.innerHTML = '1';
 
     //empty the arrays to restart the process
     cardsChosen = [];
@@ -453,15 +505,22 @@ function freshBoard() {
     createBoard();
 }
 
-// Purring - sound on/off - listen for a click
+// Purring - sound on/off - listen for a click or Enter or space key
 const purring = document.getElementById('grid-header');
 purring.addEventListener('click', purringOnOff);
+purring.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+        purringOnOff();
+    }
+});
+
+
 let soundIcon = document.getElementById('sound-icon');
 const myAudio = new Audio('./assets/audio/purring.mp3');
 myAudio.classList.add('not-playing');
 
 /**
- * Play or pause the audio when user clicks the header "Purring on/off"
+ * Play or pause the audio when user chooses "Purring on/off"
  */
 function purringOnOff() {
     if (myAudio.classList == 'not-playing') {
@@ -490,28 +549,38 @@ const modalAsmr = document.getElementById('modal-asmr');
 const questionMarkModalBtn = document.getElementById('question-mark-modal-btn');
 const spanCloseModal = document.getElementsByClassName('close')[0];
 
-// When the user clicks on the button, open the modal
+// Open the modal when the user activates the question-mark button (click/Enter/space key)
 questionMarkModalBtn.addEventListener('click', displayModal);
+questionMarkModalBtn.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+        displayModal();
+    }
+});
 
 function displayModal() {
     modalAsmr.classList.remove('hide');
     modalAsmr.classList.add('show');
-    console.log('Adding "show" class')
 }
 
-// When the user clicks on <span> (x), close the modal
+// Close the modal when the user activates the x span (click/Enter/space key)
 spanCloseModal.addEventListener('click', closeModal);
+spanCloseModal.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+        closeModal();
+    }
+});
 
 function closeModal() {
     modalAsmr.classList.add('hide');
 }
 
-// When the user clicks anywhere outside of the modal, close it
+// Close the modal when the user clicks anywhere outside of it or presses any key
 window.addEventListener('click',  function(e) {
-    if (e.target == modalAsmr) {
+    if (e.target === modalAsmr) {
         modalAsmr.classList.add('hide');
     }
 })
+
 
 // Timer (stopwatch) - based on the following tutorials:
 // https://www.insidethediv.com/javascript-simple-projects-beginners-online-stopwatch-full-screen
@@ -547,12 +616,6 @@ function updateTimer() {
     const seconds = Math.floor((timeElapsed / 1000) % 60);
     const minutes = Math.floor((timeElapsed / 1000 / 60) % 60);
     timerDisplay.innerHTML = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-}
-
-
-// Keyboard navigation
-if (aria-selected) {
-    card.tabIndex = '0';
 }
 
 
