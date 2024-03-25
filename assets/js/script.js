@@ -51,7 +51,6 @@ const easyCards = [
     }
 ];
 
-// Based on the tutotial by Ania Kudow
 // Array of cards for the medium level - 8 pairs
 const mediumCards = [
     {
@@ -120,7 +119,6 @@ const mediumCards = [
     }
 ];
 
-// Based on the tutotial by Ania Kudow
 // Array of cards for the difficult level - 10 pairs
 const difficultCards = [
     {
@@ -241,20 +239,20 @@ const levelDifficultChosen = document.getElementById('difficult-level');
 
 let currentLevel;
 
-levelEasyChosen.addEventListener("click", (event) => {
+levelEasyChosen.addEventListener('click', (event) => {
     currentLevel = 'easy';
     console.log('Current level is easy');
     createBoard();
     console.log('Calling createBoard function');
 });
 
-levelMediumChosen.addEventListener("click", (event) => {
+levelMediumChosen.addEventListener('click', (event) => {
     currentLevel = 'medium';
     console.log('Current level is medium');
     createBoard();
 });
 
-levelDifficultChosen.addEventListener("click", (event) => {
+levelDifficultChosen.addEventListener('click', (event) => {
     currentLevel = 'difficult';
     console.log('Current level is difficult');
     createBoard();
@@ -267,6 +265,11 @@ function createBoard() {
     
     switch (currentLevel) {
         case 'easy':
+            // Shuffle cards randomly - from Ania's tutorial
+            easyCards.sort(() => 0.5 - Math.random()); 
+            // Create a grid for 12 cards
+            grid.classList.add('grid-easy');
+
             for (let i = 0; i < easyCards.length; i++) {
                 const card = document.createElement('img');
                 card.setAttribute('src', './assets/images/other/orange.png');
@@ -276,12 +279,14 @@ function createBoard() {
                 card.addEventListener('click', flipCard);
                 grid.append(card);
             }
-            // Shuffle cards randomly - from Ania's tutorial
-            easyCards.sort(() => 0.5 - Math.random()); 
-            // Create a grid for 12 cards
-            grid.classList.add('grid-easy');
             break;
+
         case 'medium':
+            // Shuffle cards randomly - from Ania's tutorial
+            mediumCards.sort(() => 0.5 - Math.random());
+            // Create a grid for 16 cards
+            grid.classList.add('grid-medium');
+
             for (let i = 0; i < mediumCards.length; i++) {
                 const card = document.createElement('img');
                 card.setAttribute('src', './assets/images/other/orange.png');
@@ -291,11 +296,14 @@ function createBoard() {
                 card.addEventListener('click', flipCard);
                 grid.append(card);
             }
-            mediumCards.sort(() => 0.5 - Math.random());
-            // Create a grid for 16 cards
-            grid.classList.add('grid-medium');
             break;
+
         case 'difficult':
+            // Shuffle cards randomly - from Ania's tutorial           
+            difficultCards.sort(() => 0.5 - Math.random()); 
+            // Create a grid for 20 cards
+            grid.classList.add('grid-difficult');  
+
             for (let i = 0; i < difficultCards.length; i++) {
                 const card = document.createElement('img');
                 card.setAttribute('src', './assets/images/other/orange.png');
@@ -305,9 +313,6 @@ function createBoard() {
                 card.addEventListener('click', flipCard);
                 grid.append(card);
             }
-            difficultCards.sort(() => 0.5 - Math.random()); 
-            // Create a grid for 20 cards
-            grid.classList.add('grid-difficult');    
     }
 }
 
@@ -318,7 +323,7 @@ function createBoard() {
  */
 
 function checkMatch() {
-    const cards = document.querySelectorAll('.card-img');
+    const cards = document.getElementsByClassName('card-img');
     const optionOneId = cardsChosenIds[0];
     const optionTwoId = cardsChosenIds[1];
 
@@ -350,6 +355,7 @@ function checkMatch() {
     cardsChosen = [];
     cardsChosenIds = [];
 
+    // What happens when all pairs are found
     switch (currentLevel) {
         case 'easy':
             if (cardsWon.length == easyCards.length/2) {
@@ -373,7 +379,6 @@ function checkMatch() {
 }
 
 
-// Based on the tutotial by Ania Kudow
 /**
  * Flip card when clicked, showing cards suitable for the chosen level
  */ 
@@ -384,9 +389,11 @@ function flipCard() {
 
     switch (currentLevel) {
         case 'easy':
+            // The following code is based on the Free Code Camp tutotial by Ania Kudow - starts here
             cardsChosen.push(easyCards[cardId].name);
             cardsChosenIds.push(cardId);
             this.setAttribute('src', easyCards[cardId].img);
+            // ends here
             cardsOpen.push(easyCards[cardId].name);
             break;
         case 'medium':
@@ -446,27 +453,11 @@ function freshBoard() {
 
     //create a new board for the same level as before
     createBoard();
-
-    /*
-    switch (currentLevel) {
-        case 'easy':
-            createEasyBoard();
-            break;
-        case 'medium':
-            createMediumBoard();
-            break;
-        case 'difficult':
-            createDifficultBoard();
-            break;
-        default:
-            console.log('Huh... It looks like you have not chosen a level');
-    }
-    */
 }
 
 // Purring - sound on/off - listen for a click
-const purring = document.querySelector('.grid-header');
-purring.addEventListener('click', purringOnOff)
+const purring = document.getElementById('grid-header');
+purring.addEventListener('click', purringOnOff);
 let soundIcon = document.getElementById('sound-icon');
 const myAudio = new Audio('./assets/audio/purring.mp3');
 myAudio.classList.add('not-playing');
@@ -497,38 +488,43 @@ function purringOnOff() {
 // Modal on the landing page (what is ASMR) - based on the following tutorial:
 // https://www.w3schools.com/howto/howto_css_modals.asp
 
-// Get the modal
-const modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-const btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-const span = document.getElementsByClassName("close")[0];
+const modalAsmr = document.getElementById('modal-asmr');
+const questionMarkModalBtn = document.getElementById('question-mark-modal-btn');
+const spanCloseModal = document.getElementsByClassName('close')[0];
 
 // When the user clicks on the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
+questionMarkModalBtn.addEventListener('click', displayModal);
+
+function displayModal() {
+    modalAsmr.classList.remove('hide');
+    modalAsmr.classList.add('show');
+    console.log('Adding "show" class')
 }
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
+spanCloseModal.addEventListener('click', closeModal);
+
+function closeModal() {
+    modalAsmr.classList.add('hide');
 }
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
+window.addEventListener('click',  function(e) {
+    if (e.target == modalAsmr) {
+        modalAsmr.classList.add('hide');
+    }
+})
 
 
 // Timer (stopwatch) - based on the following tutorials:
 // https://www.insidethediv.com/javascript-simple-projects-beginners-online-stopwatch-full-screen
 // https://www.educative.io/answers/how-to-create-a-stopwatch-in-javascript
 
-const timerEl = document.querySelector('#time-elapsed');
+/**
+ * Timer functions: start timer with the first click on a card, stop timer (when all pairs are found), 
+ * reset timer (new game), and update timer for accurate timer display.
+ */
+const timerDisplay = document.getElementById('timer-display');
 let startTime;
 let elapsedTime = 0;
 let timerInterval;
@@ -546,15 +542,15 @@ function stopTimer() {
   
 function resetTimer() {
     clearInterval(timerInterval);
-    elapsedTime == 0;
-    timerEl.innerHTML = '00:00';
+    elapsedTime = 0;
+    timerDisplay.innerHTML = '00:00';
 }
 
 function updateTimer() {
     const timeElapsed = Date.now() - startTime;
     const seconds = Math.floor((timeElapsed / 1000) % 60);
     const minutes = Math.floor((timeElapsed / 1000 / 60) % 60);
-    timerEl.innerHTML = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    timerDisplay.innerHTML = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 }
 
 
