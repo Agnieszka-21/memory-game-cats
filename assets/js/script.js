@@ -266,7 +266,6 @@ levelEasyChosen.addEventListener('keydown',  function(e) {
 
 levelMediumChosen.addEventListener('click', function(e) {
     currentLevel = 'medium';
-    console.log('Current level is medium');
     createBoard();
 });
 
@@ -279,7 +278,6 @@ levelMediumChosen.addEventListener('keydown',  function(e) {
 
 levelDifficultChosen.addEventListener('click', function(e) {
     currentLevel = 'difficult';
-    console.log('Current level is difficult');
     createBoard();
 });
 
@@ -308,10 +306,11 @@ function createBoard() {
                 card.setAttribute('data-id', i);
                 card.setAttribute('alt', 'Memory game card - easy level');        
                 card.classList.add('card-img'); // to address the relevant image elements
-                card.tabIndex = '-1'; // tabindex for keyboard accessibility
+                card.tabIndex = '0'; // tabindex for keyboard accessibility
+                grid.append(card);
 
                 card.addEventListener('click', flipCard);
-                grid.append(card);
+                card.addEventListener('keydown', flipCard);
             }
             break;
 
@@ -327,7 +326,7 @@ function createBoard() {
                 card.setAttribute('data-id', i);
                 card.setAttribute('alt', 'Memory game card - medium level');
                 card.classList.add('card-img');
-                card.tabIndex = '-1'; // tabindex for keyboard accessibility
+                card.tabIndex = '0'; // tabindex for keyboard accessibility
 
                 card.addEventListener('click', flipCard);
                 grid.append(card);
@@ -346,7 +345,7 @@ function createBoard() {
                 card.setAttribute('data-id', i);
                 card.setAttribute('alt', 'Memory game card - difficult level');
                 card.classList.add('card-img');
-                card.tabIndex = '-1'; // tabindex for keyboard accessibility
+                card.tabIndex = '0'; // tabindex for keyboard accessibility
 
                 card.addEventListener('click', flipCard);
                 grid.append(card);
@@ -399,18 +398,21 @@ function checkMatch() {
             if (cardsWon.length == easyCards.length/2) {
                 stopTimer();
                 pairsFound.textContent = 'all six!!!';
+                displayModalFireworks();
             }
             break;
         case 'medium':
             if (cardsWon.length == mediumCards.length/2) {
                 stopTimer();
                 pairsFound.textContent = 'all eight!!!';
+                displayModalFireworks();
             }
             break;
         case 'difficult':
             if (cardsWon.length == difficultCards.length/2) {
                 stopTimer();
                 pairsFound.textContent = 'all ten!!!';
+                displayModalFireworks();
             }
             break;        
     }
@@ -424,6 +426,7 @@ function flipCard() {
     if (lockBoard) return;
 
     const cardId = this.getAttribute('data-id');
+    console.log(this);
 
     switch (currentLevel) {
         case 'easy':
@@ -547,30 +550,30 @@ function purringOnOff() {
 
 const modalAsmr = document.getElementById('modal-asmr');
 const questionMarkModalBtn = document.getElementById('question-mark-modal-btn');
-const spanCloseModal = document.getElementsByClassName('close')[0];
+const spanCloseModalAsmr = document.getElementById('close-asmr');
 
 // Open the modal when the user activates the question-mark button (click/Enter/space key)
-questionMarkModalBtn.addEventListener('click', displayModal);
+questionMarkModalBtn.addEventListener('click', displayModalAsmr);
 questionMarkModalBtn.addEventListener('keydown', function(e) {
     if (e.key === 'Enter' || e.key === ' ') {
-        displayModal();
+        displayModalAsmr();
     }
 });
 
-function displayModal() {
+function displayModalAsmr() {
     modalAsmr.classList.remove('hide');
     modalAsmr.classList.add('show');
 }
 
 // Close the modal when the user activates the x span (click/Enter/space key)
-spanCloseModal.addEventListener('click', closeModal);
-spanCloseModal.addEventListener('keydown', function(e) {
+spanCloseModalAsmr.addEventListener('click', closeModalAsmr);
+spanCloseModalAsmr.addEventListener('keydown', function(e) {
     if (e.key === 'Enter' || e.key === ' ') {
-        closeModal();
+        closeModalAsmr();
     }
 });
 
-function closeModal() {
+function closeModalAsmr() {
     modalAsmr.classList.add('hide');
 }
 
@@ -581,6 +584,61 @@ window.addEventListener('click',  function(e) {
     }
 })
 
+// MODAL FIREWORKS
+const modalFireworks = document.getElementById('modal-fireworks');
+const spanCloseModalFireworks = document.getElementById('close-fireworks');
+
+// Open the modal when the user wins the game
+function displayModalFireworks() {
+    modalFireworks.classList.remove('hide');
+    modalFireworks.classList.add('show');
+}
+
+// Close the modal when the user activates the x span (click/Enter/space key)
+spanCloseModalFireworks.addEventListener('click', closeModalFireworks);
+spanCloseModalFireworks.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+        closeModalFireworks();
+    }
+});
+
+function closeModalFireworks() {
+    modalFireworks.classList.add('hide');
+}
+
+// Close the modal when the user clicks anywhere outside of it or presses any key
+window.addEventListener('click',  function(e) {
+    if (e.target === modalAsmr) {
+        modalAsmr.classList.add('hide');
+    }
+})
+
+// Fireworks modal buttons
+const fireworksBtnYes = document.getElementById('fireworks-btn-yes');
+const fireworksBtnNo = document.getElementById('fireworks-btn-no');
+
+fireworksBtnYes.addEventListener('click', fireworksYes);
+fireworksBtnYes.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+        fireworksYes();
+    }
+});
+
+function fireworksYes() {
+    closeModalFireworks();
+    freshBoard();
+}
+
+fireworksBtnNo.addEventListener('click', fireworksNo);
+fireworksBtnNo.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+        fireworksNo();
+    }
+});
+
+function fireworksNo() {
+    closeModalFireworks();
+}
 
 // Timer (stopwatch) - based on the following tutorials:
 // https://www.insidethediv.com/javascript-simple-projects-beginners-online-stopwatch-full-screen
