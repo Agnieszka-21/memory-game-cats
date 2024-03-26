@@ -12,7 +12,7 @@ body {
     margin: 0;
 }
 
-#wrapper {
+.wrapper {
     position: fixed;
     top: 0;
     left: 0;
@@ -334,6 +334,49 @@ input {
 /* Show element */
 .show {
     display: block;
+}
+
+/* Error 404 page */
+.error-page {
+    width: 80%;
+    padding: 10% 5%;
+    background-color: white;
+    margin: 10%;  
+    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif; 
+}
+
+.error-page h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #5a003b;  
+}
+
+.error-page > div {
+    padding-top: 10%;
+}
+
+.error-page p {
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+#return-home {
+    padding: 15%;
+}
+
+#return-home-btn {
+    background-color: #ffffff;
+    color: #1e0311;
+    text-decoration: none;
+    margin: 15px;
+    width: 80%;
+    height: 2rem;
+    font-family: 'Roboto Condensed', sans-serif; 
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 5px;
+    box-shadow: 10px 5px 5px #1e0311;
 }
 
 
