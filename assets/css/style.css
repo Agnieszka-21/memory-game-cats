@@ -64,7 +64,7 @@ header {
 }
 
 h1 {
-    font-family: Lobster, cursive;
+    font-family: Lobster, sans-serif;
     font-size: 3.5rem;
     padding-top: 1.5rem;
     text-align: center;
@@ -73,7 +73,7 @@ h1 {
 }
 
 h2 {
-    font-family: Lobster, cursive;
+    font-family: Lobster, sans-serif;
     font-size: 2rem;
     text-align: center;
     line-height: 0.5rem;
