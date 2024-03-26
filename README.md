@@ -31,8 +31,21 @@ UPDATE
 
 ### Colour Scheme
 
-- __Purple__ 
-  - ...
+- __Orange (#f07b0d)__ 
+  - A warm color, often associated with fun, playfulness, and vitality, orange is the accent color in this web application. 
+  - The linear background gradient that starts with orange at the top of the page and ends with dark maroon at the bottom has been created based on colors extrapolated from the giphy animation on the landing page, resulting in a coherent, warm, and inviting combo. 
+  - Orange has also been used for cards in the grid when their images are hidden, for card borders, and in the modal appearing at the end of the game when the user finds all pairs, accentuating a sense of playfulness, fun, and joy. 
+  
+- __Maroon (#5a003b)__ 
+  - Used in the background, as a color for the closing icon in both modals, and also as text color on white backgrounds, this color creates not only sufficient contrast, but also connects multiple elements with the gradient background in a simple and minimalistic way.
+  
+- __White (#ffffff)__ 
+  - This is the color of most buttons, modal background, grid background, and a background for text on the noscript version of the page. 
+  - It provides an excellent contrast with maroon, and therefore was used as a color for the question mark icon on the landing page, as well as for text appearig on the dark maroon background.
+
+- __Black (#1e0311)__ 
+  - Black has been used as box shadow on button-like elements and the main title to create an impression of depth, as well as for any text on bright background (white or orange).
+  - This color provides a high contrast, making it especially suitable for longer fragments of text.
 
 ![Contrast Grid](https://github.com/Agnieszka-21/yoga-mats/blob/main/assets/documentation/contrast-grid-min.png)
 UPDATE
@@ -42,35 +55,89 @@ UPDATE
 Two font families are imported from Google fonts and used across all pages:
 
 - __Lobster, weight 400__  
-  - A sans-serif font that slightly resembles handwriting, Lobster is used for the main title (h1 and h2) on the landing page of the game. This style works well for larger font sizes.
+  - A sans-serif font that resembles stylized handwriting, Lobster is used for the main title (h1 and h2) on the landing page of the game. This style works well for larger font sizes.
   - This font is not used anywhere else in order to keep it as a "signature font" for the page title so that it is easily recognizable. 
 
 - __Roboto Condensed, weights from 100 to 900, the entire font family__
   - Also a sans-serif font, Roboto Condensed is used for any regular and bold text in this web application.
-  - It is simple and easily legible.
+  - It is simple and legible.
+  - A wide variety of different weights and styles within this family makes it easily customizable, allowing for future adjustments and further development of the application.
 
 ### Imagery
-Update
+All images used on the cards in this memory game are thematically connected to cats. While the levels easy and medium offer a mix of black-and-white images on a white background, the difficult level uses its own set of images that depict only black silhouettes of cats, forcing the user to focus on shapes and smaller details rather than obvious differences between the pictures.
+The only multi-colored image present is the animated gif of a cat sleeping by the fire on the landing page that not only clearly represents the subject of this game, but also defines its color palette.
 
 ## Features
 
 ### Existing Features
-Update
 
-- __Navigation Bar__
+- __Three game level buttons__
 
-  - ...
+  - These buttons allow the user to choose an easy, medium, or difficult level for their game, and lead to a suitable card grid when activated (with a click or a keypress on the Enter or space key). On phone screens, these buttons appear above the gif in a column to suit the vertical position of the screen. On tablets and larger screens, they are under the gif in a single row in order to make better use of available space.
+
+- __Question mark icon opening the ASMR modal__
+
+  - The white icon in the bottom left corner opens a modal that includes a short explanation of what ASMR is and why it is relevant to this game. 
+  - The modal can be closed by clicking on the close-icon in its upper right corner, or anywhere outside the modal itself.
+
+- __Purring on/off with a dynamic sound icon__
+
+  - This header element controls the audio element on this page - the sound of a purring cat that can be turned on or paused with a simple click/Enter/space key. When played, the sound is automatically looped.
+
+- __The game grid with cards__
+
+  - Depending on the level the user chooses (easy, medium, or difficult), the grid displays 12, 16, or 20 cards in neat rows and columns.
+  - Images are not visible until the user clicks a card - instead, an orange back-face of the cards is shown.
+  - The user is allowed to see 2 cards at a time, then the cards return to their orange back-face, unless the user found a matching pair and these cards are set to white with an orange border.
+
+- __Timer__
+
+  - The timer/stopwatch starts when the user clicks the first card in the game, and stops automatically at the end of the game, when the last remaining pair is found.
+  - It is shown in the following format: "00:00" standing for "minutes:seconds".
+
+- __Pairs found__
+
+  - Each time the user finds a matching pair of cards, the result is updated with a relevant number of pairs found.
+
+- __Congrats modal__
+
+  - The modal pops up when the user finds the last matching pair, therefore winning the game. 
+  - It can be closed by clicking on the close icon in the upper right corner, similarly to the ASMR modal on the landing page.
+
+- __Go back button__
+
+  - This button takes the user back to the landing page.
+  - It is practical when the user wants to start a new game but on a different level than before.
+  
+- __New game button__
+
+  - This button clears the data from the previous game and sets up a fresh board with shuffled cards, ready for the user to start playing again.
+  - It is useful when the user wants to restart simply play again, sticking with the same level as the one chosen earlier on the landing page.
+
+- __Noscript page__
+
+  - This part of the application is shown only when JavaScript is not available/disabled. 
+  - The design corresponds with the main page through the use of the same gradient background, colors, and fonts.
+
+- __404 page__
+
+  - This page is displayed when the user cannot find the correct url.
+  - It provides a link sending the user back to the landing page.
+  - The design corresponds with the main page, making it clear that both pages are related.
 
 ![Nav Bar](https://github.com/Agnieszka-21/yoga-mats/blob/main/assets/documentation/feat-nav-min.png)
 Update
 
+All features described above can be accessed not only by clicking/tapping the relevant elements, but also by using the Tab key, making this web application keyboard-accessible.
+
 
 ### Potential Future Features
 
-- ...
+- A game grid that can be navigated with arrow keys
+- Adding the focus target functionality when a modal is open for more optimal navigation for keyboard users (so that they cannot go outside the modal until they close it)
 
 ## Testing
-Update
+UPDATE
 
 ### Validator Testing
 
