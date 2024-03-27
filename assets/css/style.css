@@ -120,7 +120,8 @@ input {
     display: none;
 }
 
-/* The Modal (background) */
+/* The modals - styling based on the w3school.com tutorial (link in README.me) */
+/* Modal "background" */
 .modal {
     /* Hidden by default */
     display: none;
@@ -136,20 +137,6 @@ input {
     background-color: rgb(0, 0, 0);
     /* Black w/ opacity */
     background-color: rgba(0, 0, 0, 0.4);
-}
-
-#question-mark-modal-btn {
-    height: 3rem;
-    z-index: 1;
-    filter: invert(100%) sepia(0%) saturate(7498%) hue-rotate(318deg) brightness(100%) contrast(103%);
-    position: fixed;
-    bottom: 2%;
-    left: 3%;
-}
-
-#question-mark-modal-btn:hover,
-#question-mark-modal-btn:focus {
-    cursor: pointer;
 }
 
 /* Modal content */
@@ -168,14 +155,14 @@ input {
     font-family: 'Roboto Condensed';
     font-size: 1.5rem;
     font-weight: 600;
-    color: #1e0311;   
+    color: #5a003b;   
 }
 
 .modal-content h5 {
     font-family: 'Roboto Condensed';
     font-size: 1.5rem;
     font-weight: 600;
-    color: rgba(177,61,29,1);   
+    color: rgba(194,78,25,1);   
 }
 
 .modal-content img {
@@ -183,6 +170,22 @@ input {
     height: 2.5rem;
 }
 
+/* ASMR Modal opening trigger */
+#question-mark-modal-btn {
+    height: 3rem;
+    z-index: 1;
+    filter: invert(100%) sepia(0%) saturate(7498%) hue-rotate(318deg) brightness(100%) contrast(103%);
+    position: fixed;
+    bottom: 2%;
+    left: 3%;
+}
+
+#question-mark-modal-btn:hover,
+#question-mark-modal-btn:focus {
+    cursor: pointer;
+}
+
+/* Fireworks Modal */
 #fireworks-btn-options {
     display: flex;
     justify-content: space-between;
@@ -201,7 +204,7 @@ input {
     /*box-shadow: 10px 5px 5px #1e0311; */
 }
 
-/* The Close Button */
+/* The Close button for either modal */
 #close-asmr,
 #close-fireworks {
     color: #aaa;
@@ -356,7 +359,7 @@ input {
     display: none !important;
 }
 
-/* Show element */
+/* Show element(s) */
 .show {
     display: block;
 }
@@ -477,8 +480,6 @@ input {
     }
 } 
 
-
-
 /* For tablets */
 @media only screen and (min-width: 768px) {
     h1 {
@@ -586,13 +587,46 @@ input {
     }  
 }
 
-/* For larger tablets like iPad Pro - height */
-@media only screen and (min-height: 1240px) {
+/* For tablets in landscape orientation */
+@media only screen and (min-width: 1024px) and (max-height: 860px) {
+    #welcome {
+        width: 60vw;
+        height: 90vh;
+    }
+
+    #menu-area {
+        margin-top: -12rem;
+    }
+
+    #footer {
+        top: -8rem;
+    }
+
+    .modal-content {
+        width: 50%;
+    }
+    
+    #grid-container {
+        width: 60vw;
+        height: 90vh;
+    }
+
+    #grid {
+        width: 50vw;
+        height: 70vh; 
+    }
+    
     #grid img {
-        width: 80%;
+        width: 60%;
     }
 }
 
+/* For large tablets like iPad Pro */
+@media only screen and (min-width: 920px) and (orientation: portrait) {
+    #grid img {
+        width: 90%;
+    }
+}
 
 /* For large screens */
 @media only screen and (min-width: 1440px) {
