@@ -1,5 +1,7 @@
-// Based on the tutotial by Ania Kudow
-// Array of cards for the easy level - 6 pairs
+/* The following 3 arrays (easyCards, mediumCards, difficultCards) are based on the code from Ania Kudow's tutorial and adapted 
+(all relevant links in the README.md)
+*/
+// Array of cards for the easy level - 12 cards - 6 pairs
 const easyCards = [
     {
         name: 'cat1',
@@ -51,7 +53,7 @@ const easyCards = [
     }
 ];
 
-// Array of cards for the medium level - 8 pairs
+// Array of cards for the medium level - 16 cards - 8 pairs
 const mediumCards = [
     {
         name: 'black-cat1',
@@ -119,7 +121,7 @@ const mediumCards = [
     }
 ];
 
-// Array of cards for the difficult level - 10 pairs
+// Array of cards for the difficult level - 20 cards - 10 pairs
 const difficultCards = [
     {
         name: 'silhouette1',
@@ -205,28 +207,7 @@ const difficultCards = [
 
 const grid = document.getElementById('grid');
 let pairsFound = document.getElementById('result');
-/*
-// TRYING SOMETHING
-grid.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter' || e.key === ' ') {
-    changeTabIndex()    
-    }
-});
-How to use arrows rather than tab within the grid???
 
-function changeTabIndex() {
-    easyCards.forEach((easyCard) => {
-        tabIndex = '0';
-    })
-}
-/*
-if (grid.focus()) {
-    card.tabIndex = '0';
-} else {
-    card.tabIndex = '-1'; // tabindex for keyboard accessibility
-}
-//changeTabIndex();
-*/
 // Create an array each time two cards are clicked
 let cardsChosen = [];
 let cardsChosenIds = [];
@@ -240,11 +221,11 @@ let cardsWon = [];
 // Lock the board when 2 cards were clicked - based on the following YouTube tutorial: https://www.youtube.com/watch?v=yMNFOyRELrI
 let lockBoard = false;
 
-// Get html elements needed for hiding the irrelevant part of the page
+// Get html elements needed for hiding/displaying a certain part of the page
 const welcome = document.getElementById('welcome');
 const gridContainer = document.getElementById('grid-container');
 
-// Create a suitable grid when the user chooses their level
+// Get relevant elements to create a suitable grid when the user chooses their level
 const levelEasyChosen = document.getElementById('easy-level');
 const levelMediumChosen = document.getElementById('medium-level');
 const levelDifficultChosen = document.getElementById('difficult-level');
@@ -388,7 +369,7 @@ function checkMatch() {
     lockBoard = false;
     pairsFound.textContent = cardsWon.length;
 
-    //empty the arrays to restart the process
+    //Empty the arrays to restart the process
     cardsChosen = [];
     cardsChosenIds = [];
 
@@ -399,6 +380,7 @@ function checkMatch() {
                 stopTimer();
                 pairsFound.textContent = 'all six!!!';
                 displayModalFireworks();
+                trapFocus(element);
             }
             break;
         case 'medium':
@@ -406,6 +388,7 @@ function checkMatch() {
                 stopTimer();
                 pairsFound.textContent = 'all eight!!!';
                 displayModalFireworks();
+                trapFocus(element);
             }
             break;
         case 'difficult':
@@ -413,6 +396,7 @@ function checkMatch() {
                 stopTimer();
                 pairsFound.textContent = 'all ten!!!';
                 displayModalFireworks();
+                trapFocus(element);
             }
             break;        
     }
@@ -557,6 +541,7 @@ questionMarkModalBtn.addEventListener('click', displayModalAsmr);
 questionMarkModalBtn.addEventListener('keydown', function(e) {
     if (e.key === 'Enter' || e.key === ' ') {
         displayModalAsmr();
+        trapFocus(element);
     }
 });
 
@@ -675,5 +660,64 @@ function updateTimer() {
     const minutes = Math.floor((timeElapsed / 1000 / 60) % 60);
     timerDisplay.innerHTML = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 }
+
+// Trap focus
+// https://hidde.blog/using-javascript-to-trap-focus-in-an-element/
+
+/*
+var focusableEls = element.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])');
+
+ first and last focusable element
+var firstFocusableEl = focusableEls[0];  
+var lastFocusableEl = focusableEls[focusableEls.length - 1];
+
+ Listen to keydown
+var KEYCODE_TAB = 9;
+
+element.addEventListener('keydown', function(e) {
+  if (e.key === 'Tab' || e.keyCode === KEYCODE_TAB) {
+    if ( e.shiftKey ) {
+      if (document.activeElement === firstFocusableEl) {
+        lastFocusableEl.focus();
+        e.preventDefault();
+      }
+    } else {
+      if (document.activeElement === lastFocusableEl) {
+        firstFocusableEl.focus();
+        e.preventDefault();
+      }
+    }
+  }
+});
+*/
+// Altogether
+let element = document.getElementById('modal-asmr');
+
+function trapFocus(element) {
+    let focusableEls = element.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])');
+    let firstFocusableEl = focusableEls[0];  
+    let lastFocusableEl = focusableEls[focusableEls.length - 1];
+    const KEYCODE_TAB = 9;
+  
+    element.addEventListener('keydown', function(e) {
+      const isTabPressed = (e.key === 'Tab' || e.keyCode === KEYCODE_TAB);
+  
+      if (!isTabPressed) { 
+        return; 
+      }
+  
+      if ( e.shiftKey ) /* shift + tab */ {
+        if (document.activeElement === firstFocusableEl) {
+          lastFocusableEl.focus();
+            e.preventDefault();
+          }
+        } else /* tab */ {
+        if (document.activeElement === lastFocusableEl) {
+          firstFocusableEl.focus();
+            e.preventDefault();
+          }
+        }
+    });
+  }
 
 
