@@ -111,6 +111,11 @@ h2 {
     box-shadow: 10px 5px 5px #1e0311;
 }
 
+.level-button:hover,
+.level-button:focus {
+    cursor: pointer;
+}
+
 input {
     display: none;
 }
@@ -140,6 +145,11 @@ input {
     position: fixed;
     bottom: 2%;
     left: 3%;
+}
+
+#question-mark-modal-btn:hover,
+#question-mark-modal-btn:focus {
+    cursor: pointer;
 }
 
 /* Modal content */
@@ -252,11 +262,21 @@ input {
     border: 2px outset #f07b0d;
 }
 
+#grid img:hover,
+#grid img:focus {
+    cursor: pointer;
+}
+
 #grid-header {
     height: 8vh;
     display: flex;
     width: fit-content;
     padding-bottom: 0.5rem;
+}
+
+#grid-header:hover,
+#grid-header:focus {
+    cursor: pointer;
 }
 
 #grid-header h4 {
@@ -303,6 +323,11 @@ input {
     text-align: center;
     padding: 5px;
     box-shadow: 10px 5px 5px #1e0311;
+}
+
+.grid-button:hover,
+.grid-hover:focus {
+    cursor: pointer;
 }
 
 /* Responsive gif on the landing page*/
@@ -376,7 +401,12 @@ input {
     font-weight: 600;
     font-size: 1rem;
     padding: 5px;
-    box-shadow: 10px 5px 5px #1e0311;
+    /*box-shadow: 10px 5px 5px #1e0311; */
+}
+
+#return-home-btn:hover,
+#return-home-btn:focus {
+    cursor: pointer;
 }
 
 
