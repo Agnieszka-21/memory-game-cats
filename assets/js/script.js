@@ -273,9 +273,12 @@ levelDifficultChosen.addEventListener('keydown',  function(e) {
 /**
  * Create a new board for the game
  */
+let enterOrSpace = 'no';
+
 function createBoard() {
     welcome.classList.add('hide');
     gridContainer.classList.remove('hide');
+
     
     switch (currentLevel) {
         case 'easy':
@@ -290,12 +293,33 @@ function createBoard() {
                 card.setAttribute('data-id', i);
                 grid.append(card);
                 card.addEventListener('click', flipCard);
-            // The above line is the end of Ania Kubow's code
+                // The above line is the end of Ania Kubow's code
 
-                /*FIX!!! card.addEventListener('keydown', flipCard); */
                 card.setAttribute('alt', 'Memory game card - easy level');        
                 card.classList.add('card-img'); // to address the relevant images in the checkMatch function
-                card.tabIndex = '0'; 
+                card.tabIndex = '0'; // for keyboard accessibility
+
+
+                // The code has a bug - FIX IT so that it fires only with Enter or space 
+                card.addEventListener('keydown', flipCard);
+                    /*
+                card.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        enterOrSpace = 'yes';
+                        console.log(enterOrSpace);
+                        flipCard(); // this.getAttribute is not a function
+                    } else {
+                        enterOrSpace = 'no';
+                        console.log(enterOrSpace);
+                    }
+                });
+                */
+                /*
+                if (enterOrSpace = true) {
+                    console.log('enterOrSpace was changed to true so flipCard can work');
+                    card.addEventListener('keydown', flipCard);
+                }
+                */
             }
             break;
 
@@ -312,7 +336,7 @@ function createBoard() {
                 card.setAttribute('data-id', i);
                 grid.append(card);
                 card.addEventListener('click', flipCard);
-            // The above line is the end of Ania Kubow's code
+                // The above line is the end of Ania Kubow's code
                 card.setAttribute('alt', 'Memory game card - medium level');
                 card.classList.add('card-img'); // to address the relevant images in the checkMatch function               
                 card.tabIndex = '0'; // tabindex for keyboard accessibility
@@ -332,7 +356,7 @@ function createBoard() {
                 card.setAttribute('data-id', i);
                 grid.append(card);
                 card.addEventListener('click', flipCard);
-            // The above line is the end of Ania Kubow's code
+                // The above line is the end of Ania Kubow's code
                 card.setAttribute('alt', 'Memory game card - difficult level');
                 card.classList.add('card-img'); // to address the relevant images in the checkMatch function 
                 card.tabIndex = '0'; // tabindex for keyboard accessibility
@@ -417,6 +441,7 @@ function checkMatch() {
 function flipCard() {
     if (lockBoard) return;
 
+    // The line of code below is copied from Ania Kubow's tutorial 
     const cardId = this.getAttribute('data-id');
 
     switch (currentLevel) {
@@ -470,7 +495,6 @@ goBack.addEventListener('keydown', function(e) {
 function backToMenu() {
     gridContainer.classList.add('hide');
     welcome.classList.remove('hide');   
-    console.log('Returning to menu');
     location.reload();
 }
 
@@ -523,14 +547,12 @@ function purringOnOff() {
         myAudio.loop = true;
         soundIcon.setAttribute('src', './assets/images/other/sound-on.svg');
         soundIcon.setAttribute('alt', 'Click here to turn the sound off');
-        console.log('Playing the audio');
         myAudio.classList.remove('not-playing');
         myAudio.classList.add('playing');
     } else if (myAudio.classList == 'playing') {
         myAudio.pause();
         soundIcon.setAttribute('src', './assets/images/other/sound-off.svg');
         soundIcon.setAttribute('alt', 'Click here to turn the sound on');
-        console.log('The audio was paused');
         myAudio.classList.remove('playing');
         myAudio.classList.add('not-playing');
     }
