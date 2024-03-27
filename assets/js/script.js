@@ -380,7 +380,6 @@ function checkMatch() {
                 stopTimer();
                 pairsFound.textContent = 'all six!!!';
                 displayModalFireworks();
-                trapFocus(element);
             }
             break;
         case 'medium':
@@ -388,7 +387,6 @@ function checkMatch() {
                 stopTimer();
                 pairsFound.textContent = 'all eight!!!';
                 displayModalFireworks();
-                trapFocus(element);
             }
             break;
         case 'difficult':
@@ -396,7 +394,6 @@ function checkMatch() {
                 stopTimer();
                 pairsFound.textContent = 'all ten!!!';
                 displayModalFireworks();
-                trapFocus(element);
             }
             break;        
     }
@@ -410,7 +407,6 @@ function flipCard() {
     if (lockBoard) return;
 
     const cardId = this.getAttribute('data-id');
-    console.log(this);
 
     switch (currentLevel) {
         case 'easy':
@@ -541,13 +537,13 @@ questionMarkModalBtn.addEventListener('click', displayModalAsmr);
 questionMarkModalBtn.addEventListener('keydown', function(e) {
     if (e.key === 'Enter' || e.key === ' ') {
         displayModalAsmr();
-        trapFocus(element);
     }
 });
 
 function displayModalAsmr() {
     modalAsmr.classList.remove('hide');
     modalAsmr.classList.add('show');
+    trapFocus(modalAsmrElement);
 }
 
 // Close the modal when the user activates the x span (click/Enter/space key)
@@ -577,6 +573,7 @@ const spanCloseModalFireworks = document.getElementById('close-fireworks');
 function displayModalFireworks() {
     modalFireworks.classList.remove('hide');
     modalFireworks.classList.add('show');
+    trapFocus(modalFireworksElement);
 }
 
 // Close the modal when the user activates the x span (click/Enter/space key)
@@ -661,46 +658,49 @@ function updateTimer() {
     timerDisplay.innerHTML = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 }
 
-// Trap focus
+// Trap focus within either modal when open
 // https://hidde.blog/using-javascript-to-trap-focus-in-an-element/
 
-/*
-var focusableEls = element.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])');
+// ASMR Modal - the function modalAsmrElement has been adapted from Hidde de Vries's tutorial
+let modalAsmrElement = document.getElementById('modal-asmr');
 
- first and last focusable element
-var firstFocusableEl = focusableEls[0];  
-var lastFocusableEl = focusableEls[focusableEls.length - 1];
-
- Listen to keydown
-var KEYCODE_TAB = 9;
-
-element.addEventListener('keydown', function(e) {
-  if (e.key === 'Tab' || e.keyCode === KEYCODE_TAB) {
-    if ( e.shiftKey ) {
-      if (document.activeElement === firstFocusableEl) {
-        lastFocusableEl.focus();
-        e.preventDefault();
-      }
-    } else {
-      if (document.activeElement === lastFocusableEl) {
-        firstFocusableEl.focus();
-        e.preventDefault();
-      }
-    }
-  }
-});
-*/
-// Altogether
-let element = document.getElementById('modal-asmr');
-
-function trapFocus(element) {
-    let focusableEls = element.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])');
-    let firstFocusableEl = focusableEls[0];  
-    let lastFocusableEl = focusableEls[focusableEls.length - 1];
+function trapFocus(modalAsmrElement) {    
+    const focusableEl = document.getElementById('close-asmr');
     const KEYCODE_TAB = 9;
   
-    element.addEventListener('keydown', function(e) {
+    modalAsmrElement.addEventListener('keydown', function(e) {
       const isTabPressed = (e.key === 'Tab' || e.keyCode === KEYCODE_TAB);
+  
+      if (!isTabPressed) { 
+        return; 
+      }
+  
+      if ( e.shiftKey ) /* shift + tab */ {
+        if (document.activeElement === focusableEl) {
+          focusableEl.focus();
+            e.preventDefault();
+          }
+        } else /* tab */ {
+        if (document.activeElement === focusableEl) {
+          focusableEl.focus();
+            e.preventDefault();
+          }
+        }
+    });
+  }
+
+
+// for the fireworks modal - the function modalFireworksElement is based on Hidde de Vries's tutorial
+let modalFireworksElement = document.getElementById('modal-fireworks');
+
+function trapFocus(modalFireworksElement) {
+    var focusableEls = modalFireworksElement.querySelectorAll('button:not([disabled]), #close-fireworks');
+    var firstFocusableEl = focusableEls[0];  
+    var lastFocusableEl = focusableEls[focusableEls.length - 1];
+    var KEYCODE_TAB = 9;
+  
+    modalFireworksElement.addEventListener('keydown', function(e) {
+      var isTabPressed = (e.key === 'Tab' || e.keyCode === KEYCODE_TAB);
   
       if (!isTabPressed) { 
         return; 
@@ -719,5 +719,6 @@ function trapFocus(element) {
         }
     });
   }
+
 
 
