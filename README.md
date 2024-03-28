@@ -8,7 +8,31 @@ UPDATE!
 Cat ASMR is an online memory game with the element of ASMR in form of an audio recording of a happy cat purring. It is a game for anyone who loves brain teasers and cognitive training, and also any cat lovers. The audio element (controlled by the user) provides a potentially calming and relaxing quality, while 3 game levels ensure great fun and an entertaining challenge.
 
 ## Table of Contents
-UPDATE
+- [Cat ASMR Memory Game](#cat-asmr-memory-game)
+  - [Introduction](#introduction)
+  - [Table of Contents](#table-of-contents)
+  - [User Experience](#user-experience)
+    - [User Stories](#user-stories)
+  - [Design](#design)
+    - [Colour Scheme](#colour-scheme)
+    - [Typography](#typography)
+    - [Imagery](#imagery)
+  - [Features](#features)
+    - [Existing Features](#existing-features)
+    - [Potential Future Features](#potential-future-features)
+  - [Testing](#testing)
+    - [Validator Testing](#validator-testing)
+    - [Lighthouse](#lighthouse)
+    - [Wave Webaim - accessibility testing](#wave-webaim---accessibility-testing)
+    - [Manual Testing](#manual-testing)
+    - [Fixed Bugs](#fixed-bugs)
+  - [Technologies Used](#technologies-used)
+  - [Deployment](#deployment)
+  - [Credits](#credits)
+    - [Content](#content)
+    - [Media](#media)
+  - [Acknowledgements](#acknowledgements)
+
 
 ## User Experience
 
@@ -67,22 +91,42 @@ Two font families are imported from Google fonts and used across all pages:
 All images used on the cards in this memory game are thematically connected to cats. While the levels easy and medium offer a mix of black-and-white images on a white background, the difficult level uses its own set of images that depict only black silhouettes of cats, forcing the user to focus on shapes and smaller details rather than obvious differences between the pictures.
 The only multi-colored image present is the animated gif of a cat sleeping by the fire on the landing page that not only clearly represents the subject of this game, but also defines its color palette.
 
+
 ## Features
 
 ### Existing Features
 
+- __Landing page gif (image/video depending on the device)__
+  
+  - This graphic represents both the subject of this game and its goal to help the user relax.
+
+![Landing page gif]()
+
 - __Three game level buttons__
 
   - These buttons allow the user to choose an easy, medium, or difficult level for their game, and lead to a suitable card grid when activated (with a click or a keypress on the Enter or space key). On phone screens, these buttons appear above the gif in a column to suit the vertical position of the screen. On tablets and larger screens, they are under the gif in a single row in order to make better use of available space.
+
+![Game level buttons]()
 
 - __Question mark icon opening the ASMR modal__
 
   - The white icon in the bottom left corner opens a modal that includes a short explanation of what ASMR is and why it is relevant to this game. 
   - The modal can be closed by clicking on the close-icon in its upper right corner, or anywhere outside the modal itself.
 
+![Question mark icon]()
+
+- __ASMR modal__
+
+  - This modal has an educational purpose - it explains briefly what ASMR is, and also how the user can experience ASMR while playing the game.
+  - The modal can be closed by clicking the close icon in the top right corner, or by clicking anywhere outside of the modal.
+
+![ASMR modal]()
+
 - __Purring on/off with a dynamic sound icon__
 
-  - This header element controls the audio element on this page - the sound of a purring cat that can be turned on or paused with a simple click/Enter/space key. When played, the sound is automatically looped.
+  - This header element controls the audio element on this page - the sound of a purring cat that can be turned on or paused with a simple click or Enter/space key. When played, the sound is automatically looped.
+
+![Purring on/off]()
 
 - __The game grid with cards__
 
@@ -90,34 +134,41 @@ The only multi-colored image present is the animated gif of a cat sleeping by th
   - Images are not visible until the user clicks a card - instead, an orange back-face of the cards is shown.
   - The user is allowed to see 2 cards at a time, then the cards return to their orange back-face, unless the user found a matching pair and these cards are set to white with an orange border.
 
+![Game grid - easy board]()
+![Game grid - medium board]()
+![Game grid - difficult board]()
+
 - __Timer__
 
   - The timer/stopwatch starts when the user clicks the first card in the game, and stops automatically at the end of the game, when the last remaining pair is found.
   - It is shown in the following format: "00:00" standing for "minutes:seconds".
 
-- __Pairs found__
+- __Result - pairs found__
 
   - Each time the user finds a matching pair of cards, the result is updated with a relevant number of pairs found.
+
+![Timer and result]()
 
 - __Congrats modal__
 
   - The modal pops up when the user finds the last matching pair, therefore winning the game. 
   - It can be closed by clicking on the close icon in the upper right corner, similarly to the ASMR modal on the landing page.
 
-- __Go back button__
+![Congrats modal]()
 
-  - This button takes the user back to the landing page.
-  - It is practical when the user wants to start a new game but on a different level than before.
+- __Go Back button and New Game button__
+
+  - The first button takes the user back to the landing page. It is practical when the user wants to start a new game but on a different level than before.
+  - This econ button clears the data from the previous game and sets up a fresh board with shuffled cards, ready for the user to start playing again. It is useful when the user wants to restart simply play again, sticking with the same level as the one chosen earlier on the landing page.
   
-- __New game button__
-
-  - This button clears the data from the previous game and sets up a fresh board with shuffled cards, ready for the user to start playing again.
-  - It is useful when the user wants to restart simply play again, sticking with the same level as the one chosen earlier on the landing page.
+![Go Back and New Game buttons]()
 
 - __Noscript page__
 
   - This part of the application is shown only when JavaScript is not available/disabled. 
   - The design corresponds with the main page through the use of the same gradient background, colors, and fonts.
+
+![Noscript page]()
 
 - __404 page__
 
@@ -125,62 +176,48 @@ The only multi-colored image present is the animated gif of a cat sleeping by th
   - It provides a link sending the user back to the landing page.
   - The design corresponds with the main page, making it clear that both pages are related.
 
-![Nav Bar](https://github.com/Agnieszka-21/yoga-mats/blob/main/assets/documentation/feat-nav-min.png)
+![404 page](https://github.com/Agnieszka-21/yoga-mats/blob/main/assets/documentation/feat-nav-min.png)
 Update
 
-All features described above can be accessed not only by clicking/tapping the relevant elements, but also by using the Tab key, making this web application keyboard-accessible.
-
+All interactive features in this game can be accessed not only by clicking/tapping the relevant elements, but also by using the Tab key, making this web application keyboard-accessible.
 
 ### Potential Future Features
 
-- A game grid that can be navigated with arrow keys
-- Adding the focus target functionality when a modal is open for more optimal navigation for keyboard users (so that they cannot go outside the modal until they close it)
+- Arrow keys navigation for the game grid
+
 
 ## Testing
-UPDATE
 
 ### Validator Testing
 
 - __HTML__
   - No errors were returned when passing through the official W3C validator
-    - [Homepage](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fagnieszka-21.github.io%2Fyoga-mats%2Findex.html)
-    - [Choose your mat page](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fagnieszka-21.github.io%2Fyoga-mats%2Fchoose-mat.html)
-    - [Contact us page](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fagnieszka-21.github.io%2Fyoga-mats%2Fcontact-us.html) 
-    - [Thank you page](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fagnieszka-21.github.io%2Fyoga-mats%2Fthank-you.html)
-    - [404 page](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fagnieszka-21.github.io%2Fyoga-mats%2F404.html)
+    - [Homepage](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fagnieszka-21.github.io%2Fmemory-game-cats%2Findex.html)
+    - [404 page](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fagnieszka-21.github.io%2Fmemory-game-cats%2F404.html)
 
 - __CSS__
   - No errors were found when passing through the official Jigsaw validator
-    - [Homepage](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fagnieszka-21.github.io%2Fyoga-mats%2Findex.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
-    - [Choose your mat page](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fagnieszka-21.github.io%2Fyoga-mats%2Fchoose-mat.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
-    - [Contact us page](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fagnieszka-21.github.io%2Fyoga-mats%2Fcontact-us.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
-    - [Thank you page](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fagnieszka-21.github.io%2Fyoga-mats%2Fthank-you.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
-    - [404 page](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fagnieszka-21.github.io%2Fyoga-mats%2F404.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+    - [Homepage](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fagnieszka-21.github.io%2Fmemory-game-cats%2Findex.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+    - [404 page](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fagnieszka-21.github.io%2Fmemory-game-cats%2F404.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+
+- __JavaScript__
+  - No errors were found when passing through the Jshint linter. ![See a screenshot here.]()
 
 ### Lighthouse
 
 | Page tested | View tested | Outcome of the audit | Solution applied | Screenshot of clear validator output |
 | :---------- | :---------- | :------------------- | :--------------- | :----------------------------------- |
-| Home | mobile | performance slowed down by images | used smaller size images for mobile | ![Clear validator output](https://github.com/Agnieszka-21/yoga-mats/blob/main/assets/documentation/lighthouse-home-mobile-min.png) |
-| Home | desktop | good | N/A | ![Clear validator output](https://github.com/Agnieszka-21/yoga-mats/blob/main/assets/documentation/lighthouse-home-desktop-min.png) |
-| Choose your mat | mobile | good | N/A | ![Clear validator output](https://github.com/Agnieszka-21/yoga-mats/blob/main/assets/documentation/lighthouse-choose-mobile-min.png) |
-| Choose your mat | desktop | good | N/ | ![Clear validator output](https://github.com/Agnieszka-21/yoga-mats/blob/main/assets/documentation/lighthouse-choose-desktop-min.png) |
-| Contact us | mobile | good | N/A | ![Clear validator output](https://github.com/Agnieszka-21/yoga-mats/blob/main/assets/documentation/lighthouse-contact-mobile-min.png) |
-| Contact us | desktop | good | N/A | ![Clear validator output](https://github.com/Agnieszka-21/yoga-mats/blob/main/assets/documentation/lighthouse-contact-desktop-min.png) |
-| Thank you | mobile | performance slowed down by a large FA icon | used the icon as svg  | ![Clear validator output](https://github.com/Agnieszka-21/yoga-mats/blob/main/assets/documentation/lighthouse-thankyou-mobile-min.png) |
-| Thank you | desktop | performance slowed down by a large FA icon | used the icon as svg  | ![Clear validator output](https://github.com/Agnieszka-21/yoga-mats/blob/main/assets/documentation/lighthouse-contact-desktop-min.png) |
-| 404 | mobile | performance slowed down by a large FA icon | used the icon as svg | ![Clear validator output](https://github.com/Agnieszka-21/yoga-mats/blob/main/assets/documentation/lighthouse-404-mobile-min.png) |
-| 404 | desktop | performance slowed down by a large FA icon | used the icon as svg  | ![Clear validator output](https://github.com/Agnieszka-21/yoga-mats/blob/main/assets/documentation/lighthouse-404-desktop-min.png) |
+| Home | mobile | good | N/A | ![Clear validator output]() |
+| Home | desktop | good | N/A | ![Clear validator output]() |
+| 404 | mobile | good | N/A | ![Clear validator output]() |
+| 404 | desktop | good | N/A | ![Clear validator output](https://github.com/Agnieszka-21/yoga-mats/blob/main/assets/documentation/lighthouse-404-desktop-min.png UPDATE) |
 
 ### Wave Webaim - accessibility testing
 
 No errors were found: 
 
-- [Wave Webaim - Home](https://wave.webaim.org/report#/https://agnieszka-21.github.io/yoga-mats/)
-- [Wave Webaim - Choose your mat](https://wave.webaim.org/report#/https://agnieszka-21.github.io/yoga-mats/choose-mat.html)
-- [Wave Webaim - Contact us](https://wave.webaim.org/report#/https://agnieszka-21.github.io/yoga-mats/contact-us.html)
-- [Wave Webaim - Thank you](https://wave.webaim.org/report#/https://agnieszka-21.github.io/yoga-mats/thank-you.html)
-- [Wave Webaim - 404](https://wave.webaim.org/report#/https://agnieszka-21.github.io/yoga-mats/404.html)
+- [Wave Webaim - Home](https://wave.webaim.org/report#/https://agnieszka-21.github.io/memory-game-cats/index.html)
+- [Wave Webaim - 404](https://wave.webaim.org/report#/https://agnieszka-21.github.io/memory-game-cats/404.html)
 
 ### Manual Testing
 
@@ -188,64 +225,34 @@ No errors were found:
 
 | Feature being tested | Expected Outcome | Testing Performed | Actual Outcome | Result (pass/fail) |
 | :------------------- | :--------------- | :---------------- | :------------- | :-------------------- |
-| Logo link - Home | keeps you on the Homepage | laptop, phone | keeps you on the Homepage | pass |
-| Logo link - Choose your mat | takes you to the Homepage | laptop, phone | takes you to the Homepage | pass |
-| Logo link - Contact us | takes you to the Homepage | laptop, phone | takes you to the Homepage | pass |
-| Logo link -  Thank you | takes you to Homepage | laptop, phone | takes you to the Homepage | pass |
-| Logo link - 404 | takes you to the Homepage | laptop, phone | takes you to the Homepage | pass |
-| Toggle Menu - Home | opens/hides the Menu when tapped | phone | opens/hides the Menu | pass |
-| Toggle Menu - Choose your mat | opens/hides the Menu when tapped | phone | opens/hides the Menu | pass |
-| Toggle Menu - Contact us | opens/hides the Menu when tapped | phone | opens/hides the Menu | pass |
-| Toggle Menu - Thank you | opens/hides the Menu when tapped | phone | opens/hides the Menu | pass |
-| Toggle Menu - 404 | opens/hides the Menu when tapped | phone | opens/hides the Menu | pass |
-| Nav bar: Home - Home | keeps you on the Homepage | laptop, phone | keeps you on the Homepage | pass |
-| Nav bar: Home - Choose your mat | takes you to the Homepage | laptop, phone | takes you to the Homepage | pass |
-| Nav bar: Home - Contact us | takes you to the Homepage | laptop, phone | takes you to the Homepage | pass |
-| Nav bar: Home - Thank you | takes you to the Homepage | laptop, phone | takes you to the Homepage | pass |
-| Nav bar: Home - 404 | takes you to the Homepage | laptop, phone | takes you to the Homepage | pass |
-| Nav bar: Choose your mat - Home | takes you to the Choose your mat page | laptop, phone | takes you to the Choose your mat page | pass |
-| Nav bar: Choose your mat - Choose your mat | keeps you on this page | laptop, phone | keeps you on this page | pass |
-| Nav bar: Choose your mat - Contact us | takes you to the Choose your mat page | laptop, phone | takes you to the Choose your mat page | pass |
-| Nav bar: Choose your mat - Thank you | takes you to the Choose your mat page | laptop, phone | takes you to the Choose your mat page | pass |
-| Nav bar: Choose your mat - 404 | takes you to the Choose your mat page | laptop, phone | takes you to the Choose your mat page | pass |
-| Nav bar: Contact us - Home | takes you to the Contact us page | laptop, phone | takes you to the Contact us page | pass |
-| Nav bar: Contact us - Choose your mat | takes you to the Contact us page | laptop, phone | takes you to the Contact us page | pass |
-| Nav bar: Contact us - Contact us | keeps you on this page | laptop, phone | keeps you on this page | pass |
-| Nav bar: Contact us - Thank you | takes you to the Contact us page | laptop, phone | takes you to the Contact us page | pass |
-| Nav bar: Contact us - 404 | takes you to the Contact us page | laptop, phone | takes you to the Contact us page | pass |
-| Footer: Facebook icon - Home | takes you to the Facebook homepage | laptop, phone | takes you to the Facebook homepage | pass |
-| Footer: Instagram icon - Home | takes you to the Instagram homepage | laptop, phone | takes you to the Instagram homepage | pass |
-| Footer: X icon - Home | takes you to the Twitter homepage | laptop, phone | takes you to the Twitter homepage | pass |
-| Footer: YouTube icon - Home | takes you to the YouTube homepage | laptop, phone | takes you to the Youtube homepage | pass |
-| Footer: Facebook icon - Choose your mat | takes you to the Facebook homepage | laptop, phone | takes you to the Facebook homepage | pass |
-| Footer: Instagram icon - Choose your mat | takes you to the Instagram homepage | laptop, phone | takes you to the Instagram homepage | pass |
-| Footer: X icon - Choose your mat | takes you to the Twitter homepage | laptop, phone | takes you to the Twitter homepage | pass |
-| Footer: YouTube icon - Choose your mat | takes you to the YouTube homepage | laptop, phone | takes you to the Youtube homepage | pass |
-| Footer: Facebook icon - Contact us | takes you to the Facebook homepage | laptop, phone | takes you to the Facebook homepage | pass |
-| Footer: Instagram icon - Contact us | takes you to the Instagram homepage | laptop, phone | takes you to the Instagram homepage | pass |
-| Footer: X icon - Contact us | takes you to the Twitter homepage | laptop, phone | takes you to the Twitter homepage | pass |
-| Footer: YouTube icon - Contact us | takes you to the YouTube homepage | laptop, phone | takes you to the Youtube homepage | pass |
-| Footer: Facebook icon - Thank you | takes you to the Facebook homepage | laptop, phone | takes you to the Facebook homepage | pass |
-| Footer: Instagram icon - Thank you | takes you to the Instagram homepage | laptop, phone | takes you to the Instagram homepage | pass |
-| Footer: X icon - Thank you | takes you to the Twitter homepage | laptop, phone | takes you to the Twitter homepage | pass |
-| Footer: YouTube icon - Thank you | takes you to the YouTube homepage | laptop, phone | takes you to the Youtube homepage | pass |
-| Footer: Facebook icon - 404 | takes you to the Facebook homepage | laptop, phone | takes you to the Facebook homepage | pass |
-| Footer: Instagram icon - 404 | takes you to the Instagram homepage | laptop, phone | takes you to the Instagram homepage | pass |
-| Footer: X icon - 404 | takes you to the Twitter homepage | laptop, phone | takes you to the Twitter homepage | pass |
-| Footer: YouTube icon - 404 | takes you to the YouTube homepage | laptop, phone | takes you to the Youtube homepage | pass |
-| Hyperlink text - Thank you | takes you to the Homepage | laptop, phone | takes you to the Homepage | pass |
-| Hyperlink text - 404 | takes you to the Homepage | laptop, phone | takes you to the Homepage | pass |
-| Video - Choose your mat | does not play automatically, muted - controlled by the user | laptop, phone | does not play automatically, muted - controlled by the user | pass |
+| Button "easy" | takes you to the game with 12 cards | laptop, phone | as expected | pass |
+| Button "medium" | takes you to the game with 16 cards | laptop, phone | as expected | pass |
+| Button "difficult" | takes you to the game with 20 cards | laptop, phone | as expected | pass |
+| Question mark button | opens the ASMR modal | laptop, phone | as expected | pass |
+| Close button in the ASMR modal | closes the modal | laptop, phone | as expected | pass |
+| Purring on/off | plays and pauses audio | laptop, phone | as expected | pass |
+| Game cards | show game images when clicked (only 2 cards shown together) | laptop, phone | as expected | pass |
+| Time elapsed | timer starts with the first card click and gets updated every second | laptop, phone | as expected | pass |
+| Pairs found | the number changes with each matching pair found | laptop, phone | as expected | pass |
+| Go back button | takes you back to the landing page | laptop, phone | as expected | pass |
+| New game | resets the board | laptop, phone | as expected | pass |
+| Congrats modal | shows up as soon as all pairs are found | laptop, phone | as expected | pass |
+| Button "yes, please" in the modal | resets the board like the New Game button | laptop, phone | as expected | pass |
+| Button "no, thanks" in the modal | closes the modal | laptop, phone | as expected | pass |
+| Close button in the congrats modal | closes the modal | laptop, phone | as expected | pass |
+| Return Home button on the 404 page | takes the user back to the landing page | laptop, phone | as expected | pass |
 
 - __Responsiveness (tested with Dev Tools)__
 
 | Device tested | Site responsive >=700px | Site Responsive <699px | Renders as expected |
 | :------------ | :---------------------- | :--------------------- | :------------------ | 
 | Galaxy Fold | N/A | yes | yes |
+| iPhone 12Pro | N/A | yes | yes |
+| Samsung Galaxy S8+ | N/A | yes | yes |
 | iPhone SE | N/A | yes | yes |
-| iPhone 12Pro | (when rotated) yes | yes | yes |
-| Samsung Galaxy S8+ | (when rotated) yes | yes | yes |
+| iPad Mini | yes | N/A | yes |
 | iPad Air | yes | N/A | yes |
+| iPad Pro | yes | N/A | yes |
 | Surface Pro 7 | yes | N/A | yes |
 | Laptop 1440px | yes | N/A | yes |
 | 4K - 2560px | yes | N/A | yes |
@@ -254,70 +261,42 @@ No errors were found:
 
 | Browser being tested | Section tested | Intended Appearance | Intended Responsiveness |
 | :------------------- | :------------- |:------------------- | :---------------------- | 
-| Chrome | Home - header | good | good | 
-| Chrome | Home - hero | good | good | 
-| Chrome | Home - mat types | good | good | 
-| Chrome | Home - footer | good | good | 
-| Edge | Home - header | good | good | 
-| Edge | Home - hero | good | good | 
-| Edge | Home - mat types | good | good | 
-| Edge | Home - footer | good | good | 
-| Firefox | Home - header | good | good | 
-| Firefox | Home - hero | good | good | 
-| Firefox | Home - mat types | good | good | 
-| Firefox | Home - footer | good | good | 
-| Chrome | Choose your mat - header | good | good |
-| Chrome | Choose your mat - How to choose... | good | good |
-| Chrome | Choose your mat - table | good | good |
-| Chrome | Choose your mat - video | good | good |
-| Chrome | Choose your mat - footer | good | good |
-| Edge | Choose your mat - header | good | good |
-| Edge | Choose your mat - How to choose... | good | good |
-| Edge | Choose your mat - table | good | good |
-| Edge | Choose your mat - video | good | good |
-| Edge | Choose your mat - footer | good | good |
-| Firefox | Choose your mat - header | good | good |
-| Firefox | Choose your mat - How to choose... | good | good |
-| Firefox | Choose your mat - table | good | good |
-| Firefox | Choose your mat - video | good | good |
-| Firefox | Choose your mat - footer | good | good |
-| Chrome | Contact us - header | good | good |
-| Chrome | Contact us - contact section | good | good |
-| Chrome | Contact us - footer | good | good |
-| Edge | Contact us - header | good | good |
-| Edge | Contact us - contact section | good | good |
-| Edge | Contact us - footer | good | good |
-| Firefox | Contact us - header | good | good |
-| Firefox | Contact us - contact section | good | good |
-| Firefox | Contact us - footer | good | good |
-| Chrome | Thank you - header | good | good |
-| Chrome | Thank you - main | good | good |
-| Chrome | Thank you - footer | good | good |
-| Edge | Thank you - header | good | good |
-| Edge | Thank you - main | good | good |
-| Edge | Thank you - footer | good | good |
-| Firefox | Thank you - header | good | good |
-| Firefox | Thank you - main | good | good |
-| Firefox | Thank you - footer | good | good |
-| Chrome | 404 - header | good | good |
-| Chrome | 404 - main | good | good |
-| Chrome | 404 - footer | good | good |
-| Edge | 404 - header | good | good |
-| Edge | 404 - main | good | good |
-| Edge | 404 - footer | good | good |
-| Firefox | 404 - header | good | good |
-| Firefox | 404 - main | good | good |
-| Firefox | 404 - footer | good | good |
+| Chrome | Landing page | good | good | 
+| Chrome | ASMR modal | good | good | 
+| Chrome | Easy game | good | good | 
+| Chrome | Medium game | good | good | 
+| Chrome | Difficult game | good | good |
+| Chrome | Congrats modal | good | good |
+| Chrome | 404 page | good | good |
+| Chrome | Noscript page | good | good |
+| Edge | Landing page | good | good | 
+| Edge | ASMR modal | good | good | 
+| Edge | Easy game | good | good | 
+| Edge | Medium game | good | good | 
+| Edge | Difficult game | good | good |
+| Edge | Congrats modal | good | good |
+| Edge | 404 page  | good | good |
+| Edge | Noscript page | good | good |
+| Firefox | Landing page | good | good | 
+| Firefox | ASMR modal | good | good | 
+| Firefox | Easy game | good | good | 
+| Firefox | Medium game | good | good | 
+| Firefox | Difficult game | good | good |
+| Firefox | Congrats modal | good | good |
+| Firefox | 404 page | good | good |
+| Firefox | Noscript page | good | good |
 
 ### Fixed Bugs
-Update
 
-- ...
+- One game card svg file was not square, ending up being slightly higher than all other images. Its size has been adapted so that the width and height are equal, as is the case for all other card images.
+- The noscript page was being displayed without its correct styling..........
+
 
 ## Technologies Used
 
 Code languages used: HTML, CSS, and JavaScript.
 Software used: VS Code.
+
 
 ## Deployment
 
@@ -336,6 +315,7 @@ In order to fork the repository:
 - Go to [https://github.com/Agnieszka-21/memory-game-cats](https://github.com/Agnieszka-21/memory-game-cats)
 - In the top menu choose the option Fork.
 
+
 ## Credits
 
 The following tutorials, articles, documentation and media were used to create this website.
@@ -343,9 +323,12 @@ The following tutorials, articles, documentation and media were used to create t
 ### Content
 
 - The text for the modal explaining what ASMR is was taken from the online article [What ASMR means: How it works and why it's popular](https://www.nebraskamed.com/neurological-care/asmr-videos-are-exploding-online-but-what-is-asmr-and-does-it-work)
-- Insturctions on JavaScript code for basic game functionality were adapted from [this YouTube tutorial by Ania Kubow](https://www.youtube.com/watch?v=ec8vSKJuZTk&t=3773s). See comments in the js file for more details.
+- Insturctions on JavaScript code for basic game functionality were taken from [this YouTube tutorial by Ania Kubow](https://www.youtube.com/watch?v=ec8vSKJuZTk&t=3773s) and adapted. See comments in the js file for more details.
+- Instructions on how to lock the board were taken from [this YouTube tutorial by Code Sketch](https://www.youtube.com/watch?v=yMNFOyRELrI) and adapted.
 - Instructions on how to create a modal were adapted from this [w3schools documentation](https://www.w3schools.com/howto/howto_css_modals.asp). See comments in the html, css, and js files for more details.
-- Instructions on how to implement a timer/stopwatch are loosely based on [this article from insidethediv.com](https://www.insidethediv.com/javascript-simple-projects-beginners-online-stopwatch-full-screen) and [this article from educative.io](https://www.educative.io/answers/how-to-create-a-stopwatch-in-javascript)
+- Instructions on how to trap focus within a modal were adapted from [this article by Hidde de Vries](https://hidde.blog/using-javascript-to-trap-focus-in-an-element/).
+- JavaScript code for implementing a timer/stopwatch is loosely based on [this article from insidethediv.com](https://www.insidethediv.com/javascript-simple-projects-beginners-online-stopwatch-full-screen).
+- JavaScript code for device recognition used to display a static landing page image on mobile/touchscreen devices has been copied from [the following MDN documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent#mobile_device_detection).
 
 ### Media
 
@@ -360,6 +343,7 @@ The following tutorials, articles, documentation and media were used to create t
 - The square white image used to mark that a pair was found was downloaded from the following [Free Code Camp tutorial by Ania Kudow](https://github.com/kubowania/memory-game/tree/master/images)
 - The modal-related icons of a question mark in a circle and a cross mark in a circle originate from [svgrepo.com](https://www.svgrepo.com/)
 - The audio recording of a purring cat was taken from [pixabay.com](https://pixabay.com/sound-effects/purring-happy-cat-29114/)
+
 
 ## Acknowledgements
 
