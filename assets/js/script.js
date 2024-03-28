@@ -244,7 +244,7 @@ levelEasyChosen.addEventListener('keydown', function (e) {
         currentLevel = 'easy';
         createBoard();
     }
-})
+});
 
 levelMediumChosen.addEventListener('click', function (e) {
     currentLevel = 'medium';
@@ -256,7 +256,7 @@ levelMediumChosen.addEventListener('keydown', function (e) {
         currentLevel = 'medium';
         createBoard();
     }
-})
+});
 
 levelDifficultChosen.addEventListener('click', function (e) {
     currentLevel = 'difficult';
@@ -268,7 +268,7 @@ levelDifficultChosen.addEventListener('keydown', function (e) {
         currentLevel = 'difficult';
         createBoard();
     }
-})
+});
 
 /**
  * Create a new board for the game
@@ -302,10 +302,8 @@ function createBoard() {
                 card.addEventListener('keydown', function (e) {
                     if (e.key === 'Enter' || e.key === ' ') {
                         enterOrSpace = 'yes';
-                        console.log(enterOrSpace);
                     } else {
                         enterOrSpace = 'no';
-                        console.log(enterOrSpace);
                     }
                 });
                 card.addEventListener('keydown', flipCard);
@@ -333,10 +331,8 @@ function createBoard() {
                 card.addEventListener('keydown', function (e) {
                     if (e.key === 'Enter' || e.key === ' ') {
                         enterOrSpace = 'yes';
-                        console.log(enterOrSpace);
                     } else {
                         enterOrSpace = 'no';
-                        console.log(enterOrSpace);
                     }
                 });
                 card.addEventListener('keydown', flipCard);
@@ -364,10 +360,8 @@ function createBoard() {
                 card.addEventListener('keydown', function (e) {
                     if (e.key === 'Enter' || e.key === ' ') {
                         enterOrSpace = 'yes';
-                        console.log(enterOrSpace);
                     } else {
                         enterOrSpace = 'no';
-                        console.log(enterOrSpace);
                     }
                 });
                 card.addEventListener('keydown', flipCard);
@@ -430,7 +424,7 @@ function checkMatch() {
             if (cardsWon.length == easyCards.length / 2) {
                 pairsFound.innerHTML = 'all six!!!';
                 stopTimer();
-                displayModalFireworks();
+                displayModalCongrats();
             }
             break;
         case 'medium':
@@ -438,7 +432,7 @@ function checkMatch() {
             if (cardsWon.length == mediumCards.length / 2) {
                 pairsFound.innerHTML = 'all eight!!!';
                 stopTimer();
-                displayModalFireworks();
+                displayModalCongrats();
             }
             break;
         case 'difficult':
@@ -446,7 +440,7 @@ function checkMatch() {
             if (cardsWon.length == difficultCards.length / 2) {
                 pairsFound.innerHTML = 'all ten!!!';
                 stopTimer();
-                displayModalFireworks();
+                displayModalCongrats();
             }
             break;
     }
@@ -635,10 +629,8 @@ questionMarkModalBtn.addEventListener('keydown', function (e) {
 function displayModalAsmr() {
     modalAsmr.classList.remove('hide');
     modalAsmr.classList.add('show');
-    console.log('Modal ASMR displayed')
     modalAsmrElement.focus();
     trapFocus(modalAsmrElement);
-    console.log('Function trapFocus recognized');
 }
 
 // Close the modal when the user activates the x span (click or Enter/space key)
@@ -658,32 +650,32 @@ window.addEventListener('click', function (e) {
     if (e.target === modalAsmr) {
         modalAsmr.classList.add('hide');
     }
-})
+});
 
 /** 
- * Control the Fireworks Modal - loosely based on the tutorial from w3schools.com
+ * Control the Congrats Modal - loosely based on the tutorial from w3schools.com
  */
-const modalFireworks = document.getElementById('modal-fireworks');
-const spanCloseModalFireworks = document.getElementById('close-fireworks');
+const modalCongrats = document.getElementById('modal-congrats');
+const spanCloseModalCongrats = document.getElementById('close-congrats');
 
 // Show the modal when the user wins the game
-function displayModalFireworks() {
-    modalFireworks.classList.remove('hide');
-    modalFireworks.classList.add('show');
-    modalFireworksElement.focus();
-    trapFocus(modalFireworksElement);
+function displayModalCongrats() {
+    modalCongrats.classList.remove('hide');
+    modalCongrats.classList.add('show');
+    modalCongratsElement.focus();
+    trapFocus(modalCongratsElement);
 }
 
 // Close the modal when the user activates the x span (click or Enter/space key)
-spanCloseModalFireworks.addEventListener('click', closeModalFireworks);
-spanCloseModalFireworks.addEventListener('keydown', function (e) {
+spanCloseModalCongrats.addEventListener('click', closeModalCongrats);
+spanCloseModalCongrats.addEventListener('keydown', function (e) {
     if (e.key === 'Enter' || e.key === ' ') {
-        closeModalFireworks();
+        closeModalCongrats();
     }
 });
 
-function closeModalFireworks() {
-    modalFireworks.classList.add('hide');
+function closeModalCongrats() {
+    modalCongrats.classList.add('hide');
 }
 
 // Close the modal when the user clicks anywhere outside of it
@@ -691,35 +683,35 @@ window.addEventListener('click', function (e) {
     if (e.target === modalAsmr) {
         modalAsmr.classList.add('hide');
     }
-})
+});
 
 /**
- * Fireworks Modal buttons - yes starts a new game, no just closes the modal
+ * Congrats Modal buttons - yes starts a new game, no just closes the modal
  */
-const fireworksBtnYes = document.getElementById('fireworks-btn-yes');
-const fireworksBtnNo = document.getElementById('fireworks-btn-no');
+const congratsBtnYes = document.getElementById('congrats-btn-yes');
+const congratsBtnNo = document.getElementById('congrats-btn-no');
 
-fireworksBtnYes.addEventListener('click', fireworksYes);
-fireworksBtnYes.addEventListener('keydown', function (e) {
+congratsBtnYes.addEventListener('click', congratsYes);
+congratsBtnYes.addEventListener('keydown', function (e) {
     if (e.key === 'Enter' || e.key === ' ') {
-        fireworksYes();
+        congratsYes();
     }
 });
 
-function fireworksYes() {
-    closeModalFireworks();
+function congratsYes() {
+    closeModalCongrats();
     freshBoard();
 }
 
-fireworksBtnNo.addEventListener('click', fireworksNo);
-fireworksBtnNo.addEventListener('keydown', function (e) {
+congratsBtnNo.addEventListener('click', congratsNo);
+congratsBtnNo.addEventListener('keydown', function (e) {
     if (e.key === 'Enter' || e.key === ' ') {
-        fireworksNo();
+        congratsNo();
     }
 });
 
-function fireworksNo() {
-    closeModalFireworks();
+function congratsNo() {
+    closeModalCongrats();
 }
 
 /**
@@ -730,12 +722,10 @@ const modalAsmrElement = document.getElementById('modal-asmr');
 
 function trapFocus(modalAsmrElement) {
     const focusableEl = document.getElementById('close-asmr');
-    console.log(focusableEl);
     const KEYCODE_TAB = 9;
 
     modalAsmrElement.addEventListener('keydown', function (e) {
         let isTabPressed = (e.key === 'Tab' || e.keyCode === KEYCODE_TAB);
-        console.log('isTabPressed was set');
 
         if (!isTabPressed) {
             return;
@@ -755,16 +745,16 @@ function trapFocus(modalAsmrElement) {
     });
 }
 
-// Fireworks Modal - the function trapFocus has been copied (with minor modifications) from Hidde de Vries's tutorial
-const modalFireworksElement = document.getElementById('modal-fireworks');
+// Congrats Modal - the function trapFocus has been copied (with minor modifications) from Hidde de Vries's tutorial
+const modalCongratsElement = document.getElementById('modal-congrats');
 
-function trapFocus(modalFireworksElement) {
-    const focusableEls = modalFireworksElement.querySelectorAll('button:not([disabled]), #close-fireworks');
+function trapFocus(modalCongratsElement) {
+    const focusableEls = modalCongratsElement.querySelectorAll('button:not([disabled]), #close-congrats');
     const firstFocusableEl = focusableEls[0];
     const lastFocusableEl = focusableEls[focusableEls.length - 1];
     const KEYCODE_TAB = 9;
 
-    modalFireworksElement.addEventListener('keydown', function (e) {
+    modalCongratsElement.addEventListener('keydown', function (e) {
         let isTabPressed = (e.key === 'Tab' || e.keyCode === KEYCODE_TAB);
 
         if (!isTabPressed) {
