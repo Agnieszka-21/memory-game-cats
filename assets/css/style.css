@@ -81,7 +81,6 @@ h2 {
     text-shadow: 3px 5px 2px rgba(30, 3, 17, 1);
 }
 
-/*Trying something */
 .menu-footer-combo {
     display: flex;
     flex-direction: column;
@@ -114,6 +113,7 @@ h2 {
 .level-button:hover,
 .level-button:focus {
     cursor: pointer;
+    border: 2px solid #f07b0d;
 }
 
 input {
@@ -201,8 +201,14 @@ input {
     font-size: 1rem;
     text-align: center;
     padding: 5px;
-    /*box-shadow: 10px 5px 5px #1e0311; */
 }
+
+.modal-fireworks-buttons:hover,
+.modal-fireworks-buttons:focus {
+    cursor: pointer;
+    border: 2px solid #f07b0d;
+}
+
 
 /* The Close button for either modal */
 #close-asmr,
@@ -331,6 +337,7 @@ input {
 .grid-button:hover,
 .grid-hover:focus {
     cursor: pointer;
+    border: 2px solid #f07b0d;
 }
 
 /* Responsive gif on the landing page*/
@@ -407,6 +414,7 @@ input {
 #return-home-btn:hover,
 #return-home-btn:focus {
     cursor: pointer;
+    border: 2px solid #f07b0d;
 }
 
 
