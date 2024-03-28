@@ -273,7 +273,7 @@ levelDifficultChosen.addEventListener('keydown',  function(e) {
 /**
  * Create a new board for the game
  */
-let enterOrSpace = 'no';
+let enterOrSpace = 'maybe';
 
 function createBoard() {
     welcome.classList.add('hide');
@@ -298,28 +298,17 @@ function createBoard() {
                 card.setAttribute('alt', 'Memory game card - easy level');        
                 card.classList.add('card-img'); // to address the relevant images in the checkMatch function
                 card.tabIndex = '0'; // for keyboard accessibility
-
-
-                // The code has a bug - FIX IT so that it fires only with Enter or space 
-                card.addEventListener('keydown', flipCard);
-                    /*
+                // Two event listeners for keydown to make sure cards are flipped only with Enter/space key    
                 card.addEventListener('keydown', function(e) {
                     if (e.key === 'Enter' || e.key === ' ') {
                         enterOrSpace = 'yes';
                         console.log(enterOrSpace);
-                        flipCard(); // this.getAttribute is not a function
                     } else {
                         enterOrSpace = 'no';
                         console.log(enterOrSpace);
                     }
                 });
-                */
-                /*
-                if (enterOrSpace = true) {
-                    console.log('enterOrSpace was changed to true so flipCard can work');
-                    card.addEventListener('keydown', flipCard);
-                }
-                */
+                card.addEventListener('keydown', flipCard);                
             }
             break;
 
@@ -340,6 +329,17 @@ function createBoard() {
                 card.setAttribute('alt', 'Memory game card - medium level');
                 card.classList.add('card-img'); // to address the relevant images in the checkMatch function               
                 card.tabIndex = '0'; // tabindex for keyboard accessibility
+                // Two event listeners for keydown to make sure cards are flipped only with Enter/space key    
+                card.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        enterOrSpace = 'yes';
+                        console.log(enterOrSpace);
+                    } else {
+                        enterOrSpace = 'no';
+                        console.log(enterOrSpace);
+                    }
+                });
+                card.addEventListener('keydown', flipCard); 
             }
             break;
 
@@ -360,6 +360,17 @@ function createBoard() {
                 card.setAttribute('alt', 'Memory game card - difficult level');
                 card.classList.add('card-img'); // to address the relevant images in the checkMatch function 
                 card.tabIndex = '0'; // tabindex for keyboard accessibility
+                // Two event listeners for keydown to make sure cards are flipped only with Enter/space key    
+                card.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        enterOrSpace = 'yes';
+                        console.log(enterOrSpace);
+                    } else {
+                        enterOrSpace = 'no';
+                        console.log(enterOrSpace);
+                    }
+                });
+                card.addEventListener('keydown', flipCard); 
             }
     }
 }
@@ -440,6 +451,8 @@ function checkMatch() {
  */ 
 function flipCard() {
     if (lockBoard) return;
+
+    if (enterOrSpace == 'no') return;
 
     // The line of code below is copied from Ania Kubow's tutorial 
     const cardId = this.getAttribute('data-id');
