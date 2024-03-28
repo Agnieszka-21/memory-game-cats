@@ -265,7 +265,7 @@ No errors were found:
 | Chrome | Difficult game | good | good |
 | Chrome | Congrats modal | good | good |
 | Chrome | 404 page | good | good |
-| Chrome | Noscript page | good | good |
+| Chrome | Noscript page | on the first loading, everything that's inside the noscript tags is shown as text; when refreshed - everything is shown correctly and as expected (documented as a known bug in Chrome) | good |
 | Edge | Landing page | good | good | 
 | Edge | ASMR modal | good | good | 
 | Edge | Easy game | good | good | 
@@ -288,7 +288,6 @@ No errors were found:
 - One game card svg file was not square, ending up being slightly higher than all other images. Its size has been adapted so that the width and height are equal, as is the case for all other card images.
 
 TO FIX
-- The noscript page is being displayed without its correct styling...
 - The ASMR Modal doesn't trap focus within it...
 
 
