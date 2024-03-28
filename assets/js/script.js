@@ -213,7 +213,7 @@ let cardsChosenIds = [];
 let cardsWon = [];
 
 // Create an array that allows to start the timer with the first card click
-let cardsOpen = []; 
+let cardsOpen = [];
 
 // Get relevant html elements to populate grid and display result
 const grid = document.getElementById('grid');
@@ -234,36 +234,36 @@ let lockBoard = false;
 // Create a board when user chooses a level (click or Enter/space key)
 let currentLevel;
 
-levelEasyChosen.addEventListener('click', function(e) {
+levelEasyChosen.addEventListener('click', function (e) {
     currentLevel = 'easy';
     createBoard();
 });
 
-levelEasyChosen.addEventListener('keydown',  function(e) {
+levelEasyChosen.addEventListener('keydown', function (e) {
     if (e.key === 'Enter' || e.key === ' ') {
         currentLevel = 'easy';
         createBoard();
     }
 })
 
-levelMediumChosen.addEventListener('click', function(e) {
+levelMediumChosen.addEventListener('click', function (e) {
     currentLevel = 'medium';
     createBoard();
 });
 
-levelMediumChosen.addEventListener('keydown',  function(e) {
+levelMediumChosen.addEventListener('keydown', function (e) {
     if (e.key === 'Enter' || e.key === ' ') {
         currentLevel = 'medium';
         createBoard();
     }
 })
 
-levelDifficultChosen.addEventListener('click', function(e) {
+levelDifficultChosen.addEventListener('click', function (e) {
     currentLevel = 'difficult';
     createBoard();
 });
 
-levelDifficultChosen.addEventListener('keydown',  function(e) {
+levelDifficultChosen.addEventListener('keydown', function (e) {
     if (e.key === 'Enter' || e.key === ' ') {
         currentLevel = 'difficult';
         createBoard();
@@ -279,11 +279,11 @@ function createBoard() {
     welcome.classList.add('hide');
     gridContainer.classList.remove('hide');
 
-    
+
     switch (currentLevel) {
         case 'easy':
             // Shuffle cards randomly - copied from Ania Kubow's tutorial
-            easyCards.sort(() => 0.5 - Math.random()); 
+            easyCards.sort(() => 0.5 - Math.random());
             // Create a grid for 12 cards
             grid.classList.add('grid-easy');
             // The next few lines are copied from Ania Kubow's tutorial (slightly adapted)
@@ -295,11 +295,11 @@ function createBoard() {
                 card.addEventListener('click', flipCard);
                 // The above line is the end of Ania Kubow's code
 
-                card.setAttribute('alt', 'Memory game card - easy level');        
+                card.setAttribute('alt', 'Memory game card - easy level');
                 card.classList.add('card-img'); // to address the relevant images in the checkMatch function
                 card.tabIndex = '0'; // for keyboard accessibility
                 // Two event listeners for keydown to make sure cards are flipped only with Enter/space key    
-                card.addEventListener('keydown', function(e) {
+                card.addEventListener('keydown', function (e) {
                     if (e.key === 'Enter' || e.key === ' ') {
                         enterOrSpace = 'yes';
                         console.log(enterOrSpace);
@@ -308,7 +308,7 @@ function createBoard() {
                         console.log(enterOrSpace);
                     }
                 });
-                card.addEventListener('keydown', flipCard);                
+                card.addEventListener('keydown', flipCard);
             }
             break;
 
@@ -330,7 +330,7 @@ function createBoard() {
                 card.classList.add('card-img'); // to address the relevant images in the checkMatch function               
                 card.tabIndex = '0'; // tabindex for keyboard accessibility
                 // Two event listeners for keydown to make sure cards are flipped only with Enter/space key    
-                card.addEventListener('keydown', function(e) {
+                card.addEventListener('keydown', function (e) {
                     if (e.key === 'Enter' || e.key === ' ') {
                         enterOrSpace = 'yes';
                         console.log(enterOrSpace);
@@ -339,15 +339,15 @@ function createBoard() {
                         console.log(enterOrSpace);
                     }
                 });
-                card.addEventListener('keydown', flipCard); 
+                card.addEventListener('keydown', flipCard);
             }
             break;
 
         case 'difficult':
             // Shuffle cards randomly - copied from Ania Kubow's tutorial
-            difficultCards.sort(() => 0.5 - Math.random()); 
+            difficultCards.sort(() => 0.5 - Math.random());
             // Create a grid for 20 cards
-            grid.classList.add('grid-difficult');  
+            grid.classList.add('grid-difficult');
 
             // The next few lines are copied from Ania Kubow's tutorial (slightly adapted)            
             for (let i = 0; i < difficultCards.length; i++) {
@@ -361,7 +361,7 @@ function createBoard() {
                 card.classList.add('card-img'); // to address the relevant images in the checkMatch function 
                 card.tabIndex = '0'; // tabindex for keyboard accessibility
                 // Two event listeners for keydown to make sure cards are flipped only with Enter/space key    
-                card.addEventListener('keydown', function(e) {
+                card.addEventListener('keydown', function (e) {
                     if (e.key === 'Enter' || e.key === ' ') {
                         enterOrSpace = 'yes';
                         console.log(enterOrSpace);
@@ -370,7 +370,7 @@ function createBoard() {
                         console.log(enterOrSpace);
                     }
                 });
-                card.addEventListener('keydown', flipCard); 
+                card.addEventListener('keydown', flipCard);
             }
     }
 }
@@ -403,6 +403,12 @@ function checkMatch() {
         cards[optionTwoId].setAttribute('src', './assets/images/other/white.png');
         cards[optionOneId].removeEventListener('click', flipCard);
         cards[optionTwoId].removeEventListener('click', flipCard);
+        // The above line is the end of Ania Kubow's code
+
+        cards[optionOneId].removeEventListener('keydown', flipCard);
+        cards[optionTwoId].removeEventListener('keydown', flipCard);
+
+        // The next few lines are copied from Ania Kubow's tutorial (slightly adapted)
         cardsWon.push(cardsChosen);
     } else {
         cards[optionOneId].setAttribute('src', './assets/images/other/orange.png');
@@ -421,7 +427,7 @@ function checkMatch() {
     switch (currentLevel) {
         case 'easy':
             // The following 2 lines of code are loosely based on Ania Kubow's tutorial
-            if (cardsWon.length == easyCards.length/2) {
+            if (cardsWon.length == easyCards.length / 2) {
                 pairsFound.innerHTML = 'all six!!!';
                 stopTimer();
                 displayModalFireworks();
@@ -429,7 +435,7 @@ function checkMatch() {
             break;
         case 'medium':
             // The following 2 lines of code are loosely based on Ania Kubow's tutorial
-            if (cardsWon.length == mediumCards.length/2) {
+            if (cardsWon.length == mediumCards.length / 2) {
                 pairsFound.innerHTML = 'all eight!!!';
                 stopTimer();
                 displayModalFireworks();
@@ -437,18 +443,18 @@ function checkMatch() {
             break;
         case 'difficult':
             // The following 2 lines of code are loosely based on Ania Kubow's tutorial
-            if (cardsWon.length == difficultCards.length/2) {
+            if (cardsWon.length == difficultCards.length / 2) {
                 pairsFound.innerHTML = 'all ten!!!';
                 stopTimer();
                 displayModalFireworks();
             }
-            break;        
+            break;
     }
 }
 
 /**
  * Flip card when clicked, showing cards suitable for the chosen level
- */ 
+ */
 function flipCard() {
     if (lockBoard) return;
 
@@ -470,7 +476,7 @@ function flipCard() {
             // The following code is copied from Ania Kubow's tutorial (slightly adjusted)
             cardsChosen.push(mediumCards[cardId].name);
             cardsChosenIds.push(cardId);
-            this.setAttribute('src', mediumCards[cardId].img); 
+            this.setAttribute('src', mediumCards[cardId].img);
             // The above line is the end of Ania Kubow's code
             cardsOpen.push(mediumCards[cardId].name);
             break;
@@ -480,7 +486,7 @@ function flipCard() {
             cardsChosenIds.push(cardId);
             this.setAttribute('src', difficultCards[cardId].img);
             // The above line is the end of Ania Kubow's code
-            cardsOpen.push(difficultCards[cardId].name);   
+            cardsOpen.push(difficultCards[cardId].name);
     }
 
     // The following code is copied from Ania Kubow's tutorial (slightly adjusted)
@@ -499,7 +505,7 @@ function flipCard() {
  */
 const goBack = document.getElementById('go-back');
 goBack.addEventListener('click', backToMenu);
-goBack.addEventListener('keydown', function(e) {
+goBack.addEventListener('keydown', function (e) {
     if (e.key === 'Enter' || e.key === ' ') {
         backToMenu();
     }
@@ -507,7 +513,7 @@ goBack.addEventListener('keydown', function(e) {
 
 function backToMenu() {
     gridContainer.classList.add('hide');
-    welcome.classList.remove('hide');   
+    welcome.classList.remove('hide');
     location.reload();
 }
 
@@ -517,7 +523,7 @@ function backToMenu() {
  */
 const newGameBtn = document.getElementById('new-game');
 newGameBtn.addEventListener('click', freshBoard);
-newGameBtn.addEventListener('keydown', function(e) {
+newGameBtn.addEventListener('keydown', function (e) {
     if (e.key === 'Enter' || e.key === ' ') {
         freshBoard();
     }
@@ -541,7 +547,7 @@ function freshBoard() {
 // Purring on/off - listen for a click or Enter/space key
 const purring = document.getElementById('grid-header');
 purring.addEventListener('click', purringOnOff);
-purring.addEventListener('keydown', function(e) {
+purring.addEventListener('keydown', function (e) {
     if (e.key === 'Enter' || e.key === ' ') {
         purringOnOff();
     }
@@ -572,107 +578,6 @@ function purringOnOff() {
 }
 
 /**
- * Control the ASMR Modal - loosely based on the tutorial from w3schools.com
- */
-const modalAsmr = document.getElementById('modal-asmr');
-const questionMarkModalBtn = document.getElementById('question-mark-modal-btn');
-const spanCloseModalAsmr = document.getElementById('close-asmr');
-
-// Open the ASMR modal when the user activates the question-mark button (click or Enter/space key)
-questionMarkModalBtn.addEventListener('click', displayModalAsmr);
-questionMarkModalBtn.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter' || e.key === ' ') {
-        displayModalAsmr();
-    }
-});
-
-function displayModalAsmr() {
-    modalAsmr.classList.remove('hide');
-    modalAsmr.classList.add('show');
-    trapFocus(modalAsmrElement);
-}
-
-// Close the modal when the user activates the x span (click or Enter/space key)
-spanCloseModalAsmr.addEventListener('click', closeModalAsmr);
-spanCloseModalAsmr.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter' || e.key === ' ') {
-        closeModalAsmr();
-    }
-});
-
-function closeModalAsmr() {
-    modalAsmr.classList.add('hide');
-}
-
-// Close the modal when the user clicks anywhere outside of it
-window.addEventListener('click',  function(e) {
-    if (e.target === modalAsmr) {
-        modalAsmr.classList.add('hide');
-    }
-})
-
-/** 
- * Control the Fireworks Modal - loosely based on the tutorial from w3schools.com
- */
-const modalFireworks = document.getElementById('modal-fireworks');
-const spanCloseModalFireworks = document.getElementById('close-fireworks');
-
-// Show the modal when the user wins the game
-function displayModalFireworks() {
-    modalFireworks.classList.remove('hide');
-    modalFireworks.classList.add('show');
-    trapFocus(modalFireworksElement);
-}
-
-// Close the modal when the user activates the x span (click or Enter/space key)
-spanCloseModalFireworks.addEventListener('click', closeModalFireworks);
-spanCloseModalFireworks.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter' || e.key === ' ') {
-        closeModalFireworks();
-    }
-});
-
-function closeModalFireworks() {
-    modalFireworks.classList.add('hide');
-}
-
-// Close the modal when the user clicks anywhere outside of it
-window.addEventListener('click',  function(e) {
-    if (e.target === modalAsmr) {
-        modalAsmr.classList.add('hide');
-    }
-})
-
-/**
- * Fireworks Modal buttons - yes starts a new game, no just closes the modal
- */
-const fireworksBtnYes = document.getElementById('fireworks-btn-yes');
-const fireworksBtnNo = document.getElementById('fireworks-btn-no');
-
-fireworksBtnYes.addEventListener('click', fireworksYes);
-fireworksBtnYes.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter' || e.key === ' ') {
-        fireworksYes();
-    }
-});
-
-function fireworksYes() {
-    closeModalFireworks();
-    freshBoard();
-}
-
-fireworksBtnNo.addEventListener('click', fireworksNo);
-fireworksBtnNo.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter' || e.key === ' ') {
-        fireworksNo();
-    }
-});
-
-function fireworksNo() {
-    closeModalFireworks();
-}
-
-/**
  * Control the timer under the game grid: start timer with the first click on a card, stop timer when all pairs are found, 
  * reset timer (new game button), and update timer (for accurate display)
  */
@@ -683,18 +588,18 @@ let elapsedTime = 0;
 let timerInterval;
 
 function startTimer() {
-        if (cardsOpen.length === 1) {
-            // The following 2 lines are copied from the insidethediv.com tutorial
-            startTime = Date.now() - elapsedTime;
-            timerInterval = setInterval(updateTimer, 10);
-        }
+    if (cardsOpen.length === 1) {
+        // The following 2 lines are copied from the insidethediv.com tutorial
+        startTime = Date.now() - elapsedTime;
+        timerInterval = setInterval(updateTimer, 10);
+    }
 }
 
 // The following function stopTimer is copied from the insidethediv.com tutorial
 function stopTimer() {
     clearInterval(timerInterval);
 }
-  
+
 function resetTimer() {
     // The following 2 lines are copied from the insidethediv.com tutorial
     clearInterval(timerInterval);
@@ -711,63 +616,171 @@ function updateTimer() {
     timerDisplay.innerHTML = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 }
 
+
+/**
+ * Control the ASMR Modal - loosely based on the tutorial from w3schools.com
+ */
+const modalAsmr = document.getElementById('modal-asmr');
+const questionMarkModalBtn = document.getElementById('question-mark-modal-btn');
+const spanCloseModalAsmr = document.getElementById('close-asmr');
+
+// Open the ASMR modal when the user activates the question-mark button (click or Enter/space key)
+questionMarkModalBtn.addEventListener('click', displayModalAsmr);
+questionMarkModalBtn.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+        displayModalAsmr();
+    }
+});
+
+function displayModalAsmr() {
+    modalAsmr.classList.remove('hide');
+    modalAsmr.classList.add('show');
+    console.log('Modal ASMR displayed')
+    modalAsmrElement.focus();
+    trapFocus(modalAsmrElement);
+    console.log('Function trapFocus recognized');
+}
+
+// Close the modal when the user activates the x span (click or Enter/space key)
+spanCloseModalAsmr.addEventListener('click', closeModalAsmr);
+spanCloseModalAsmr.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+        closeModalAsmr();
+    }
+});
+
+function closeModalAsmr() {
+    modalAsmr.classList.add('hide');
+}
+
+// Close the modal when the user clicks anywhere outside of it
+window.addEventListener('click', function (e) {
+    if (e.target === modalAsmr) {
+        modalAsmr.classList.add('hide');
+    }
+})
+
+/** 
+ * Control the Fireworks Modal - loosely based on the tutorial from w3schools.com
+ */
+const modalFireworks = document.getElementById('modal-fireworks');
+const spanCloseModalFireworks = document.getElementById('close-fireworks');
+
+// Show the modal when the user wins the game
+function displayModalFireworks() {
+    modalFireworks.classList.remove('hide');
+    modalFireworks.classList.add('show');
+    modalFireworksElement.focus();
+    trapFocus(modalFireworksElement);
+}
+
+// Close the modal when the user activates the x span (click or Enter/space key)
+spanCloseModalFireworks.addEventListener('click', closeModalFireworks);
+spanCloseModalFireworks.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+        closeModalFireworks();
+    }
+});
+
+function closeModalFireworks() {
+    modalFireworks.classList.add('hide');
+}
+
+// Close the modal when the user clicks anywhere outside of it
+window.addEventListener('click', function (e) {
+    if (e.target === modalAsmr) {
+        modalAsmr.classList.add('hide');
+    }
+})
+
+/**
+ * Fireworks Modal buttons - yes starts a new game, no just closes the modal
+ */
+const fireworksBtnYes = document.getElementById('fireworks-btn-yes');
+const fireworksBtnNo = document.getElementById('fireworks-btn-no');
+
+fireworksBtnYes.addEventListener('click', fireworksYes);
+fireworksBtnYes.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+        fireworksYes();
+    }
+});
+
+function fireworksYes() {
+    closeModalFireworks();
+    freshBoard();
+}
+
+fireworksBtnNo.addEventListener('click', fireworksNo);
+fireworksBtnNo.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+        fireworksNo();
+    }
+});
+
+function fireworksNo() {
+    closeModalFireworks();
+}
+
 /**
  * Trap focus within either modal when open
  */
-// ASMR Modal - the function modalAsmrElement has been adapted from Hidde de Vries's tutorial
+// ASMR Modal - the function trapFocus has been adapted from Hidde de Vries's tutorial
 const modalAsmrElement = document.getElementById('modal-asmr');
 
-function trapFocus(modalAsmrElement) {    
+function trapFocus(modalAsmrElement) {
     const focusableEl = document.getElementById('close-asmr');
+    console.log(focusableEl);
     const KEYCODE_TAB = 9;
-  
-    modalAsmrElement.addEventListener('keydown', function(e) {
-      let isTabPressed = (e.key === 'Tab' || e.keyCode === KEYCODE_TAB);
-  
-      if (!isTabPressed) { 
-        return; 
-      }
-  
-      if ( e.shiftKey ) /* shift + tab */ {
-        if (document.activeElement === focusableEl) {
-          focusableEl.focus();
-            e.preventDefault();
-          }
+
+    modalAsmrElement.addEventListener('keydown', function (e) {
+        let isTabPressed = (e.key === 'Tab' || e.keyCode === KEYCODE_TAB);
+        console.log('isTabPressed was set');
+
+        if (!isTabPressed) {
+            return;
+        }
+
+        if (e.shiftKey) /* shift + tab */ {
+            if (document.activeElement === focusableEl) {
+                focusableEl.focus();
+                e.preventDefault();
+            }
         } else /* tab */ {
-        if (document.activeElement === focusableEl) {
-          focusableEl.focus();
-            e.preventDefault();
-          }
+            if (document.activeElement === focusableEl) {
+                focusableEl.focus();
+                e.preventDefault();
+            }
         }
     });
-  }
+}
 
-// Fireworks Modal - the function modalFireworksElement has been copied (with minor modifications) from Hidde de Vries's tutorial
+// Fireworks Modal - the function trapFocus has been copied (with minor modifications) from Hidde de Vries's tutorial
 const modalFireworksElement = document.getElementById('modal-fireworks');
 
 function trapFocus(modalFireworksElement) {
     const focusableEls = modalFireworksElement.querySelectorAll('button:not([disabled]), #close-fireworks');
-    const firstFocusableEl = focusableEls[0];  
+    const firstFocusableEl = focusableEls[0];
     const lastFocusableEl = focusableEls[focusableEls.length - 1];
     const KEYCODE_TAB = 9;
-  
-    modalFireworksElement.addEventListener('keydown', function(e) {
-      let isTabPressed = (e.key === 'Tab' || e.keyCode === KEYCODE_TAB);
-  
-      if (!isTabPressed) { 
-        return; 
-      }
-  
-      if ( e.shiftKey ) /* shift + tab */ {
-        if (document.activeElement === firstFocusableEl) {
-          lastFocusableEl.focus();
-            e.preventDefault();
-          }
+
+    modalFireworksElement.addEventListener('keydown', function (e) {
+        let isTabPressed = (e.key === 'Tab' || e.keyCode === KEYCODE_TAB);
+
+        if (!isTabPressed) {
+            return;
+        }
+
+        if (e.shiftKey) /* shift + tab */ {
+            if (document.activeElement === firstFocusableEl) {
+                lastFocusableEl.focus();
+                e.preventDefault();
+            }
         } else /* tab */ {
-        if (document.activeElement === lastFocusableEl) {
-          firstFocusableEl.focus();
-            e.preventDefault();
-          }
+            if (document.activeElement === lastFocusableEl) {
+                firstFocusableEl.focus();
+                e.preventDefault();
+            }
         }
     });
-  }
+}
