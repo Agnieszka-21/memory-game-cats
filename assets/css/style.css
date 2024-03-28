@@ -337,7 +337,7 @@ input {
 .grid-button:hover,
 .grid-hover:focus {
     cursor: pointer;
-    border: 2px solid #f07b0d;
+    border: 2px solid #f07b0d;  
 }
 
 /* Responsive gif on the landing page*/
