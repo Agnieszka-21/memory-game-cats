@@ -1,7 +1,6 @@
 # Cat ASMR Memory Game
 
-![Responsive mockup](https://github.com/Agnieszka-21/yoga-mats/blob/main/assets/documentation/responsive-home-min.png)
-UPDATE!
+![Responsive mockup](https://github.com/Agnieszka-21/memory-game-cats/blob/main/assets/documentation/amiresponsive.png)
 
 ## Introduction
 
@@ -71,8 +70,7 @@ Cat ASMR is an online memory game with the element of ASMR in form of an audio r
   - Black has been used as box shadow on button-like elements and the main title to create an impression of depth, as well as for any text on bright background (white or orange).
   - This color provides a high contrast, making it especially suitable for longer fragments of text.
 
-![Contrast Grid](https://github.com/Agnieszka-21/yoga-mats/blob/main/assets/documentation/contrast-grid-min.png)
-UPDATE
+![Contrast Grid](https://github.com/Agnieszka-21/memory-game-cats/blob/main/assets/documentation/contrast-grid-colors.png)
 
 ### Typography
 
@@ -100,33 +98,33 @@ The only multi-colored image present is the animated gif of a cat sleeping by th
   
   - This graphic represents both the subject of this game and its goal to help the user relax.
 
-![Landing page gif]()
+![Landing page gif](https://github.com/Agnieszka-21/memory-game-cats/blob/main/assets/documentation/gif.png)
 
 - __Three game level buttons__
 
   - These buttons allow the user to choose an easy, medium, or difficult level for their game, and lead to a suitable card grid when activated (with a click or a keypress on the Enter or space key). On phone screens, these buttons appear above the gif in a column to suit the vertical position of the screen. On tablets and larger screens, they are under the gif in a single row in order to make better use of available space.
 
-![Game level buttons]()
+![Game level buttons](https://github.com/Agnieszka-21/memory-game-cats/blob/main/assets/documentation/game-level-buttons.png)
 
 - __Question mark icon opening the ASMR modal__
 
   - The white icon in the bottom left corner opens a modal that includes a short explanation of what ASMR is and why it is relevant to this game. 
   - The modal can be closed by clicking on the close-icon in its upper right corner, or anywhere outside the modal itself.
 
-![Question mark icon]()
+![Question mark icon](https://github.com/Agnieszka-21/memory-game-cats/blob/main/assets/documentation/question-mark-icon.png)
 
 - __ASMR modal__
 
   - This modal has an educational purpose - it explains briefly what ASMR is, and also how the user can experience ASMR while playing the game.
   - The modal can be closed by clicking the close icon in the top right corner, or by clicking anywhere outside of the modal.
 
-![ASMR modal]()
+![ASMR modal](https://github.com/Agnieszka-21/memory-game-cats/blob/main/assets/documentation/modal-asmr.png)
 
 - __Purring on/off with a dynamic sound icon__
 
   - This header element controls the audio element on this page - the sound of a purring cat that can be turned on or paused with a simple click or Enter/space key. When played, the sound is automatically looped.
 
-![Purring on/off]()
+![Purring on/off](https://github.com/Agnieszka-21/memory-game-cats/blob/main/assets/documentation/purring-header.png)
 
 - __The game grid with cards__
 
@@ -134,9 +132,9 @@ The only multi-colored image present is the animated gif of a cat sleeping by th
   - Images are not visible until the user clicks a card - instead, an orange back-face of the cards is shown.
   - The user is allowed to see 2 cards at a time, then the cards return to their orange back-face, unless the user found a matching pair and these cards are set to white with an orange border.
 
-![Game grid - easy board]()
-![Game grid - medium board]()
-![Game grid - difficult board]()
+![Game grid - easy board](https://github.com/Agnieszka-21/memory-game-cats/blob/main/assets/documentation/easy-board.png)
+![Game grid - medium board](https://github.com/Agnieszka-21/memory-game-cats/blob/main/assets/documentation/medium-board.png)
+![Game grid - difficult board](https://github.com/Agnieszka-21/memory-game-cats/blob/main/assets/documentation/difficult-board.png)
 
 - __Timer__
 
@@ -147,21 +145,21 @@ The only multi-colored image present is the animated gif of a cat sleeping by th
 
   - Each time the user finds a matching pair of cards, the result is updated with a relevant number of pairs found.
 
-![Timer and result]()
+![Timer and result](https://github.com/Agnieszka-21/memory-game-cats/blob/main/assets/documentation/timer-and-result.png)
 
 - __Congrats modal__
 
   - The modal pops up when the user finds the last matching pair, therefore winning the game. 
   - It can be closed by clicking on the close icon in the upper right corner, similarly to the ASMR modal on the landing page.
 
-![Congrats modal]()
+![Congrats modal](https://github.com/Agnieszka-21/memory-game-cats/blob/main/assets/documentation/congrats-modal.png)
 
 - __Go Back button and New Game button__
 
   - The first button takes the user back to the landing page. It is practical when the user wants to start a new game but on a different level than before.
   - This econ button clears the data from the previous game and sets up a fresh board with shuffled cards, ready for the user to start playing again. It is useful when the user wants to restart simply play again, sticking with the same level as the one chosen earlier on the landing page.
   
-![Go Back and New Game buttons]()
+![Go Back and New Game buttons](https://github.com/Agnieszka-21/memory-game-cats/blob/main/assets/documentation/back-and-new-buttons.png)
 
 - __Noscript page__
 
@@ -176,8 +174,7 @@ The only multi-colored image present is the animated gif of a cat sleeping by th
   - It provides a link sending the user back to the landing page.
   - The design corresponds with the main page, making it clear that both pages are related.
 
-![404 page](https://github.com/Agnieszka-21/yoga-mats/blob/main/assets/documentation/feat-nav-min.png)
-Update
+![404 page](https://github.com/Agnieszka-21/memory-game-cats/blob/main/assets/documentation/error-page.png)
 
 All interactive features in this game can be accessed not only by clicking/tapping the relevant elements, but also by using the Tab key, making this web application keyboard-accessible.
 
@@ -207,10 +204,10 @@ All interactive features in this game can be accessed not only by clicking/tappi
 
 | Page tested | View tested | Outcome of the audit | Solution applied | Screenshot of clear validator output |
 | :---------- | :---------- | :------------------- | :--------------- | :----------------------------------- |
-| Home | mobile | good | N/A | ![Clear validator output]() |
-| Home | desktop | good | N/A | ![Clear validator output]() |
-| 404 | mobile | good | N/A | ![Clear validator output]() |
-| 404 | desktop | good | N/A | ![Clear validator output](https://github.com/Agnieszka-21/yoga-mats/blob/main/assets/documentation/lighthouse-404-desktop-min.png UPDATE) |
+| Home | mobile | good | N/A | ![Clear validator output](https://github.com/Agnieszka-21/memory-game-cats/blob/main/assets/documentation/lighthouse-mobile-index.png) |
+| Home | desktop | good | N/A | ![Clear validator output](https://github.com/Agnieszka-21/memory-game-cats/blob/main/assets/documentation/lighthouse-desktop-index.png) |
+| 404 | mobile | good | N/A | ![Clear validator output](https://github.com/Agnieszka-21/memory-game-cats/blob/main/assets/documentation/lighthouse-mobile-404.png) |
+| 404 | desktop | good | N/A | ![Clear validator output](https://github.com/Agnieszka-21/memory-game-cats/blob/main/assets/documentation/lighthouse-desktop-404.png) |
 
 ### Wave Webaim - accessibility testing
 
@@ -289,7 +286,10 @@ No errors were found:
 ### Fixed Bugs
 
 - One game card svg file was not square, ending up being slightly higher than all other images. Its size has been adapted so that the width and height are equal, as is the case for all other card images.
-- The noscript page was being displayed without its correct styling..........
+
+TO FIX
+- The noscript page is being displayed without its correct styling...
+- The ASMR Modal doesn't trap focus within it...
 
 
 ## Technologies Used
