@@ -166,7 +166,7 @@ The only multi-colored image present is the animated gif of a cat sleeping by th
   - This part of the application is shown only when JavaScript is not available/disabled. 
   - The design corresponds with the main page through the use of the same gradient background, colors, and fonts.
 
-![Noscript page]()
+![Noscript page](https://github.com/Agnieszka-21/memory-game-cats/blob/main/assets/documentation/noscript.png)
 
 - __404 page__
 
