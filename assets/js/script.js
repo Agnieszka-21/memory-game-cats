@@ -617,6 +617,7 @@ function updateTimer() {
 const modalAsmr = document.getElementById('modal-asmr');
 const questionMarkModalBtn = document.getElementById('question-mark-modal-btn');
 const spanCloseModalAsmr = document.getElementById('close-asmr');
+const modalAsmrBtn = document.getElementById('modal-asmr-btn');
 
 // Open the ASMR modal when the user activates the question-mark button (click or Enter/space key)
 questionMarkModalBtn.addEventListener('click', displayModalAsmr);
@@ -644,6 +645,15 @@ spanCloseModalAsmr.addEventListener('keydown', function (e) {
 function closeModalAsmr() {
     modalAsmr.classList.add('hide');
 }
+
+// Close the modal when the user activates the okay button (click or Enter/space key)
+modalAsmrBtn.addEventListener('click', closeModalAsmr);
+modalAsmrBtn.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+        closeModalAsmr();
+    }
+});
+
 
 // Close the modal when the user clicks anywhere outside of it
 window.addEventListener('click', function (e) {
@@ -721,8 +731,11 @@ function congratsNo() {
 const modalAsmrElement = document.getElementById('modal-asmr');
 
 function trapFocus(modalAsmrElement) {
-    const focusableEl = document.getElementById('close-asmr');
+    const focusableElsAsmr = document.getElementById('close-asmr', 'modal-asmr-btn');
+    const firstFocusableElAsmr = focusableElsAsmr[0];
+    const lastFocusableElAsmr = focusableElsAsmr[focusableElsAsmr.length - 1];
     const KEYCODE_TAB = 9;
+    console.log(focusableElsAsmr, firstFocusableElAsmr, lastFocusableElAsmr);
 
     modalAsmrElement.addEventListener('keydown', function (e) {
         let isTabPressed = (e.key === 'Tab' || e.keyCode === KEYCODE_TAB);
@@ -732,13 +745,13 @@ function trapFocus(modalAsmrElement) {
         }
 
         if (e.shiftKey) /* shift + tab */ {
-            if (document.activeElement === focusableEl) {
-                focusableEl.focus();
+            if (document.activeElement === firstFocusableElAsmr) {
+                lastFocusableElAsmr.focus();
                 e.preventDefault();
             }
         } else /* tab */ {
-            if (document.activeElement === focusableEl) {
-                focusableEl.focus();
+            if (document.activeElement === lastFocusableElAsmr) {
+                firstFocusableElAsmr.focus();
                 e.preventDefault();
             }
         }
@@ -749,9 +762,9 @@ function trapFocus(modalAsmrElement) {
 const modalCongratsElement = document.getElementById('modal-congrats');
 
 function trapFocus(modalCongratsElement) {
-    const focusableEls = modalCongratsElement.querySelectorAll('button:not([disabled]), #close-congrats');
-    const firstFocusableEl = focusableEls[0];
-    const lastFocusableEl = focusableEls[focusableEls.length - 1];
+    const focusableElsCongrats = modalCongratsElement.querySelectorAll('button:not([disabled]), #close-congrats');
+    const firstFocusableElCongrats = focusableElsCongrats[0];
+    const lastFocusableElCongrats = focusableElsCongrats[focusableElsCongrats.length - 1];
     const KEYCODE_TAB = 9;
 
     modalCongratsElement.addEventListener('keydown', function (e) {
@@ -762,13 +775,13 @@ function trapFocus(modalCongratsElement) {
         }
 
         if (e.shiftKey) /* shift + tab */ {
-            if (document.activeElement === firstFocusableEl) {
-                lastFocusableEl.focus();
+            if (document.activeElement === firstFocusableElCongrats) {
+                lastFocusableElCongrats.focus();
                 e.preventDefault();
             }
         } else /* tab */ {
-            if (document.activeElement === lastFocusableEl) {
-                firstFocusableEl.focus();
+            if (document.activeElement === lastFocusableElCongrats) {
+                firstFocusableElCongrats.focus();
                 e.preventDefault();
             }
         }
@@ -777,7 +790,7 @@ function trapFocus(modalCongratsElement) {
 
 /**
  * Detect whether the user's device is a mobile device to adjust the landing page gif:
- * <video> on laptops and larger screens, <img> on touchscreen devices where autoplay is blocked
+ * <video> on laptops and larger screens, <img> on touchscreen devices where autoplay is usually blocked
  */
 
 // The following code has been copied from MDN documentation

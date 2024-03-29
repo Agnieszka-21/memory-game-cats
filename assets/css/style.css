@@ -111,7 +111,8 @@ h2 {
 }
 
 .level-button:hover,
-.level-button:focus {
+.level-button:focus,
+.level-button:focus-visible {
     cursor: pointer;
     border: 2px solid #f07b0d;
 }
@@ -181,7 +182,8 @@ input {
 }
 
 #question-mark-modal-btn:hover,
-#question-mark-modal-btn:focus {
+#question-mark-modal-btn:focus,
+.level-button:focus-visible {
     cursor: pointer;
 }
 
@@ -191,7 +193,7 @@ input {
     justify-content: space-between;
 }
 
-.modal-congrats-buttons {
+.modal-buttons {
     background-color: #1e0311;
     color: #ffffff;
     width: 40%;
@@ -203,8 +205,14 @@ input {
     padding: 5px;
 }
 
-.modal-congrats-buttons:hover,
-.modal-congrats-buttons:focus {
+#single-btn-div {
+    display: flex;
+    justify-content: center;
+}
+
+.modal-buttons:hover,
+.modal-buttons:focus,
+.modal-buttons:focus-visible {
     cursor: pointer;
     border: 2px solid #f07b0d;
 }
@@ -221,8 +229,10 @@ input {
 
 #close-asmr:hover,
 #close-asmr:focus,
+#close-asmr:focus-visible,
 #close-congrats:hover,
-#close-congrats:focus {
+#close-congrats:focus,
+#close-asmr:focus-visible {
     color: black;
     text-decoration: none;
     cursor: pointer;
@@ -272,7 +282,8 @@ input {
 }
 
 #grid img:hover,
-#grid img:focus {
+#grid img:focus,
+#grid img:focus-visible {
     cursor: pointer;
 }
 
@@ -284,7 +295,8 @@ input {
 }
 
 #grid-header:hover,
-#grid-header:focus {
+#grid-header:focus,
+#grid-header:focus-visible {
     cursor: pointer;
 }
 
@@ -335,7 +347,8 @@ input {
 }
 
 .grid-button:hover,
-.grid-hover:focus {
+.grid-hover:focus,
+.grid-hover:focus-visible {
     cursor: pointer;
     border: 2px solid #f07b0d;  
 }
@@ -412,7 +425,8 @@ input {
 }
 
 #return-home-btn:hover,
-#return-home-btn:focus {
+#return-home-btn:focus,
+#return-home-btn:focus-visible {
     cursor: pointer;
     border: 2px solid #f07b0d;
 }
