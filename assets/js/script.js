@@ -231,7 +231,7 @@ const levelDifficultChosen = document.getElementById('difficult-level');
 // Lock the board when 2 cards were clicked - based on a YouTube tutorial by Code Sketch
 let lockBoard = false;
 
-// Create a board when user chooses a level (click or Enter/space key)
+// Create a board when the user chooses a level (click or Enter/space key)
 let currentLevel;
 
 levelEasyChosen.addEventListener('click', function (e) {
@@ -273,7 +273,7 @@ levelDifficultChosen.addEventListener('keydown', function (e) {
 /**
  * Create a new board for the game
  */
-let enterOrSpace = 'maybe';
+let enterOrSpace = 'maybe'; // this variable allows to check whether the key pressed was Enter/space or something else
 
 function createBoard() {
     welcome.classList.add('hide');
@@ -526,7 +526,7 @@ newGameBtn.addEventListener('keydown', function (e) {
 function freshBoard() {
     grid.innerHTML = '';
     resetTimer();
-    pairsFound.innerHTML = '1';
+    pairsFound.innerHTML = '0';
 
     //empty the arrays to restart the process
     cardsChosen = [];
@@ -552,7 +552,7 @@ const myAudio = new Audio('./assets/audio/purring.mp3');
 myAudio.classList.add('not-playing');
 
 /**
- * Play or pause the audio when user activates "Purring on/off"
+ * Play or pause the audio when the user activates "Purring on/off"
  */
 function purringOnOff() {
     if (myAudio.classList == 'not-playing') {
