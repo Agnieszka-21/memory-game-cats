@@ -55,16 +55,16 @@ Cat ASMR is an online memory game with the element of ASMR in form of an audio r
 ### Colour Scheme
 
 - __Orange (#f07b0d)__ 
-  - A warm color, often associated with fun, playfulness, and vitality, orange is the accent color in this web application. 
-  - The linear background gradient that starts with orange at the top of the page and ends with dark maroon at the bottom has been created based on colors extrapolated from the giphy animation on the landing page, resulting in a coherent, warm, and inviting combo. 
-  - Orange has also been used for cards in the grid when their images are hidden, for card borders, and in the modal appearing at the end of the game when the user finds all pairs, accentuating a sense of playfulness, fun, and joy. 
+  - A warm colour, often associated with fun, playfulness, and vitality, orange is the accent colour in this web application. 
+  - The linear background gradient that starts with orange at the top of the page and ends with dark maroon at the bottom has been created based on colours extrapolated from the giphy animation on the landing page, resulting in a coherent, warm, and inviting combo. 
+  - Orange has also been used for cards in the grid when their images are hidden, for card borders, for button outlines (hover/focus) and in the modal appearing at the end of the game when the user finds all pairs, accentuating a sense of playfulness, fun, and joy. 
   
 - __Maroon (#5a003b)__ 
-  - Used in the background, as a color for the closing icon in both modals, and also as text color on white backgrounds, this color creates not only sufficient contrast, but also connects multiple elements with the gradient background in a simple and minimalistic way.
+  - Used in the background, as a colour for the closing icon in both modals, and also as text colour on white backgrounds, maroon creates not only sufficient contrast, but also connects multiple elements with the gradient background in a simple and minimalistic way.
   
 - __White (#ffffff)__ 
-  - This is the color of most buttons, modal background, grid background, and a background for text on the noscript version of the page. 
-  - It provides an excellent contrast with maroon, and therefore was used as a color for the question mark icon on the landing page, as well as for text appearig on the dark maroon background.
+  - This is the colour of the level buttons and grid buttons, modal background, grid background, as well as a background for text on the noscript version of the page and a background for text on the 404 error page. 
+  - It provides an excellent contrast with both maroon and black, and therefore was used as a colour for the question mark icon on the landing page, as well as for longer text that would otherwise appear on the darker background.
 
 - __Black (#1e0311)__ 
   - Black has been used as box shadow on button-like elements and the main title to create an impression of depth, as well as for any text on bright background (white or orange).
@@ -176,7 +176,12 @@ The only multi-colored image present is the animated gif of a cat sleeping by th
 
 ![404 page](https://github.com/Agnieszka-21/memory-game-cats/blob/main/assets/documentation/error-page.png)
 
-All interactive features in this game can be accessed not only by clicking/tapping the relevant elements, but also by using the Tab key, making this web application keyboard-accessible.
+- __Keyboard accessibility__
+  - All interactive features in this game can be accessed not only by clicking/tapping the relevant elements, but also by using the Tab key to move forward, and Shift + Tab to move backward, making this web application fully keyboard-accessible.
+  - Tabbable elements have been given specific styling (e.g. a contrasting orange outline for black and white buttons) to ensure that the user knows exactly which element they are focusing on at any given moment.
+  - Once either modal has been opened, the focus is automatically trapped within it to make sure the user closes it before moving on to any other elements on the page.
+
+![Level button - focus](https://github.com/Agnieszka-21/memory-game-cats/blob/main/assets/documentation/button-focus.png)
 
 ### Potential Future Features
 
@@ -265,7 +270,7 @@ No errors were found:
 | Chrome | Difficult game | good | good |
 | Chrome | Congrats modal | good | good |
 | Chrome | 404 page | good | good |
-| Chrome | Noscript page | on the first loading, everything that's inside the noscript tags is shown as text; when refreshed - everything is shown correctly and as expected (documented as a known bug in Chrome) | good |
+| Chrome | Noscript page | good | good |
 | Edge | Landing page | good | good | 
 | Edge | ASMR modal | good | good | 
 | Edge | Easy game | good | good | 
@@ -286,9 +291,6 @@ No errors were found:
 ### Fixed Bugs
 
 - One game card svg file was not square, ending up being slightly higher than all other images. Its size has been adapted so that the width and height are equal, as is the case for all other card images.
-
-TO FIX
-- The ASMR Modal doesn't trap focus within it...
 
 
 ## Technologies Used

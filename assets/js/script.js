@@ -726,7 +726,7 @@ function congratsNo() {
  * Trap focus within either modal when open
  */
 
-// ASMR Modal - the function trapFocus has been adapted from Hidde de Vries's tutorial
+// ASMR Modal - the function trapFocus has been copied (with minor modifications) from Hidde de Vries's tutorial
 function trapFocusAsmr(modalAsmr) {
     const focusableElsAsmr = modalAsmr.querySelectorAll('#close-asmr, button:not([disabled]');
     const firstFocusableElAsmr = focusableElsAsmr[0];
