@@ -331,9 +331,9 @@ The following tutorials, articles, documentation and media were used to create t
 ### Content
 
 - The text for the modal explaining what ASMR is was taken from the online article [What ASMR means: How it works and why it's popular](https://www.nebraskamed.com/neurological-care/asmr-videos-are-exploding-online-but-what-is-asmr-and-does-it-work)
-- Insturctions on JavaScript code for basic game functionality were taken from [this YouTube tutorial by Ania Kubow](https://www.youtube.com/watch?v=ec8vSKJuZTk&t=3773s) and adapted. See comments in the js file for more details.
+- Instructions on JavaScript code for basic game functionality were taken from [this YouTube tutorial by Ania Kubow](https://www.youtube.com/watch?v=ec8vSKJuZTk&t=3773s) and adapted. See comments in the js file for more details.
 - Instructions on how to lock the board were taken from [this YouTube tutorial by Code Sketch](https://www.youtube.com/watch?v=yMNFOyRELrI) and adapted.
-- Instructions on how to create a modal were adapted from this [w3schools documentation](https://www.w3schools.com/howto/howto_css_modals.asp). See comments in the html, css, and js files for more details.
+- Instructions on how to create a modal were adapted from this [w3schools documentation](https://www.w3schools.com/howto/howto_css_modals.asp). See comments in the css and js files for more details.
 - Instructions on how to trap focus within a modal were adapted from [this article by Hidde de Vries](https://hidde.blog/using-javascript-to-trap-focus-in-an-element/).
 - JavaScript code for implementing a timer/stopwatch is loosely based on [this article from insidethediv.com](https://www.insidethediv.com/javascript-simple-projects-beginners-online-stopwatch-full-screen).
 - JavaScript code for device recognition used to display a static landing page image on mobile/touchscreen devices has been copied from [the following MDN documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent#mobile_device_detection).

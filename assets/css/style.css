@@ -121,7 +121,7 @@ input {
     display: none;
 }
 
-/* The modals - styling based on the w3school.com tutorial (link in README.md) */
+/* The modals - styling based on this w3school article: https://www.w3schools.com/howto/howto_css_modals.asp */
 /* Modal "background" */
 .modal {
     /* Hidden by default */
