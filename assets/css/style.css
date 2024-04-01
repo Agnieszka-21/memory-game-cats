@@ -644,7 +644,7 @@ input {
     }
 }
 
-/* For large screens */
+/* For larger laptop/computer screens */
 @media only screen and (min-width: 1440px) {
     noscript h4 {
         font-size: 2rem;
@@ -675,4 +675,11 @@ input {
     #grid img {
         width: 50%;
     }  
+}
+
+/* For 4K screens */
+@media only screen and (min-width: 2560px) {
+    #welcome > header {
+        margin-top: 15%;
+    }
 }
