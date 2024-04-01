@@ -121,7 +121,7 @@ input {
     display: none;
 }
 
-/* The modals - styling based on the w3school.com tutorial (link in README.me) */
+/* The modals - styling based on the w3school.com tutorial (link in README.md) */
 /* Modal "background" */
 .modal {
     /* Hidden by default */
@@ -182,17 +182,23 @@ input {
 }
 
 #question-mark-modal-btn:hover,
-#question-mark-modal-btn:focus,
-.level-button:focus-visible {
+#question-mark-modal-btn:focus {
     cursor: pointer;
 }
 
-/* Congrats Modal */
+/* ASMR Modal okay button */
+#single-btn-div {
+    display: flex;
+    justify-content: center;
+}
+
+/* Congrats Modal div with 2 buttons */
 #congrats-btn-options {
     display: flex;
     justify-content: space-between;
 }
 
+/* Buttons in both modals */
 .modal-buttons {
     background-color: #1e0311;
     color: #ffffff;
@@ -205,18 +211,12 @@ input {
     padding: 5px;
 }
 
-#single-btn-div {
-    display: flex;
-    justify-content: center;
-}
-
 .modal-buttons:hover,
 .modal-buttons:focus,
 .modal-buttons:focus-visible {
     cursor: pointer;
     outline: 2px solid #f07b0d;
 }
-
 
 /* The Close button for either modal */
 #close-asmr,
@@ -232,7 +232,7 @@ input {
 #close-asmr:focus-visible,
 #close-congrats:hover,
 #close-congrats:focus,
-#close-asmr:focus-visible {
+#close-congrats:focus-visible {
     color: black;
     text-decoration: none;
     cursor: pointer;
@@ -282,9 +282,7 @@ input {
     border: 2px outset #f07b0d;
 }
 
-#grid img:hover,
-#grid img:focus,
-#grid img:focus-visible {
+#grid img:hover {
     cursor: pointer;
 }
 
@@ -295,9 +293,7 @@ input {
     padding-bottom: 0.5rem;
 }
 
-#grid-header:hover,
-#grid-header:focus,
-#grid-header:focus-visible {
+#grid-header:hover {
     cursor: pointer;
 }
 
@@ -348,8 +344,8 @@ input {
 }
 
 .grid-button:hover,
-.grid-hover:focus,
-.grid-hover:focus-visible {
+.grid-button:focus,
+.grid-button:focus-visible {
     cursor: pointer;
     outline: 2px solid #f07b0d;  
 }
@@ -680,7 +676,3 @@ input {
         width: 50%;
     }  
 }
-
-
-
-    
