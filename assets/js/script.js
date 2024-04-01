@@ -610,7 +610,6 @@ function updateTimer() {
     timerDisplay.innerHTML = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 }
 
-
 /**
  * Control the ASMR Modal - loosely based on the tutorial from w3schools.com
  */
@@ -629,9 +628,9 @@ questionMarkModalBtn.addEventListener('keydown', function (e) {
 
 function displayModalAsmr() {
     modalAsmr.classList.remove('hide');
-    modalAsmr.classList.add('show');
-    modalAsmrElement.focus();
-    trapFocus(modalAsmrElement);
+    modalAsmr.classList.add('show');    
+    modalAsmr.focus();
+    trapFocusAsmr(modalAsmr);
 }
 
 // Close the modal when the user activates the x span (click or Enter/space key)
@@ -654,7 +653,6 @@ modalAsmrBtn.addEventListener('keydown', function (e) {
     }
 });
 
-
 // Close the modal when the user clicks anywhere outside of it
 window.addEventListener('click', function (e) {
     if (e.target === modalAsmr) {
@@ -672,8 +670,8 @@ const spanCloseModalCongrats = document.getElementById('close-congrats');
 function displayModalCongrats() {
     modalCongrats.classList.remove('hide');
     modalCongrats.classList.add('show');
-    modalCongratsElement.focus();
-    trapFocus(modalCongratsElement);
+    modalCongrats.focus();
+    trapFocusCongrats(modalCongrats);
 }
 
 // Close the modal when the user activates the x span (click or Enter/space key)
@@ -690,8 +688,8 @@ function closeModalCongrats() {
 
 // Close the modal when the user clicks anywhere outside of it
 window.addEventListener('click', function (e) {
-    if (e.target === modalAsmr) {
-        modalAsmr.classList.add('hide');
+    if (e.target === modalCongrats) {
+        modalCongrats.classList.add('hide');
     }
 });
 
@@ -727,17 +725,15 @@ function congratsNo() {
 /**
  * Trap focus within either modal when open
  */
-// ASMR Modal - the function trapFocus has been adapted from Hidde de Vries's tutorial
-const modalAsmrElement = document.getElementById('modal-asmr');
 
-function trapFocus(modalAsmrElement) {
-    const focusableElsAsmr = document.getElementById('close-asmr', 'modal-asmr-btn');
+// ASMR Modal - the function trapFocus has been adapted from Hidde de Vries's tutorial
+function trapFocusAsmr(modalAsmr) {
+    const focusableElsAsmr = modalAsmr.querySelectorAll('#close-asmr, button:not([disabled]');
     const firstFocusableElAsmr = focusableElsAsmr[0];
     const lastFocusableElAsmr = focusableElsAsmr[focusableElsAsmr.length - 1];
     const KEYCODE_TAB = 9;
-    console.log(focusableElsAsmr, firstFocusableElAsmr, lastFocusableElAsmr);
 
-    modalAsmrElement.addEventListener('keydown', function (e) {
+    modalAsmr.addEventListener('keydown', function (e) {
         let isTabPressed = (e.key === 'Tab' || e.keyCode === KEYCODE_TAB);
 
         if (!isTabPressed) {
@@ -759,15 +755,13 @@ function trapFocus(modalAsmrElement) {
 }
 
 // Congrats Modal - the function trapFocus has been copied (with minor modifications) from Hidde de Vries's tutorial
-const modalCongratsElement = document.getElementById('modal-congrats');
-
-function trapFocus(modalCongratsElement) {
-    const focusableElsCongrats = modalCongratsElement.querySelectorAll('button:not([disabled]), #close-congrats');
+function trapFocusCongrats(modalCongrats) {
+    const focusableElsCongrats = modalCongrats.querySelectorAll('button:not([disabled]), #close-congrats');
     const firstFocusableElCongrats = focusableElsCongrats[0];
     const lastFocusableElCongrats = focusableElsCongrats[focusableElsCongrats.length - 1];
     const KEYCODE_TAB = 9;
 
-    modalCongratsElement.addEventListener('keydown', function (e) {
+    modalCongrats.addEventListener('keydown', function (e) {
         let isTabPressed = (e.key === 'Tab' || e.keyCode === KEYCODE_TAB);
 
         if (!isTabPressed) {
