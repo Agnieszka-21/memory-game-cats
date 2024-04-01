@@ -1,5 +1,6 @@
-/* The following 3 arrays (easyCards, mediumCards, difficultCards) are based on the code from Ania Kubow's tutorial and adapted 
-(links to all tutorials mentioned in this file can be found in the README.md)
+/* The following 3 arrays - easyCards, mediumCards, difficultCards - are based on the code from Ania Kubow's tutorial and adapted. 
+Links to all tutorials and articles mentioned in this file can also be found in the README.md.
+https://www.youtube.com/watch?v=ec8vSKJuZTk
 */
 // Array of cards for the easy level - 12 cards - 6 pairs
 const easyCards = [
@@ -205,11 +206,11 @@ const difficultCards = [
     }
 ];
 
-// Create an array each time two cards are clicked - based on Ania Kubow's tutorial
+// Create an array each time two cards are clicked - based on Ania Kubow's tutorial: https://www.youtube.com/watch?v=ec8vSKJuZTk
 let cardsChosen = [];
 let cardsChosenIds = [];
 
-// Create an array that includes all pairs found - based on Ania Kubow's tutorial
+// Create an array that includes all pairs found - based on Ania Kubow's tutorial: https://www.youtube.com/watch?v=ec8vSKJuZTk
 let cardsWon = [];
 
 // Create an array that allows to start the timer with the first card click
@@ -228,7 +229,7 @@ const levelEasyChosen = document.getElementById('easy-level');
 const levelMediumChosen = document.getElementById('medium-level');
 const levelDifficultChosen = document.getElementById('difficult-level');
 
-// Lock the board when 2 cards were clicked - based on a YouTube tutorial by Code Sketch
+// Lock the board when 2 cards were clicked - loosely based on a YouTube tutorial by Code Sketchhttps://www.youtube.com/watch?v=yMNFOyRELrI
 let lockBoard = false;
 
 // Create a board when the user chooses a level (click or Enter/space key)
@@ -282,11 +283,12 @@ function createBoard() {
 
     switch (currentLevel) {
         case 'easy':
-            // Shuffle cards randomly - copied from Ania Kubow's tutorial
+            // Shuffle cards randomly - copied from Ania Kubow's tutorial: https://www.youtube.com/watch?v=ec8vSKJuZTk
             easyCards.sort(() => 0.5 - Math.random());
             // Create a grid for 12 cards
             grid.classList.add('grid-easy');
-            // The next few lines are copied from Ania Kubow's tutorial (slightly adapted)
+
+            // The next few lines are copied from Ania Kubow's tutorial (slightly adapted): https://www.youtube.com/watch?v=ec8vSKJuZTk
             for (let i = 0; i < easyCards.length; i++) {
                 const card = document.createElement('img');
                 card.setAttribute('src', './assets/images/other/orange.png');
@@ -311,12 +313,12 @@ function createBoard() {
             break;
 
         case 'medium':
-            // Shuffle cards randomly - copied from Ania Kubow's tutorial
+            // Shuffle cards randomly - copied from Ania Kubow's tutorial: https://www.youtube.com/watch?v=ec8vSKJuZTk
             mediumCards.sort(() => 0.5 - Math.random());
             // Create a grid for 16 cards
             grid.classList.add('grid-medium');
 
-            // The next few lines are copied from Ania Kubow's tutorial (slightly adapted)            
+            // The next few lines are copied from Ania Kubow's tutorial (slightly adapted): https://www.youtube.com/watch?v=ec8vSKJuZTk           
             for (let i = 0; i < mediumCards.length; i++) {
                 const card = document.createElement('img');
                 card.setAttribute('src', './assets/images/other/orange.png');
@@ -340,12 +342,12 @@ function createBoard() {
             break;
 
         case 'difficult':
-            // Shuffle cards randomly - copied from Ania Kubow's tutorial
+            // Shuffle cards randomly - copied from Ania Kubow's tutorial: https://www.youtube.com/watch?v=ec8vSKJuZTk
             difficultCards.sort(() => 0.5 - Math.random());
             // Create a grid for 20 cards
             grid.classList.add('grid-difficult');
 
-            // The next few lines are copied from Ania Kubow's tutorial (slightly adapted)            
+            // The next few lines are copied from Ania Kubow's tutorial (slightly adapted): https://www.youtube.com/watch?v=ec8vSKJuZTk            
             for (let i = 0; i < difficultCards.length; i++) {
                 const card = document.createElement('img');
                 card.setAttribute('src', './assets/images/other/orange.png');
@@ -373,7 +375,7 @@ function createBoard() {
  * Check whether 2 cards are a matching pair
  */
 function checkMatch() {
-    // The next few lines are copied from Ania Kubow's tutorial (slightly adapted)            
+    // The next few lines are copied from Ania Kubow's tutorial (slightly adapted): https://www.youtube.com/watch?v=ec8vSKJuZTk            
     const cards = document.getElementsByClassName('card-img');
     const optionOneId = cardsChosenIds[0];
     const optionTwoId = cardsChosenIds[1];
@@ -391,7 +393,7 @@ function checkMatch() {
         return;
     }
 
-    // The next few lines are copied from Ania Kubow's tutorial (slightly adapted)            
+    // The next few lines are copied from Ania Kubow's tutorial (slightly adapted): https://www.youtube.com/watch?v=ec8vSKJuZTk            
     if (cardsChosen[0] == cardsChosen[1]) {
         cards[optionOneId].setAttribute('src', './assets/images/other/white.png');
         cards[optionTwoId].setAttribute('src', './assets/images/other/white.png');
@@ -402,7 +404,7 @@ function checkMatch() {
         cards[optionOneId].removeEventListener('keydown', flipCard);
         cards[optionTwoId].removeEventListener('keydown', flipCard);
 
-        // The next few lines are copied from Ania Kubow's tutorial (slightly adapted)
+        // The next few lines are copied from Ania Kubow's tutorial (slightly adapted): https://www.youtube.com/watch?v=ec8vSKJuZTk
         cardsWon.push(cardsChosen);
     } else {
         cards[optionOneId].setAttribute('src', './assets/images/other/orange.png');
@@ -454,12 +456,12 @@ function flipCard() {
 
     if (enterOrSpace == 'no') return;
 
-    // The line of code below is copied from Ania Kubow's tutorial 
+    // The line of code below is copied from Ania Kubow's tutorial: https://www.youtube.com/watch?v=ec8vSKJuZTk
     const cardId = this.getAttribute('data-id');
 
     switch (currentLevel) {
         case 'easy':
-            // The following code is copied from Ania Kubow's tutorial (slightly adjusted)
+            // The following code is copied from Ania Kubow's tutorial (slightly adjusted): https://www.youtube.com/watch?v=ec8vSKJuZTk
             cardsChosen.push(easyCards[cardId].name);
             cardsChosenIds.push(cardId);
             this.setAttribute('src', easyCards[cardId].img);
@@ -467,7 +469,7 @@ function flipCard() {
             cardsOpen.push(easyCards[cardId].name);
             break;
         case 'medium':
-            // The following code is copied from Ania Kubow's tutorial (slightly adjusted)
+            // The following code is copied from Ania Kubow's tutorial (slightly adjusted): https://www.youtube.com/watch?v=ec8vSKJuZTk
             cardsChosen.push(mediumCards[cardId].name);
             cardsChosenIds.push(cardId);
             this.setAttribute('src', mediumCards[cardId].img);
@@ -475,7 +477,7 @@ function flipCard() {
             cardsOpen.push(mediumCards[cardId].name);
             break;
         case 'difficult':
-            // The following code is copied from Ania Kubow's tutorial (slightly adjusted)
+            // The following code is copied from Ania Kubow's tutorial (slightly adjusted): https://www.youtube.com/watch?v=ec8vSKJuZTk
             cardsChosen.push(difficultCards[cardId].name);
             cardsChosenIds.push(cardId);
             this.setAttribute('src', difficultCards[cardId].img);
@@ -483,7 +485,7 @@ function flipCard() {
             cardsOpen.push(difficultCards[cardId].name);
     }
 
-    // The following code is copied from Ania Kubow's tutorial (slightly adjusted)
+    // The following code is copied from Ania Kubow's tutorial (slightly adjusted): https://www.youtube.com/watch?v=ec8vSKJuZTk
     if (cardsChosen.length === 2) {
         setTimeout(checkMatch, 1000);
         // The above line is the end of Ania Kubow's code
@@ -576,7 +578,7 @@ function purringOnOff() {
  * reset timer (new game button), and update timer (for accurate display)
  */
 const timerDisplay = document.getElementById('timer-display');
-// The following 3 lines are copied from the insidethediv.com tutorial
+// The following 3 lines are copied from the following tutorial: https://www.insidethediv.com/javascript-simple-projects-beginners-online-stopwatch-full-screen
 let startTime;
 let elapsedTime = 0;
 let timerInterval;
@@ -611,7 +613,7 @@ function updateTimer() {
 }
 
 /**
- * Control the ASMR Modal - loosely based on the tutorial from w3schools.com
+ * Control the ASMR Modal - loosely based on the article from w3schools: https://www.w3schools.com/howto/howto_css_modals.asp
  */
 const modalAsmr = document.getElementById('modal-asmr');
 const questionMarkModalBtn = document.getElementById('question-mark-modal-btn');
@@ -628,7 +630,7 @@ questionMarkModalBtn.addEventListener('keydown', function (e) {
 
 function displayModalAsmr() {
     modalAsmr.classList.remove('hide');
-    modalAsmr.classList.add('show');    
+    modalAsmr.classList.add('show');
     modalAsmr.focus();
     trapFocusAsmr(modalAsmr);
 }
@@ -661,7 +663,7 @@ window.addEventListener('click', function (e) {
 });
 
 /** 
- * Control the Congrats Modal - loosely based on the tutorial from w3schools.com
+ * Control the Congrats Modal - loosely based on the article from w3schools: https://www.w3schools.com/howto/howto_css_modals.asp
  */
 const modalCongrats = document.getElementById('modal-congrats');
 const spanCloseModalCongrats = document.getElementById('close-congrats');
@@ -726,7 +728,7 @@ function congratsNo() {
  * Trap focus within either modal when open
  */
 
-// ASMR Modal - the function trapFocus has been copied (with minor modifications) from Hidde de Vries's tutorial
+// ASMR Modal - the function trapFocus has been copied (with minor modifications) from Hidde de Vries's tutorial: https://hidde.blog/using-javascript-to-trap-focus-in-an-element/
 function trapFocusAsmr(modalAsmr) {
     const focusableElsAsmr = modalAsmr.querySelectorAll('#close-asmr, button:not([disabled]');
     const firstFocusableElAsmr = focusableElsAsmr[0];
@@ -754,7 +756,7 @@ function trapFocusAsmr(modalAsmr) {
     });
 }
 
-// Congrats Modal - the function trapFocus has been copied (with minor modifications) from Hidde de Vries's tutorial
+// Congrats Modal - the function trapFocus has been copied (with minor modifications) from Hidde de Vries's tutorial: https://hidde.blog/using-javascript-to-trap-focus-in-an-element/
 function trapFocusCongrats(modalCongrats) {
     const focusableElsCongrats = modalCongrats.querySelectorAll('button:not([disabled]), #close-congrats');
     const firstFocusableElCongrats = focusableElsCongrats[0];
@@ -787,7 +789,7 @@ function trapFocusCongrats(modalCongrats) {
  * <video> on laptops and larger screens, <img> on touchscreen devices where autoplay is usually blocked
  */
 
-// The following code has been copied from MDN documentation
+// The following code has been copied from MDN documentation: https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent#mobile_device_detection
 let hasTouchScreen = false;
 if ("maxTouchPoints" in navigator) {
     hasTouchScreen = navigator.maxTouchPoints > 0;
