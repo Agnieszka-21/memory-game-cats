@@ -47,7 +47,7 @@ Cat ASMR is an online memory game with the element of ASMR in form of an audio r
 
     - The primary goal of the site owner is to provide entertainment that sharpens the user's cognitive abilities.
     - The owner also aims to create a relaxing experience for the user by giving them the option to turn on the audio recording of a purring cat. This sound is widely known to have positive influence on people's well-being and mood.
-    - Lastly, the owner wants to contribute to a raising awareness of ASMR and its benefits. 
+    - Lastly, the owner wants to contribute to raising awareness of ASMR and its benefits. 
 
 
 ## Design
@@ -68,7 +68,7 @@ Cat ASMR is an online memory game with the element of ASMR in form of an audio r
 
 - __Black (#1e0311)__ 
   - Black has been used as box shadow on button-like elements and the main title to create an impression of depth, as well as for any text on bright background (white or orange).
-  - This color provides a high contrast, making it especially suitable for longer fragments of text.
+  - This colour provides a high contrast, making it especially suitable for longer fragments of text.
 
 ![Contrast Grid](https://github.com/Agnieszka-21/memory-game-cats/blob/main/assets/documentation/contrast-grid-colors.png)
 
@@ -87,42 +87,46 @@ Two font families are imported from Google fonts and used across all pages:
 
 ### Imagery
 All images used on the cards in this memory game are thematically connected to cats. While the levels easy and medium offer a mix of black-and-white images on a white background, the difficult level uses its own set of images that depict only black silhouettes of cats, forcing the user to focus on shapes and smaller details rather than obvious differences between the pictures.
-The only multi-colored image present is the animated gif of a cat sleeping by the fire on the landing page that not only clearly represents the subject of this game, but also defines its color palette.
+The only multi-coloured image present is the animated gif of a cat sleeping by the fire on the landing page that not only clearly represents the subject of this game, but also defines its colour palette.
 
 
 ## Features
 
 ### Existing Features
 
-- __Landing page gif (image/video depending on the device)__
+- __Landing page gif__
   
   - This graphic represents both the subject of this game and its goal to help the user relax.
+  - On mobile devices/devices with a touchscreen where autoplay of video elements (like an animated gif) is usually blocked by the browser, the gif is shown as a static image.
+  - On laptops and larger screens, the landing page gif appears in its animated version.
 
 ![Landing page gif](https://github.com/Agnieszka-21/memory-game-cats/blob/main/assets/documentation/gif.png)
 
 - __Three game level buttons__
 
-  - These buttons allow the user to choose an easy, medium, or difficult level for their game, and lead to a suitable card grid when activated (with a click or a keypress on the Enter or space key). On phone screens, these buttons appear above the gif in a column to suit the vertical position of the screen. On tablets and larger screens, they are under the gif in a single row in order to make better use of available space.
+  - These buttons allow the user to choose an easy, medium, or difficult level for their game, and lead to a suitable card grid when activated (with a click or a keypress on the Enter or space key). 
+  - On phone screens, these buttons appear above the gif in a column to suit the vertical position of the screen. 
+  - On tablets and larger screens, they are under the gif in a single row in order to make better use of available space.
 
 ![Game level buttons](https://github.com/Agnieszka-21/memory-game-cats/blob/main/assets/documentation/game-level-buttons.png)
 
 - __Question mark icon opening the ASMR modal__
 
   - The white icon in the bottom left corner opens a modal that includes a short explanation of what ASMR is and why it is relevant to this game. 
-  - The modal can be closed by clicking on the close-icon in its upper right corner, or anywhere outside the modal itself.
 
 ![Question mark icon](https://github.com/Agnieszka-21/memory-game-cats/blob/main/assets/documentation/question-mark-icon.png)
 
 - __ASMR modal__
 
   - This modal has an educational purpose - it explains briefly what ASMR is, and also how the user can experience ASMR while playing the game.
-  - The modal can be closed by clicking the close icon in the top right corner, or by clicking anywhere outside of the modal.
+  - The modal can be closed by clicking on the close icon in the top right corner, the "okay" button inside the modal, or anywhere outside of the modal.
 
-![ASMR modal](https://github.com/Agnieszka-21/memory-game-cats/blob/main/assets/documentation/modal-asmr.png)
+![ASMR modal](https://github.com/Agnieszka-21/memory-game-cats/blob/main/assets/documentation/asmr-modal.png)
 
 - __Purring on/off with a dynamic sound icon__
 
   - This header element controls the audio element on this page - the sound of a purring cat that can be turned on or paused with a simple click or Enter/space key. When played, the sound is automatically looped.
+  - The icon changes depending on whether the sound is on or off.
 
 ![Purring on/off](https://github.com/Agnieszka-21/memory-game-cats/blob/main/assets/documentation/purring-header.png)
 
@@ -164,14 +168,14 @@ The only multi-colored image present is the animated gif of a cat sleeping by th
 - __Noscript page__
 
   - This part of the application is shown only when JavaScript is not available/disabled. 
-  - The design corresponds with the main page through the use of the same gradient background, colors, and fonts.
+  - The design corresponds with the main page through the use of the same gradient background, colours, and fonts.
 
 ![Noscript page](https://github.com/Agnieszka-21/memory-game-cats/blob/main/assets/documentation/noscript.png)
 
 - __404 page__
 
   - This page is displayed when the user cannot find the correct url.
-  - It provides a link sending the user back to the landing page.
+  - It provides a link sending the user back to the landing page in form of the "return home" button.
   - The design corresponds with the main page, making it clear that both pages are related.
 
 ![404 page](https://github.com/Agnieszka-21/memory-game-cats/blob/main/assets/documentation/error-page.png)
@@ -182,6 +186,7 @@ The only multi-colored image present is the animated gif of a cat sleeping by th
   - Once either modal has been opened, the focus is automatically trapped within it to make sure the user closes it before moving on to any other elements on the page.
 
 ![Level button - focus](https://github.com/Agnieszka-21/memory-game-cats/blob/main/assets/documentation/button-focus.png)
+![Congrats modal button - focus](https://github.com/Agnieszka-21/memory-game-cats/blob/main/assets/documentation/congrats-modal-focus.png)
 
 ### Potential Future Features
 
@@ -203,7 +208,7 @@ The only multi-colored image present is the animated gif of a cat sleeping by th
     - [404 page](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fagnieszka-21.github.io%2Fmemory-game-cats%2F404.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 
 - __JavaScript__
-  - No errors were found when passing through the Jshint linter. ![See a screenshot here.]()
+  - No errors were found when passing through the Jshint linter. ![See a screenshot here.](https://github.com/Agnieszka-21/memory-game-cats/blob/main/assets/documentation/jshint.png)
 
 ### Lighthouse
 
@@ -232,12 +237,13 @@ No errors were found:
 | Button "difficult" | takes you to the game with 20 cards | laptop, phone | as expected | pass |
 | Question mark button | opens the ASMR modal | laptop, phone | as expected | pass |
 | Close button in the ASMR modal | closes the modal | laptop, phone | as expected | pass |
+| Okay button in the ASMR modal | closes the modal | laptop, phone | as expected | pass |
 | Purring on/off | plays and pauses audio | laptop, phone | as expected | pass |
 | Game cards | show game images when clicked (only 2 cards shown together) | laptop, phone | as expected | pass |
 | Time elapsed | timer starts with the first card click and gets updated every second | laptop, phone | as expected | pass |
 | Pairs found | the number changes with each matching pair found | laptop, phone | as expected | pass |
 | Go back button | takes you back to the landing page | laptop, phone | as expected | pass |
-| New game | resets the board | laptop, phone | as expected | pass |
+| New game button | resets the board | laptop, phone | as expected | pass |
 | Congrats modal | shows up as soon as all pairs are found | laptop, phone | as expected | pass |
 | Button "yes, please" in the modal | resets the board like the New Game button | laptop, phone | as expected | pass |
 | Button "no, thanks" in the modal | closes the modal | laptop, phone | as expected | pass |
@@ -337,7 +343,7 @@ The following tutorials, articles, documentation and media were used to create t
 - The favicon was created from an emoji of a grinning cat with the following [favicon-converter](https://favicon.io/emoji-favicons/grinning-cat)
 - The fonts used in this project were imported from [Google Fonts](https://fonts.google.com/)
 - The linear gradient used as a background for this website was created with [cssgradient.io](https://cssgradient.io)
-- The css color filter for modal-related icons (svg files) was converted from hex code thanks to [this converter](https://isotropic.co/tool/hex-color-to-css-filter/)
+- The css colour filter for modal-related icons (svg files) was converted from hex code thanks to [this converter](https://isotropic.co/tool/hex-color-to-css-filter/)
 - The animated image of a cat sleeping by the fire apparent on the landing page, was taken from [giphy.com](https://giphy.com/gifs/homescapes-cat-cats-1AgCGIJrs1UOXujX5a)
 - The SVG vector graphics used as images for game cards in the easy and medium level originate from [svgrepo.com](https://www.svgrepo.com/vectors/cat/monocolor/)
 - The SVG vector graphics used as images for game cards for the difficult level come from [vecteezy.com](https://www.vecteezy.com/free-vector/cat-silhouette)
