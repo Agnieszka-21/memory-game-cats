@@ -157,7 +157,7 @@ The only multi-colored image present is the animated gif of a cat sleeping by th
 - __Go Back button and New Game button__
 
   - The first button takes the user back to the landing page. It is practical when the user wants to start a new game but on a different level than before.
-  - This econ button clears the data from the previous game and sets up a fresh board with shuffled cards, ready for the user to start playing again. It is useful when the user wants to restart simply play again, sticking with the same level as the one chosen earlier on the landing page.
+  - The second button clears the data from the previous game and sets up a fresh board with shuffled cards, ready for the user to start playing again. It is useful when the user wants to restart and simply play again, sticking with the same level as the one chosen earlier on the landing page.
   
 ![Go Back and New Game buttons](https://github.com/Agnieszka-21/memory-game-cats/blob/main/assets/documentation/back-and-new-buttons.png)
 
@@ -249,12 +249,13 @@ No errors were found:
 | Device tested | Site responsive >=700px | Site Responsive <699px | Renders as expected |
 | :------------ | :---------------------- | :--------------------- | :------------------ | 
 | Galaxy Fold | N/A | yes | yes |
-| iPhone 12Pro | N/A | yes | yes |
 | Samsung Galaxy S8+ | N/A | yes | yes |
+| Moto G Power | N/A | yes | yes |
+| iPhone 12Pro | N/A | yes | yes |
 | iPhone SE | N/A | yes | yes |
-| iPad Mini | yes | N/A | yes |
-| iPad Air | yes | N/A | yes |
-| iPad Pro | yes | N/A | yes |
+| iPad Mini | yes, in both portrait and landscape orientation | N/A | yes |
+| iPad Air | yes, in both portrait and landscape orientation | N/A | yes |
+| iPad Pro | yes, in both portrait and landscape orientation | N/A | yes |
 | Surface Pro 7 | yes | N/A | yes |
 | Laptop 1440px | yes | N/A | yes |
 | 4K - 2560px | yes | N/A | yes |
