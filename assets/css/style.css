@@ -114,7 +114,7 @@ h2 {
 .level-button:focus,
 .level-button:focus-visible {
     cursor: pointer;
-    border: 2px solid #f07b0d;
+    outline: 2px solid #f07b0d;
 }
 
 input {
@@ -214,7 +214,7 @@ input {
 .modal-buttons:focus,
 .modal-buttons:focus-visible {
     cursor: pointer;
-    border: 2px solid #f07b0d;
+    outline: 2px solid #f07b0d;
 }
 
 
@@ -236,6 +236,7 @@ input {
     color: black;
     text-decoration: none;
     cursor: pointer;
+    outline: -webkit-focus-ring-color auto 1px;
 }
 
 /* Grid for the game */
@@ -350,7 +351,7 @@ input {
 .grid-hover:focus,
 .grid-hover:focus-visible {
     cursor: pointer;
-    border: 2px solid #f07b0d;  
+    outline: 2px solid #f07b0d;  
 }
 
 /* Responsive gif on the landing page*/
@@ -428,7 +429,7 @@ input {
 #return-home-btn:focus,
 #return-home-btn:focus-visible {
     cursor: pointer;
-    border: 2px solid #f07b0d;
+    outline: 2px solid #f07b0d;
 }
 
 
